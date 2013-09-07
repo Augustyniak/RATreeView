@@ -19,17 +19,17 @@
 		B53B978717D3843700A05E2F /* RATreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = B53B977817D3843700A05E2F /* RATreeNode.m */; };
 		B53B978817D3843700A05E2F /* RATreeNodeCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53B977A17D3843700A05E2F /* RATreeNodeCollectionController.m */; };
 		B53B978A17D3843700A05E2F /* RATreeNodeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B53B977E17D3843700A05E2F /* RATreeNodeInfo.m */; };
-		B53B97B317D388F400A05E2F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B53B97B017D388F400A05E2F /* Default-568h@2x.png */; };
-		B53B97B417D388F400A05E2F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B53B97B117D388F400A05E2F /* Default.png */; };
-		B53B97B517D388F400A05E2F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B53B97B217D388F400A05E2F /* Default@2x.png */; };
 		B53B97BE17D3C21700A05E2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B53B97BC17D3C21700A05E2F /* InfoPlist.strings */; };
 		B53B97C017D3C21F00A05E2F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B53B97BF17D3C21F00A05E2F /* main.m */; };
 		B53B97C717D3C22D00A05E2F /* RAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B53B97C217D3C22D00A05E2F /* RAAppDelegate.m */; };
 		B53B97C817D3C22D00A05E2F /* RADataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B53B97C417D3C22D00A05E2F /* RADataObject.m */; };
 		B53B97C917D3C22D00A05E2F /* RAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53B97C617D3C22D00A05E2F /* RAViewController.m */; };
 		B5A8A7B917DB818C007C67E3 /* RATreeNodeInfo+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A8A7B817DB818C007C67E3 /* RATreeNodeInfo+Private.m */; };
-		B5A8A7BB17DB8219007C67E3 /* RAViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5A8A7BA17DB8219007C67E3 /* RAViewController_iPhone.xib */; };
-		B5A8A7BD17DB822A007C67E3 /* RAViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5A8A7BC17DB822A007C67E3 /* RAViewController_iPad.xib */; };
+		B5A8A7CC17DB95AC007C67E3 /* RAViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5A8A7CA17DB95AC007C67E3 /* RAViewController_iPad.xib */; };
+		B5A8A7CD17DB95AC007C67E3 /* RAViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5A8A7CB17DB95AC007C67E3 /* RAViewController_iPhone.xib */; };
+		B5A8A7DE17DB98DA007C67E3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B5A8A7DB17DB98DA007C67E3 /* Default-568h@2x.png */; };
+		B5A8A7DF17DB98DA007C67E3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B5A8A7DC17DB98DA007C67E3 /* Default.png */; };
+		B5A8A7E017DB98DA007C67E3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B5A8A7DD17DB98DA007C67E3 /* Default@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,11 +55,6 @@
 		B53B977A17D3843700A05E2F /* RATreeNodeCollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RATreeNodeCollectionController.m; sourceTree = "<group>"; };
 		B53B977D17D3843700A05E2F /* RATreeNodeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RATreeNodeInfo.h; sourceTree = "<group>"; };
 		B53B977E17D3843700A05E2F /* RATreeNodeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RATreeNodeInfo.m; sourceTree = "<group>"; };
-		B53B97B017D388F400A05E2F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		B53B97B117D388F400A05E2F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		B53B97B217D388F400A05E2F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		B53B97BA17D3C20A00A05E2F /* RATreeView-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "RATreeView-Info.plist"; path = "Demo/RATreeView-Info.plist"; sourceTree = SOURCE_ROOT; };
-		B53B97BB17D3C20A00A05E2F /* RATreeView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "RATreeView-Prefix.pch"; path = "Demo/RATreeView-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		B53B97BD17D3C21700A05E2F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Demo/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		B53B97BF17D3C21F00A05E2F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Demo/main.m; sourceTree = SOURCE_ROOT; };
 		B53B97C117D3C22D00A05E2F /* RAAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RAAppDelegate.h; path = Demo/RAAppDelegate.h; sourceTree = "<group>"; };
@@ -70,8 +65,13 @@
 		B53B97C617D3C22D00A05E2F /* RAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RAViewController.m; path = Demo/RAViewController.m; sourceTree = "<group>"; };
 		B5A8A7B717DB818C007C67E3 /* RATreeNodeInfo+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RATreeNodeInfo+Private.h"; sourceTree = "<group>"; };
 		B5A8A7B817DB818C007C67E3 /* RATreeNodeInfo+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RATreeNodeInfo+Private.m"; sourceTree = "<group>"; };
-		B5A8A7BA17DB8219007C67E3 /* RAViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RAViewController_iPhone.xib; sourceTree = "<group>"; };
-		B5A8A7BC17DB822A007C67E3 /* RAViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RAViewController_iPad.xib; sourceTree = "<group>"; };
+		B5A8A7CA17DB95AC007C67E3 /* RAViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RAViewController_iPad.xib; path = Demo/RAViewController_iPad.xib; sourceTree = "<group>"; };
+		B5A8A7CB17DB95AC007C67E3 /* RAViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RAViewController_iPhone.xib; path = Demo/RAViewController_iPhone.xib; sourceTree = "<group>"; };
+		B5A8A7D017DB964B007C67E3 /* RATreeView-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "RATreeView-Info.plist"; path = "Demo/RATreeView-Info.plist"; sourceTree = SOURCE_ROOT; };
+		B5A8A7D117DB964B007C67E3 /* RATreeView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RATreeView-Prefix.pch"; path = "Demo/RATreeView-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		B5A8A7DB17DB98DA007C67E3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Demo/Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
+		B5A8A7DC17DB98DA007C67E3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Demo/Default.png; sourceTree = SOURCE_ROOT; };
+		B5A8A7DD17DB98DA007C67E3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Demo/Default@2x.png"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,12 +147,12 @@
 			isa = PBXGroup;
 			children = (
 				B53B97BF17D3C21F00A05E2F /* main.m */,
+				B5A8A7DB17DB98DA007C67E3 /* Default-568h@2x.png */,
+				B5A8A7DC17DB98DA007C67E3 /* Default.png */,
+				B5A8A7DD17DB98DA007C67E3 /* Default@2x.png */,
+				B5A8A7D017DB964B007C67E3 /* RATreeView-Info.plist */,
+				B5A8A7D117DB964B007C67E3 /* RATreeView-Prefix.pch */,
 				B53B97BC17D3C21700A05E2F /* InfoPlist.strings */,
-				B53B97B017D388F400A05E2F /* Default-568h@2x.png */,
-				B53B97B117D388F400A05E2F /* Default.png */,
-				B53B97B217D388F400A05E2F /* Default@2x.png */,
-				B53B97BA17D3C20A00A05E2F /* RATreeView-Info.plist */,
-				B53B97BB17D3C20A00A05E2F /* RATreeView-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			path = RATreeView;
@@ -167,8 +167,8 @@
 				B53B97C417D3C22D00A05E2F /* RADataObject.m */,
 				B53B97C517D3C22D00A05E2F /* RAViewController.h */,
 				B53B97C617D3C22D00A05E2F /* RAViewController.m */,
-				B5A8A7BA17DB8219007C67E3 /* RAViewController_iPhone.xib */,
-				B5A8A7BC17DB822A007C67E3 /* RAViewController_iPad.xib */,
+				B5A8A7CA17DB95AC007C67E3 /* RAViewController_iPad.xib */,
+				B5A8A7CB17DB95AC007C67E3 /* RAViewController_iPhone.xib */,
 				B53B974A17D3840800A05E2F /* Supporting Files */,
 			);
 			name = Demo;
@@ -226,12 +226,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B53B97B317D388F400A05E2F /* Default-568h@2x.png in Resources */,
-				B53B97B417D388F400A05E2F /* Default.png in Resources */,
-				B53B97B517D388F400A05E2F /* Default@2x.png in Resources */,
 				B53B97BE17D3C21700A05E2F /* InfoPlist.strings in Resources */,
-				B5A8A7BB17DB8219007C67E3 /* RAViewController_iPhone.xib in Resources */,
-				B5A8A7BD17DB822A007C67E3 /* RAViewController_iPad.xib in Resources */,
+				B5A8A7CC17DB95AC007C67E3 /* RAViewController_iPad.xib in Resources */,
+				B5A8A7CD17DB95AC007C67E3 /* RAViewController_iPhone.xib in Resources */,
+				B5A8A7DE17DB98DA007C67E3 /* Default-568h@2x.png in Resources */,
+				B5A8A7DF17DB98DA007C67E3 /* Default.png in Resources */,
+				B5A8A7E017DB98DA007C67E3 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,9 +335,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RATreeView/RATreeView-Prefix.pch";
-				INFOPLIST_FILE = "RATreeView/RATreeView-Info.plist";
+				GCC_PREFIX_HEADER = "Demo/RATreeView-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Demo/RATreeView-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -347,9 +348,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "RATreeView/RATreeView-Prefix.pch";
-				INFOPLIST_FILE = "RATreeView/RATreeView-Info.plist";
+				GCC_PREFIX_HEADER = "Demo/RATreeView-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/Demo/RATreeView-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
