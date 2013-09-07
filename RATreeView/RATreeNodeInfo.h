@@ -25,12 +25,12 @@
 @property (nonatomic, getter = isExpanded, readonly) BOOL expanded;
 @property (nonatomic, readonly) NSInteger treeDepthLevel;
 
-@property (nonatomic, readonly) NSInteger numberOfParentChildren;
-@property (nonatomic, readonly) NSInteger positionInParentChildren;
+@property (nonatomic, readonly) NSInteger siblingsNumber;
+@property (nonatomic, readonly) NSInteger positionInSiblings;
 
-@property (nonatomic, readonly) NSInteger numberOfChildren;
-@property (nonatomic, readonly) NSInteger numberOfVisibleDescendants;
+@property (strong, nonatomic, readonly) RATreeNodeInfo *parent;
+@property (strong, nonatomic, readonly) NSArray *children;
 
-- (id)initWithExpanded:(BOOL)expanded treeDepthLevel:(NSInteger)treeDepthLevel numberOfParentChildren:(NSInteger)numberOfVisibleParentChildren positionInParentChildren:(NSInteger)positionInParentChildren numberOfChildren:(NSInteger)numberOfChildren numberOfVisibleDescendants:(NSInteger)numberOfVisibleDescendants;
+@property (strong, nonatomic, readonly) id item;
 
 @end

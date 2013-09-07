@@ -25,14 +25,18 @@
 
 @property (nonatomic, getter = isExpanded, readonly) BOOL expanded;
 @property (nonatomic, getter = isVisible, readonly) BOOL visible;
+
 @property (weak, nonatomic) RATreeNode *parent;
 @property (strong, nonatomic) NSArray *children;
-@property (strong, nonatomic) id item;
+
+@property (strong, nonatomic, readonly) RATreeNodeInfo *treeNodeInfo;
+@property (strong, nonatomic, readonly) id item;
+
+@property (strong, nonatomic, readonly) NSArray *descendants;
 
 - (id)initWithItem:(id)item parent:(RATreeNode *)parent expanded:(BOOL)expanded;
 - (void)addChildNode:(RATreeNode *)child;
 
-- (NSArray *)descendants;
 - (NSArray *)visibleDescendants;
 - (NSInteger)numberOfVisibleDescendants;
 
@@ -41,7 +45,6 @@
 
 - (NSInteger)startIndex;
 - (NSInteger)endIndex;
-- (RATreeNodeInfo *)treeNodeInfo;
 
 
 @end

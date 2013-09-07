@@ -56,6 +56,16 @@
   }
 }
 
+#pragma mark Managin Accessory Views
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+  if ([self.delegate respondsToSelector:@selector(treeView:accessoryButtonTappedForRowForItem:treeNodeInfo:)]) {
+    RATreeNode *treeNode = [self treeNodeForIndex:indexPath.row];
+    [self.delegate treeView:self accessoryButtonTappedForRowForItem:treeNode.item treeNodeInfo:[treeNode treeNodeInfo]];
+  }
+}
+
 #pragma mark Managing Selection
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -76,7 +86,7 @@
   if ([self.delegate respondsToSelector:@selector(treeView:didSelectRowForItem:treeNodeInfo:)]) {
     [self.delegate treeView:self didSelectRowForItem:treeNode.item treeNodeInfo:[treeNode treeNodeInfo]];
   }
-  if ([treeNode treeNodeInfo].numberOfChildren == 0) {
+  if ([[treeNode treeNodeInfo].children count] == 0) {
     return;
   }
   

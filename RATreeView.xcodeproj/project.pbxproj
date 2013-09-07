@@ -27,6 +27,9 @@
 		B53B97C717D3C22D00A05E2F /* RAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B53B97C217D3C22D00A05E2F /* RAAppDelegate.m */; };
 		B53B97C817D3C22D00A05E2F /* RADataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B53B97C417D3C22D00A05E2F /* RADataObject.m */; };
 		B53B97C917D3C22D00A05E2F /* RAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53B97C617D3C22D00A05E2F /* RAViewController.m */; };
+		B5A8A7B917DB818C007C67E3 /* RATreeNodeInfo+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A8A7B817DB818C007C67E3 /* RATreeNodeInfo+Private.m */; };
+		B5A8A7BB17DB8219007C67E3 /* RAViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5A8A7BA17DB8219007C67E3 /* RAViewController_iPhone.xib */; };
+		B5A8A7BD17DB822A007C67E3 /* RAViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5A8A7BC17DB822A007C67E3 /* RAViewController_iPad.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +68,10 @@
 		B53B97C417D3C22D00A05E2F /* RADataObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RADataObject.m; path = Demo/RADataObject.m; sourceTree = "<group>"; };
 		B53B97C517D3C22D00A05E2F /* RAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RAViewController.h; path = Demo/RAViewController.h; sourceTree = "<group>"; };
 		B53B97C617D3C22D00A05E2F /* RAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RAViewController.m; path = Demo/RAViewController.m; sourceTree = "<group>"; };
+		B5A8A7B717DB818C007C67E3 /* RATreeNodeInfo+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RATreeNodeInfo+Private.h"; sourceTree = "<group>"; };
+		B5A8A7B817DB818C007C67E3 /* RATreeNodeInfo+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RATreeNodeInfo+Private.m"; sourceTree = "<group>"; };
+		B5A8A7BA17DB8219007C67E3 /* RAViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RAViewController_iPhone.xib; sourceTree = "<group>"; };
+		B5A8A7BC17DB822A007C67E3 /* RAViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RAViewController_iPad.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +137,8 @@
 				B53B977A17D3843700A05E2F /* RATreeNodeCollectionController.m */,
 				B53B977D17D3843700A05E2F /* RATreeNodeInfo.h */,
 				B53B977E17D3843700A05E2F /* RATreeNodeInfo.m */,
+				B5A8A7B717DB818C007C67E3 /* RATreeNodeInfo+Private.h */,
+				B5A8A7B817DB818C007C67E3 /* RATreeNodeInfo+Private.m */,
 			);
 			path = RATreeView;
 			sourceTree = "<group>";
@@ -158,6 +167,8 @@
 				B53B97C417D3C22D00A05E2F /* RADataObject.m */,
 				B53B97C517D3C22D00A05E2F /* RAViewController.h */,
 				B53B97C617D3C22D00A05E2F /* RAViewController.m */,
+				B5A8A7BA17DB8219007C67E3 /* RAViewController_iPhone.xib */,
+				B5A8A7BC17DB822A007C67E3 /* RAViewController_iPad.xib */,
 				B53B974A17D3840800A05E2F /* Supporting Files */,
 			);
 			name = Demo;
@@ -219,6 +230,8 @@
 				B53B97B417D388F400A05E2F /* Default.png in Resources */,
 				B53B97B517D388F400A05E2F /* Default@2x.png in Resources */,
 				B53B97BE17D3C21700A05E2F /* InfoPlist.strings in Resources */,
+				B5A8A7BB17DB8219007C67E3 /* RAViewController_iPhone.xib in Resources */,
+				B5A8A7BD17DB822A007C67E3 /* RAViewController_iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +255,7 @@
 				B53B97C717D3C22D00A05E2F /* RAAppDelegate.m in Sources */,
 				B53B97C817D3C22D00A05E2F /* RADataObject.m in Sources */,
 				B53B97C917D3C22D00A05E2F /* RAViewController.m in Sources */,
+				B5A8A7B917DB818C007C67E3 /* RATreeNodeInfo+Private.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

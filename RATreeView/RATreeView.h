@@ -81,6 +81,9 @@ typedef enum RATreeViewRowAnimation {
 - (NSInteger)treeView:(RATreeView *)treeView indentationLevelForRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo;
 - (void)treeView:(RATreeView *)treeView willDisplayCell:(UITableViewCell *)cell forItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo;
 
+// Managin Accessory Views
+- (void)treeView:(RATreeView *)treeView accessoryButtonTappedForRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo;
+
 //Expanding and Collapsing the Outline
 - (BOOL)treeView:(RATreeView *)treeView shouldItemBeExpandedAfterDataReload:(id)item treeDepthLevel:(NSInteger)treeDepthLevel;
 - (BOOL)treeView:(RATreeView *)treeView shouldExpandRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo;
@@ -92,7 +95,7 @@ typedef enum RATreeViewRowAnimation {
 - (id)treeView:(RATreeView *)treeView willDeselectRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo;
 - (void)treeView:(RATreeView *)treeView didDeselectRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo;
 
-//Editing Table Rows
+//Editing Tree Rows
 - (void)treeView:(RATreeView *)treeView willBeginEditingRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo;
 - (void)treeView:(RATreeView *)treeView didEndEditingRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo;
 - (UITableViewCellEditingStyle)treeView:(RATreeView *)treeView editingStyleForRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo;

@@ -41,19 +41,19 @@
   RADataObject *phone4 = [RADataObject dataObjectWithName:@"Phone 4" children:nil];
   
   RADataObject *phone = [RADataObject dataObjectWithName:@"Phones"
-                                                              children:[NSArray arrayWithObjects:phone1, phone2, phone3, phone4, nil]];
+                                                children:[NSArray arrayWithObjects:phone1, phone2, phone3, phone4, nil]];
   
   RADataObject *notebook1 = [RADataObject dataObjectWithName:@"Notebook 1" children:nil];
   RADataObject *notebook2 = [RADataObject dataObjectWithName:@"Notebook 2" children:nil];
   self.expanded = notebook1;
   
   RADataObject *computer1 = [RADataObject dataObjectWithName:@"Computer 1"
-                                                              children:[NSArray arrayWithObjects:notebook1, notebook2, nil]];
+                                                    children:[NSArray arrayWithObjects:notebook1, notebook2, nil]];
   RADataObject *computer2 = [RADataObject dataObjectWithName:@"Computer 2" children:nil];
   RADataObject *computer3 = [RADataObject dataObjectWithName:@"Computer 3" children:nil];
   
   RADataObject *computer = [RADataObject dataObjectWithName:@"Computers"
-                                                              children:[NSArray arrayWithObjects:computer1, computer2, computer3, nil]];
+                                                   children:[NSArray arrayWithObjects:computer1, computer2, computer3, nil]];
   RADataObject *car = [RADataObject dataObjectWithName:@"Cars" children:nil];
   RADataObject *bike = [RADataObject dataObjectWithName:@"Bikes" children:nil];
   RADataObject *house = [RADataObject dataObjectWithName:@"Houses" children:nil];
@@ -65,7 +65,7 @@
   
   self.data = [NSArray arrayWithObjects:phone, computer, car, bike, house, flats, motorbike, drinks, food, sweets,
                nil];
-    
+  
   RATreeView *treeView = [[RATreeView alloc] initWithFrame:self.view.frame];
   treeView.delegate = self;
   treeView.dataSource = self;
@@ -114,7 +114,7 @@
 - (UITableViewCell *)treeView:(RATreeView *)treeView cellForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo
 {
   UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-  cell.detailTextLabel.text = [NSString stringWithFormat:@"Number of children %d", treeNodeInfo.numberOfChildren];
+  cell.detailTextLabel.text = [NSString stringWithFormat:@"Number of children %d", [treeNodeInfo.children count]];
   cell.textLabel.text = ((RADataObject *)item).name;
   cell.selectionStyle = UITableViewCellSelectionStyleNone;
   if (treeNodeInfo.treeDepthLevel == 0) {

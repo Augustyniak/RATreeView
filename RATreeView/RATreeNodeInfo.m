@@ -19,35 +19,50 @@
 //
 
 #import "RATreeNodeInfo.h"
+#import "RATreeNodeInfo+Private.h"
+#import "RATreeNode.h"
 
 @interface RATreeNodeInfo ()
 
 @property (nonatomic, getter = isExpanded, readwrite) BOOL expanded;
 @property (nonatomic, readwrite) NSInteger treeDepthLevel;
 
-@property (nonatomic, readwrite) NSInteger numberOfParentChildren;
-@property (nonatomic, readwrite) NSInteger positionInParentChildren;
+@property (nonatomic, readwrite) NSInteger siblingsNumber;
+@property (nonatomic, readwrite) NSInteger positionInSinblings;
 
-@property (nonatomic, readwrite) NSInteger numberOfChildren;
-@property (nonatomic, readwrite) NSInteger numberOfVisibleDescendants;
+@property (strong, nonatomic, readwrite) RATreeNodeInfo *parent;
+@property (strong, nonatomic, readwrite) NSArray *children;
+
+@property (strong, nonatomic, readwrite) RATreeNode *parentTreeNode;
+@property (strong, nonatomic, readwrite) NSArray * childrenTreeNodes;
+
+@property (strong, nonatomic, readwrite) id item;
+
 @end
 
 @implementation RATreeNodeInfo
 
-- (id)initWithExpanded:(BOOL)expanded treeDepthLevel:(NSInteger)treeDepthLevel numberOfParentChildren:(NSInteger)numberOfParentChildren positionInParentChildren:(NSInteger)positionInParentChildren numberOfChildren:(NSInteger)numberOfChildren  numberOfVisibleDescendants:(NSInteger)numberOfVisibleDescendants
+
+#pragma mark Properties
+
+- (RATreeNodeInfo *)parent
 {
-  self = [super init];
-  if (self) {
-    self.expanded = expanded;
-    self.treeDepthLevel = treeDepthLevel;
-    
-    self.numberOfParentChildren = numberOfParentChildren;
-    self.positionInParentChildren = positionInParentChildren;
-    
-    self.numberOfChildren = numberOfChildren;
-    self.numberOfVisibleDescendants = numberOfVisibleDescendants;
+  if (_parent == nil) {
+    _parent = [self.parentTreeNode treeNodeInfo];
   }
-  return self;
+  return _parent;
+}
+
+- (NSArray *)children
+{
+  if (_children == nil) {
+    NSMutableArray *treeNodesInfos = [NSMutableArray array];
+    for (RATreeNode *treeNode in self.childrenTreeNodes) {
+      [treeNodesInfos addObject:treeNode];
+    }
+    _children = treeNodesInfos;
+  }
+  return _children;
 }
 
 @end

@@ -30,11 +30,6 @@
 
 #pragma mark Managing the Display of Content
 
-- (void)setContentOffset:(CGPoint)contentOffset animated:(BOOL)animated
-{
-  [self.tableView setContentOffset:contentOffset animated:animated];
-}
-
 - (void)setContentOffset:(CGPoint)contentOffset
 {
   self.tableView.contentOffset = contentOffset;
@@ -99,11 +94,6 @@
 -(BOOL)scrollsToTop
 {
   return self.tableView.scrollsToTop;
-}
-
-- (void)scrollRectToVisible:(CGRect)visible animated:(BOOL)animated
-{
-  [self.tableView scrollRectToVisible:visible animated:animated];
 }
 
 
@@ -244,11 +234,6 @@
   return self.tableView.showsVerticalScrollIndicator;
 }
 
-- (void)flashScrollIndicators
-{
-  [self.tableView flashScrollIndicators];
-}
-
 #pragma mark Zooming and Panning
 
 - (UIPanGestureRecognizer *)panGestureRecognizer
@@ -261,11 +246,6 @@
   return self.pinchGestureRecognizer;
 }
 
-- (void)zoomToRect:(CGRect)rect animated:(BOOL)animated
-{
-  [self.tableView zoomToRect:rect animated:animated];
-}
-
 
 - (void)setZoomScale:(CGFloat)zoomScale
 {
@@ -275,12 +255,6 @@
 - (CGFloat)zoomScale
 {
   return self.tableView.zoomScale;
-}
-
-
-- (void)setZoomScale:(CGFloat)zoomScale animated:(BOOL)animated
-{
-  [self.tableView setZoomScale:zoomScale animated:animated];
 }
 
 

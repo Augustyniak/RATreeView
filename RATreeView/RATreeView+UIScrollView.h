@@ -22,12 +22,6 @@
 
 @interface RATreeView (UIScrollView)
 
-- (void)setContentOffset:(CGPoint)contentOffset animated:(BOOL)animated;
-- (void)scrollRectToVisible:(CGRect)visible animated:(BOOL)animated;
-- (void)flashScrollIndicators;
-- (void)zoomToRect:(CGRect)rect animated:(BOOL)animated;
-- (void)setZoomScale:(CGFloat)zoomScale animated:(BOOL)animated;
-
 @end
 
 

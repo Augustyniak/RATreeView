@@ -19,11 +19,23 @@
 //
 
 #import "RATreeNode.h"
+
 #import "RATreeNodeInfo.h"
+#import "RATreeNodeInfo+Private.h"
+
+typedef enum RATreeDepthLevel {
+  RATreeDepthLevelNotInitialized
+} RATreeDepthLevel;
 
 @interface RATreeNode ()
 
 @property (nonatomic, getter = isExpanded, readwrite) BOOL expanded;
+@property (nonatomic) NSInteger treeDepthLevel;
+
+@property (strong, nonatomic, readwrite) id item;
+
+@property (strong, nonatomic, readwrite) NSArray *descendants;
+@property (strong, nonatomic, readwrite) RATreeNodeInfo *treeNodeInfo;
 
 @end
 
@@ -33,6 +45,7 @@
 {
   self = [super init];
   if (self) {
+    self.treeDepthLevel = RATreeDepthLevelNotInitialized;
     self.item = item;
     self.parent = parent;
     self.expanded = expanded;
@@ -40,6 +53,8 @@
   }
   return self;
 }
+
+#pragma mark Public methods
 
 - (BOOL)isVisible
 {
@@ -61,29 +76,18 @@
 - (NSArray *)visibleDescendants
 {
   if (self.expanded) {
-  NSMutableArray *visibleDescendants = [NSMutableArray array];
-  for (RATreeNode *treeNode in self.children) {
-    [visibleDescendants addObject:treeNode];
-    if (treeNode.expanded) {
-      [visibleDescendants addObjectsFromArray:[treeNode visibleDescendants]];
+    NSMutableArray *visibleDescendants = [NSMutableArray array];
+    for (RATreeNode *treeNode in self.children) {
+      [visibleDescendants addObject:treeNode];
+      if (treeNode.expanded) {
+        [visibleDescendants addObjectsFromArray:[treeNode visibleDescendants]];
+      }
     }
-  }
-  return visibleDescendants;
+    return visibleDescendants;
   } else {
     return nil;
   }
 }
-
-- (NSArray *)descendants
-{
-  NSMutableArray *descendants = [NSMutableArray array];
-  for (RATreeNode *treeNode in self.children) {
-    [descendants addObject:treeNode];
-    [descendants addObjectsFromArray:[treeNode descendants]];
-  }
-  return descendants;
-}
-
 
 - (void)expand
 {
@@ -126,34 +130,49 @@
   return startIndex + [self numberOfVisibleDescendants];
 }
 
+#pragma mark Properties
+
 - (RATreeNodeInfo *)treeNodeInfo
 {
-  NSInteger treeDepthLevel = [self treeDepthLevel];
-  NSInteger numberOfParentChildren = [self.parent.children count];
-  NSInteger positionInParentChildren = [self.parent.children indexOfObject:self];
-  NSInteger numberOfChildren = [self.children count];
-  NSInteger numberOfVisibleDescendants = [self numberOfVisibleDescendants];
-  
-  RATreeNodeInfo *treeNodeInfo = [[RATreeNodeInfo alloc] initWithExpanded:self.expanded
-                                                           treeDepthLevel:treeDepthLevel
-                                                   numberOfParentChildren:numberOfParentChildren
-                                                 positionInParentChildren:positionInParentChildren
-                                                         numberOfChildren:numberOfChildren
-                                               numberOfVisibleDescendants:numberOfVisibleDescendants];
-  return treeNodeInfo;
+  if (_treeNodeInfo == nil) {
+    RATreeNodeInfo *treeNodeInfo = [[RATreeNodeInfo alloc] initWithParent:self.parent
+                                                                 children:self.children
+                                                                     item:self.item];
+    treeNodeInfo.expanded = self.expanded;
+    treeNodeInfo.treeDepthLevel = [self treeDepthLevel];
+    treeNodeInfo.item = self.item;
+    _treeNodeInfo = treeNodeInfo;
+  }
+  return _treeNodeInfo;
+}
+
+- (NSArray *)descendants
+{
+  if (_descendants == nil) {
+    NSMutableArray *descendants = [NSMutableArray array];
+    for (RATreeNode *treeNode in self.children) {
+      [descendants addObject:treeNode];
+      [descendants addObjectsFromArray:[treeNode descendants]];
+    }
+    _descendants = descendants;
+  }
+  return _descendants;
 }
 
 #pragma mark Private Helpers
 
 - (NSInteger)treeDepthLevel
 {
-  NSInteger treeDepthLevel = 0;
-  RATreeNode *current = self.parent.parent;
-  while (current != nil) {
-    treeDepthLevel++;
-    current = current.parent;
+  if (_treeDepthLevel == RATreeDepthLevelNotInitialized) {
+    NSInteger treeDepthLevel = 0;
+    RATreeNode *current = self.parent.parent;
+    while (current != nil) {
+      treeDepthLevel++;
+      current = current.parent;
+    }
+    _treeDepthLevel = treeDepthLevel;
   }
-  return treeDepthLevel;
+  return _treeDepthLevel;
 }
 
 @end

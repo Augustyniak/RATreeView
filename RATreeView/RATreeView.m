@@ -352,9 +352,31 @@
 }
 
 
-#pragma mark Private Helpers
+#pragma mark UIScrollView
 
+- (void)setContentOffset:(CGPoint)contentOffset animated:(BOOL)animated
+{
+  [self.tableView setContentOffset:contentOffset animated:animated];
+}
 
+- (void)scrollRectToVisible:(CGRect)visible animated:(BOOL)animated
+{
+  [self.tableView scrollRectToVisible:visible animated:animated];
+}
 
+- (void)setZoomScale:(CGFloat)zoomScale animated:(BOOL)animated
+{
+  [self.tableView setZoomScale:zoomScale animated:animated];
+}
+
+- (void)flashScrollIndicators
+{
+  [self.tableView flashScrollIndicators];
+}
+
+- (void)zoomToRect:(CGRect)rect animated:(BOOL)animated
+{
+  [self.tableView zoomToRect:rect animated:animated];
+}
 
 @end
