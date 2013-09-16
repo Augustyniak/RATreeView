@@ -20,6 +20,6 @@
 
 #import "RATreeView.h"
 
-@interface RATreeView (TableViewDataSource)
+@interface RATreeView (TableViewDataSource) <UITableViewDataSource>
 
 @end

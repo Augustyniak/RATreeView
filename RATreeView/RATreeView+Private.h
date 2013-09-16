@@ -29,7 +29,11 @@
 - (RATreeNode *)treeNodeForIndex:(NSInteger)index;
 - (NSIndexPath *)indexPathForItem:(id)item;
 - (void)setupTreeStructure;
+
 - (void)collapseCellForTreeNode:(RATreeNode *)treeNode;
+- (void)collapseCellForTreeNode:(RATreeNode *)treeNode withRowAnimation:(RATreeViewRowAnimation)rowAnimation;
 - (void)expandCellForTreeNode:(RATreeNode *)treeNode;
+- (void)expandCellForTreeNode:(RATreeNode *)treeNode withRowAnimation:(RATreeViewRowAnimation)rowAnimation;
+
 
 @end

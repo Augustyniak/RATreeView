@@ -28,6 +28,7 @@
 #import "RATreeNode.h"
 
 
+
 @interface RATreeView ()
 
 @property (strong, nonatomic) UITableView *tableView;
@@ -110,14 +111,15 @@
   UITableViewStyle tableViewStyle = [RATreeView tableViewStyleForTreeViewStyle:style];
   
   UITableView *tableView =  [[UITableView alloc] initWithFrame:frame style:tableViewStyle];
-  tableView.delegate = self;
-  tableView.dataSource = self;
+  tableView.delegate = (id<UITableViewDelegate>)self;
+  tableView.dataSource = (id<UITableViewDataSource>)self;
   tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+  tableView.backgroundColor = [UIColor clearColor];
   [self addSubview:tableView];
   self.tableView = tableView;
   
-  self.rowExpandingAnimation = RATreeViewRowAnimationTop;
-  self.rowExpandingAnimation = RATreeViewRowAnimationBottom;
+  self.rowsExpandingAnimation = RATreeViewRowAnimationTop;
+  self.rowsExpandingAnimation = RATreeViewRowAnimationBottom;
 }
 
 
@@ -178,6 +180,33 @@
 - (void)setBackgroundView:(UIView *)backgroundView
 {
   self.tableView.backgroundView = backgroundView;
+}
+
+#pragma mark Expanding and Collapsing Rows
+
+- (void)expandRowForItem:(id)item
+{
+  [self expandRowForItem:item withRowAnimation:self.rowsExpandingAnimation];
+}
+
+- (void)expandRowForItem:(id)item withRowAnimation:(RATreeViewRowAnimation)animation
+{
+  NSInteger index = [self.treeNodeCollectionController indexForItem:item];
+  RATreeNode *treeNode = [self.treeNodeCollectionController treeNodeForIndex:index];
+  [self expandCellForTreeNode:treeNode withRowAnimation:animation];
+}
+
+
+- (void)collapseRowForItem:(id)item
+{
+  [self collapseRowForItem:item withRowAnimation:self.rowsCollapsingAnimation];
+}
+
+- (void)collapseRowForItem:(id)item withRowAnimation:(RATreeViewRowAnimation)animation
+{
+  NSInteger index = [self.treeNodeCollectionController indexForItem:item];
+  RATreeNode *treeNode = [self.treeNodeCollectionController treeNodeForIndex:index];
+  [self collapseCellForTreeNode:treeNode withRowAnimation:animation];
 }
 
 #pragma mark Creating Table View Cells

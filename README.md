@@ -1,4 +1,4 @@
-#RATreeView
+#RATreeView (IOS 5.0+)
 [![](https://raw.github.com/Augustyniak/RATreeView/master/Screens/animation.gif)](https://raw.github.com/Augustyniak/RATreeView/master/Screens/animation.gif)
 ##Purpose 
 RATreeView is a class designed to support implementation of the Tree View on IOS. It works as a wrapper for the UITableView, defining its own delegate and data source methods for easier managment for tree data structures.
@@ -7,12 +7,11 @@ RATreeView is a class designed to support implementation of the Tree View on IOS
 RATreeView is implemented using ARC.
 
 ##Installation 
-To use RATreeView in your app, just drag RATreeView class files into your project. You can also setup RATreeView in your project using Pods. 
+To use RATreeView in your app, just drag RATreeView class files into your project. You can also setup RATreeView in your project using Pods (' pod "RATreeView" ' in your Podfile). 
 
 
 ##Introduction
-As RATreeView is a wrapper for UITableView, most of delegate and data dource methods are just equivalents of specific methods from UITableView delegate and data source protocols. They are changed in the way they provide easier managment for the tree structures. There are also some new methods in protocols to provide support for expanding and collapsing rows of the tree view. More about naming conventions in RATreeViewDelegate section. 
-
+As RATreeView is a wrapper for UITableView, most of delegate and data dource methods are just equivalents of specific methods from UITableView delegate and data source protocols. They are changed in the way they provide easier managment for the tree structures. There are also some new methods in protocols to provide support for expanding and collapsing rows of the tree view. It should work on IOS 5.0+.
 
 ##RATreeNodeInfo
 Almost every methods of the RATreeViewDelegate's and RATreeViewDataSource's protocol have the argument of the class RATreeNodeInfo. RATreeNodeInfo is logically connected with *item*. The purpose of this parameter is to support programmer with as much information as possible.
@@ -38,18 +37,32 @@ Returns the item associated with an object.
 ##RATreeView
 RATreeView has almost all properties which can be found in UITableView or UIScrollView.
 #####It also implemements some new properties:
-     @property (nonatomic) RATreeViewRowAnimation rowExpandingAnimation;
+     @property (nonatomic) RATreeViewRowAnimation rowsExpandingAnimation;
 Animation used for rows expanding. The default is RATreeViewRowAnimationTop.
 
 
-     @property (nonatomic) RATreeViewRowAnimation rowCollapsingAnimation;
+     @property (nonatomic) RATreeViewRowAnimation rowsCollapsingAnimation;
 Animation used for rows collapsing. The default is RATreeViewRowAnimationBottom.
 
+#####New (comparing to UITableView) methods of the RATreeView:
+     -(void)expandRowForItem:(id)item withRowAnimation:(RATreeViewRowAnimation)rowAnimation;
+
+Expands row which is associated with given item. Item's row must be visible - his parent must be expanded. For no visible items that method do nothing.
+	 
+	 -(void)expandRowForItem:(id)item;
+Expands row which is associated with given item. Item's row must be visible - his parent must be expanded. For no visible items that method do nothing. Uses animation type specified in *rowsExpandingAnimation* property.
+
+     - (void)collapseRowForItem:(id)item withRowAnimation:(RATreeViewAnimation)rowAnimation;
+Collapses row which is associated with given item. All children of the specified item will be collapsed.
+
+     - (void)collapseRowForItem:(id)item;
+Collapses row which is associated with given item. All children of the specified item will be collapsed. Uses animation type specified in **
+*rowsCollapsingAnimation* property.
 
 ##RATreeView Data Source
 #####RATreeViewDataSource contains following **required** methods:
 
-    (NSInteger)treeView:(RATreeView*)treeView numberOfChildrenOfItem:(id)item
+    (NSInteger)treeView:(RATreeView*)treeView numberOfChildrenOfItem:(id)item;
     
 This method should return the number of the child items encompassed by a given item. If *item* is nil, this method should return the number of children for the top-level item.
 
@@ -57,13 +70,13 @@ This method should return the number of the child items encompassed by a given i
     
 This method ask the data source for a cell to insert for a particular *item*.
 
-    (id)treeView:(RATreeView *)treeView child:(NSInteger)index ofItem:(id)item
+    (id)treeView:(RATreeView *)treeView child:(NSInteger)index ofItem:(id)item;
     
 This returns the child item at the specified index of a given item. If *item* is nil, returns the appropriate child item of the root object.
 
 #####RATreeViewDataSource contains following **optional** methods:
 
-    - (void)treeView:(RATreeView *)treeView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo
+    - (void)treeView:(RATreeView *)treeView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo;
     
 This method ask the data source to commit the insertion or deletion of a specified row.
     
@@ -77,8 +90,8 @@ All methods of RATreeViewDelegate are **optional**. **RATreeViewDelegate contain
 
 For example: 
     
-    - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath                                    // UITableViewDelegate
-    - (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath								        // UITableViewDelegate
+    - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;                                    // UITableViewDelegate
+    - (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath;								        // UITableViewDelegate
 
 
 is changed to:
@@ -90,7 +103,7 @@ is changed to:
 ###RATreeViewDelegate contains following methods:
 ####Expanding and Collapsing
 
-    - (BOOL)treeView:(RATreeView *)treeView shouldExpandRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo
+    - (BOOL)treeView:(RATreeView *)treeView shouldExpandRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo;
 
 This method ask the delegate whether row for the provided *item* should be expanded due to the user interaction (selection by the user). Called for collapsed rows with at least one child. By default row would be expanded. 
 

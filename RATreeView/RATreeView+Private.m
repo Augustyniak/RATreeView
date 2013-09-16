@@ -73,7 +73,14 @@
   return [NSIndexPath indexPathForRow:[self.treeNodeCollectionController indexForItem:item] inSection:0];
 }
 
+#pragma mark Collapsing and Expanding Rows
+
 - (void)collapseCellForTreeNode:(RATreeNode *)treeNode
+{
+  [self collapseCellForTreeNode:treeNode withRowAnimation:self.rowsCollapsingAnimation];
+}
+
+- (void)collapseCellForTreeNode:(RATreeNode *)treeNode withRowAnimation:(RATreeViewRowAnimation)rowAnimation
 {
   [self.tableView beginUpdates];
   NSMutableArray *indexes = [NSMutableArray array];
@@ -81,21 +88,28 @@
     [indexes addObject:[NSIndexPath indexPathForRow:index inSection:0]];
   }
   [treeNode collapse];
-  UITableViewRowAnimation rowAnimation = [RATreeView tableViewRowAnimationForTreeViewRowAnimation:self.rowCollapsingAnimation];
-  [self.tableView deleteRowsAtIndexPaths:indexes withRowAnimation:rowAnimation];
+  UITableViewRowAnimation tableViewRowAnimation = [RATreeView tableViewRowAnimationForTreeViewRowAnimation:rowAnimation];
+  [self.tableView deleteRowsAtIndexPaths:indexes withRowAnimation:tableViewRowAnimation];
   [self.tableView endUpdates];
 }
 
-- (void)expandCellForTreeNode:(RATreeNode *)treeNode{
+- (void)expandCellForTreeNode:(RATreeNode *)treeNode
+{
+  [self expandCellForTreeNode:treeNode withRowAnimation:self.rowsExpandingAnimation];
+}
+
+- (void)expandCellForTreeNode:(RATreeNode *)treeNode withRowAnimation:(RATreeViewRowAnimation)rowAnimation
+{
   [self.tableView beginUpdates];
   [treeNode expand];
   NSMutableArray *indexes = [NSMutableArray array];
   for (int index = [treeNode startIndex] + 1; index <= [treeNode endIndex]; index++) {
     [indexes addObject:[NSIndexPath indexPathForRow:index inSection:0]];
   }
-  UITableViewRowAnimation rowAnimation = [RATreeView tableViewRowAnimationForTreeViewRowAnimation:self.rowExpandingAnimation];
-  [self.tableView insertRowsAtIndexPaths:indexes withRowAnimation:rowAnimation];
+  UITableViewRowAnimation tableViewRowAnimation = [RATreeView tableViewRowAnimationForTreeViewRowAnimation:rowAnimation];
+  [self.tableView insertRowsAtIndexPaths:indexes withRowAnimation:tableViewRowAnimation];
   [self.tableView endUpdates];
+
 }
 
 @end

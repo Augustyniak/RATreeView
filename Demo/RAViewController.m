@@ -22,10 +22,14 @@
 #import "RATreeView.h"
 #import "RADataObject.h"
 
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+
 @interface RAViewController () <RATreeViewDelegate, RATreeViewDataSource>
 
-@property (strong, nonatomic) NSMutableArray *data;
+@property (strong, nonatomic) NSArray *data;
 @property (strong, nonatomic) id expanded;
+@property (weak, nonatomic) RATreeView *treeView;
 
 @end
 
@@ -61,18 +65,36 @@
   RADataObject *motorbike = [RADataObject dataObjectWithName:@"Motorbikes" children:nil];
   RADataObject *drinks = [RADataObject dataObjectWithName:@"Drinks" children:nil];
   RADataObject *food = [RADataObject dataObjectWithName:@"Food" children:nil];
-  RADataObject *sweets = [RADataObject dataObjectWithName:@"sweets" children:nil];
+  RADataObject *sweets = [RADataObject dataObjectWithName:@"Sweets" children:nil];
+  RADataObject *watches = [RADataObject dataObjectWithName:@"Watches" children:nil];
+  RADataObject *walls = [RADataObject dataObjectWithName:@"Walls" children:nil];
   
-  self.data = [NSArray arrayWithObjects:phone, computer, car, bike, house, flats, motorbike, drinks, food, sweets,
-               nil];
+  self.data = [NSArray arrayWithObjects:phone, computer, car, bike, house, flats, motorbike, drinks, food, sweets, watches, walls, nil];
   
   RATreeView *treeView = [[RATreeView alloc] initWithFrame:self.view.frame];
+  
   treeView.delegate = self;
   treeView.dataSource = self;
   treeView.separatorStyle = RATreeViewCellSeparatorStyleSingleLine;
   
-  [self.view addSubview:treeView];
   [treeView reloadData];
+  [treeView expandRowForItem:phone withRowAnimation:RATreeViewRowAnimationLeft]; //expands Row
+  [treeView setBackgroundColor:UIColorFromRGB(0xF7F7F7)];
+  
+  self.treeView = treeView;
+  [self.view addSubview:treeView];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+  [super viewWillAppear:animated];
+  if([[[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."][0] intValue] >= 7) {
+    CGRect statusBarViewRect = [[UIApplication sharedApplication] statusBarFrame];
+    float heightPadding = statusBarViewRect.size.height+self.navigationController.navigationBar.frame.size.height;
+    self.treeView.contentInset = UIEdgeInsetsMake(heightPadding, 0.0, 0.0, 0.0);
+    self.treeView.contentOffset = CGPointMake(0.0, -heightPadding);
+  }
+  self.treeView.frame = self.view.bounds;
 }
 
 #pragma mark TreeView Delegate methods
@@ -84,7 +106,7 @@
 
 - (NSInteger)treeView:(RATreeView *)treeView indentationLevelForRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo
 {
-  return treeNodeInfo.treeDepthLevel;
+  return 3 * treeNodeInfo.treeDepthLevel;
 }
 
 - (BOOL)treeView:(RATreeView *)treeView shouldExpandItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo
@@ -94,7 +116,7 @@
 
 - (BOOL)treeView:(RATreeView *)treeView shouldItemBeExpandedAfterDataReload:(id)item treeDepthLevel:(NSInteger)treeDepthLevel
 {
-  if (item == self.expanded) {
+  if ([item isEqual:self.expanded]) {
     return YES;
   }
   return NO;
@@ -103,9 +125,11 @@
 - (void)treeView:(RATreeView *)treeView willDisplayCell:(UITableViewCell *)cell forItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo
 {
   if (treeNodeInfo.treeDepthLevel == 0) {
-    cell.backgroundColor = [UIColor grayColor];
+    cell.backgroundColor = UIColorFromRGB(0xF7F7F7);
   } else if (treeNodeInfo.treeDepthLevel == 1) {
-    cell.backgroundColor = [UIColor lightGrayColor];
+    cell.backgroundColor = UIColorFromRGB(0xD1EEFC);
+  } else if (treeNodeInfo.treeDepthLevel == 2) {
+    cell.backgroundColor = UIColorFromRGB(0xE0F8D8);
   }
 }
 

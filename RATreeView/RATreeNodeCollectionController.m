@@ -47,6 +47,9 @@
 
 - (RATreeNode *)treeNodeForIndex:(NSInteger)index
 {
+  if (index < 0) {
+    return nil;
+  }
   return [self treeNodeForIndex:index treeNode:self.root];
 }
 
@@ -70,12 +73,14 @@
 - (NSInteger)indexForItem:(id)item treeNode:(RATreeNode *)currentTreeNode
 {
   NSArray *array = [self.root visibleDescendants];
-  for (NSInteger index = 0; index < [array count]; index++) {
-    if (array[index] == item) {
+  NSInteger index = 0;
+  for (RATreeNode *treeNode in array) {
+    if ([treeNode.item isEqual:item]) {
       return index;
     }
+    index++;
   }
-  return 0;
+  return -1;
 }
 
 

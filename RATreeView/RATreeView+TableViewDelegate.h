@@ -20,6 +20,6 @@
 
 #import "RATreeView.h"
 
-@interface RATreeView (TableViewDelegate)
+@interface RATreeView (TableViewDelegate) <UITableViewDelegate>
 
 @end

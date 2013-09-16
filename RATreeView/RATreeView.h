@@ -117,7 +117,7 @@ typedef enum RATreeViewRowAnimation {
 @end
 
 
-@interface RATreeView : UIView<UITableViewDataSource, UITableViewDelegate>
+@interface RATreeView : UIView
 
 @property (weak, nonatomic) id<RATreeViewDataSource> dataSource;
 @property (weak, nonatomic) id<RATreeViewDelegate> delegate;
@@ -134,8 +134,12 @@ typedef enum RATreeViewRowAnimation {
 @property (strong, nonatomic) UIView *backgroundView;
 
 //Expanding and Collapsing Rows
-@property (nonatomic) RATreeViewRowAnimation rowExpandingAnimation;
-@property (nonatomic) RATreeViewRowAnimation rowCollapsingAnimation;
+- (void)expandRowForItem:(id)item withRowAnimation:(RATreeViewRowAnimation)animation;
+- (void)collapseRowForItem:(id)item withRowAnimation:(RATreeViewRowAnimation)animation;
+- (void)expandRowForItem:(id)item;
+- (void)collapseRowForItem:(id)item;
+@property (nonatomic) RATreeViewRowAnimation rowsExpandingAnimation;
+@property (nonatomic) RATreeViewRowAnimation rowsCollapsingAnimation;
 
 // Creating Table View Cells
 - (void)registerNib:(UINib *)nib forCellReuseIdentifier:(NSString *)identifier;
