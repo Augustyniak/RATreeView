@@ -98,7 +98,6 @@
 }
 
 #pragma mark TreeView Delegate methods
-
 - (CGFloat)treeView:(RATreeView *)treeView heightForRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo
 {
   return 47;
@@ -137,8 +136,9 @@
 
 - (UITableViewCell *)treeView:(RATreeView *)treeView cellForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo
 {
+  NSInteger numberOfChildren = [treeNodeInfo.children count];
   UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-  cell.detailTextLabel.text = [NSString stringWithFormat:@"Number of children %d", [treeNodeInfo.children count]];
+  cell.detailTextLabel.text = [NSString stringWithFormat:@"Number of children %d", numberOfChildren];
   cell.textLabel.text = ((RADataObject *)item).name;
   cell.selectionStyle = UITableViewCellSelectionStyleNone;
   if (treeNodeInfo.treeDepthLevel == 0) {
