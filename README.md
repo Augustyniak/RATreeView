@@ -1,4 +1,4 @@
-#RATreeView (IOS 5.0+)
+#RATreeView (iOS 5.0+)
 [![](https://raw.github.com/Augustyniak/RATreeView/master/Screens/animation.gif)](https://raw.github.com/Augustyniak/RATreeView/master/Screens/animation.gif)
 ##Purpose 
 RATreeView is a class designed to support implementation of the Tree View on IOS. It works as a wrapper for the UITableView, defining its own delegate and data source methods for easier managment for tree data structures.
@@ -7,7 +7,9 @@ RATreeView is a class designed to support implementation of the Tree View on IOS
 RATreeView is implemented using ARC.
 
 ##Installation 
-To use RATreeView in your app, just drag RATreeView class files into your project. You can also setup RATreeView in your project using Pods (' pod "RATreeView" ' in your Podfile). 
+To use RATreeView in your app, just drag RATreeView class files into your project. You can also setup RATreeView in your project using Pods (' pod "RATreeView" ' in your Podfile).
+
+Nextly, just import RATreeView.h header file and use it!
 
 
 ##Introduction
@@ -107,10 +109,17 @@ is changed to:
 
 This method ask the delegate whether row for the provided *item* should be expanded due to the user interaction (selection by the user). Called for collapsed rows with at least one child. By default row would be expanded. 
 
+    - (void)treeView:(RATreeView *)treeView willExpandRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo;
+    
+This method informs delegate that specific row will be expanded due to the user interaction (selection by the user).
 
     - (BOOL)treeView:(RATreeView *)treeView shouldCollapaseRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo;
 
-This methods ask the delegate whether row for the provided *item* should be collapsed due to the user interaction (selection by the user). Called for expanded rows with at least one child. By default row would be collapsed.
+This methods ask the delegate whether row for the provided *item* should be collapsed due to the user interaction. Called for expanded rows with at least one child. By default row would be collapsed.
+
+    - (void)treeView:(RATreeView *)treeView willCollapseRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo;
+  
+This method informs delegate that specific row will be collapsed due to the user interaction.
 
     - (BOOL)treeView:(RATreeView *)treeView shouldItemBeExpandedAfterDataReload:(id)item treeDepthLevel:(NSInteger)treeDepthLevel;
 

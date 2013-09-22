@@ -58,7 +58,7 @@
   if (_children == nil) {
     NSMutableArray *treeNodesInfos = [NSMutableArray array];
     for (RATreeNode *treeNode in self.childrenTreeNodes) {
-      [treeNodesInfos addObject:treeNode];
+      [treeNodesInfos addObject:[treeNode treeNodeInfo]];
     }
     _children = treeNodesInfos;
   }

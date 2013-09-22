@@ -93,18 +93,18 @@
   if (treeNode.expanded) {
     if ([self.delegate respondsToSelector:@selector(treeView:shouldCollapaseRowForItem:treeNodeInfo:)]) {
       if ([self.delegate treeView:self shouldCollapaseRowForItem:treeNode.item treeNodeInfo:[treeNode treeNodeInfo]]) {
-        [self collapseCellForTreeNode:treeNode];
+        [self collapseCellForTreeNode:treeNode informDelegate:YES];
       }
     } else {
-      [self collapseCellForTreeNode:treeNode];
+      [self collapseCellForTreeNode:treeNode informDelegate:YES];
     }
   } else {
     if ([self.delegate respondsToSelector:@selector(treeView:shouldExpandRowForItem:treeNodeInfo:)]) {
       if ([self.delegate treeView:self shouldExpandRowForItem:treeNode.item treeNodeInfo:[treeNode treeNodeInfo]]) {
-        [self expandCellForTreeNode:treeNode];
+        [self expandCellForTreeNode:treeNode informDelegate:YES];
       }
     } else {
-      [self expandCellForTreeNode:treeNode];
+      [self expandCellForTreeNode:treeNode informDelegate:YES];
     }
   }
 }
@@ -237,6 +237,28 @@
     RATreeNode *treeNode = [self treeNodeForIndex:indexPath.row];
     [self.delegate treeView:self didUnhighlightRowForItem:treeNode.item treeNodeInfo:[treeNode treeNodeInfo]];
   }
+}
+
+#pragma mark Private Helpers
+
+- (void)collapseCellForTreeNode:(RATreeNode *)treeNode informDelegate:(BOOL)informDelegate
+{
+  if (informDelegate) {
+    if ([self.delegate respondsToSelector:@selector(treeView:willCollapseRowForItem:treeNodeInfo:)]) {
+      [self.delegate treeView:self willCollapseRowForItem:treeNode.item treeNodeInfo:[treeNode treeNodeInfo]];
+    }
+  }
+  [self collapseCellForTreeNode:treeNode];
+}
+
+- (void)expandCellForTreeNode:(RATreeNode *)treeNode informDelegate:(BOOL)informDelegate
+{
+  if (informDelegate) {
+    if ([self.delegate respondsToSelector:@selector(treeView:willExpandRowForItem:treeNodeInfo:)]) {
+      [self.delegate treeView:self willExpandRowForItem:treeNode.item treeNodeInfo:[treeNode treeNodeInfo]];
+    }
+  }
+  [self expandCellForTreeNode:treeNode];
 }
 
 
