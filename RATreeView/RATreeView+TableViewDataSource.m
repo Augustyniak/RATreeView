@@ -57,9 +57,9 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  if ([self.dataSource respondsToSelector:@selector(treeView:canEditRowForItem:)]) {
+  if ([self.dataSource respondsToSelector:@selector(treeView:canEditRowForItem:treeNodeInfo:)]) {
     RATreeNode *treeNode = [self treeNodeForIndex:indexPath.row];
-    [self.dataSource treeView:self canEditRowForItem:treeNode.item treeNodeInfo:[treeNode treeNodeInfo]];
+    return [self.dataSource treeView:self canEditRowForItem:treeNode.item treeNodeInfo:[treeNode treeNodeInfo]];
   }
   return YES;
 }
