@@ -370,6 +370,7 @@
 
 - (void)reloadData
 {
+  [self setupTreeStructure];
   [self.tableView reloadData];
 }
 
