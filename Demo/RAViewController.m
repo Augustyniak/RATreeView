@@ -132,6 +132,12 @@
   }
 }
 
+
+-(void)treeView:(RATreeView *)treeView didSelectRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo
+{
+    UITableViewCell *cell = [treeView cellForItem:item];
+    NSLog(@"Selected %@", cell.textLabel.text);
+}
 #pragma mark TreeView Data Source
 
 - (UITableViewCell *)treeView:(RATreeView *)treeView cellForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo

@@ -143,6 +143,11 @@ typedef enum RATreeDepthLevel {
     treeNodeInfo.item = self.item;
     _treeNodeInfo = treeNodeInfo;
   }
+  else{
+      _treeNodeInfo.expanded = self.expanded;
+      _treeNodeInfo.treeDepthLevel = [self treeDepthLevel];
+      _treeNodeInfo.item = self.item;
+  }
   return _treeNodeInfo;
 }
 
