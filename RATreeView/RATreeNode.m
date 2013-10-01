@@ -136,13 +136,17 @@ typedef enum RATreeDepthLevel {
 {
   if (_treeNodeInfo == nil) {
     RATreeNodeInfo *treeNodeInfo = [[RATreeNodeInfo alloc] initWithParent:self.parent
-                                                                 children:self.children
-                                                                     item:self.item];
-    treeNodeInfo.expanded = self.expanded;
+                                                                 children:self.children];
     treeNodeInfo.treeDepthLevel = [self treeDepthLevel];
-    treeNodeInfo.item = self.item;
+    treeNodeInfo.siblingsNumber = [self.parent.children count];
+    treeNodeInfo.positionInSiblings = [self.parent.children indexOfObject:self];
+    
     _treeNodeInfo = treeNodeInfo;
   }
+  
+  _treeNodeInfo.item = self.item;
+  _treeNodeInfo.expanded = self.expanded;
+
   return _treeNodeInfo;
 }
 

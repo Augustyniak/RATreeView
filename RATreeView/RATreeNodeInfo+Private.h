@@ -22,6 +22,6 @@
 
 @property (strong, nonatomic, readwrite) id item;
 
-- (id)initWithParent:(RATreeNode *)parent children:(NSArray *)children item:(id)item;
+- (id)initWithParent:(RATreeNode *)parent children:(NSArray *)children;
 
 @end

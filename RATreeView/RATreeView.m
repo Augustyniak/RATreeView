@@ -248,8 +248,8 @@
 
 - (UITableViewCell *)cellForItem:(id)item
 {
-  UITableViewCell *cell = [self cellForItem:item];
-  return cell;
+  NSIndexPath *indexPath = [self indexPathForItem:item];
+  return [self.tableView cellForRowAtIndexPath:indexPath];
 }
 
 - (NSArray *)visibleCells

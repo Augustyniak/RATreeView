@@ -21,14 +21,14 @@
 @dynamic item;
 
 
-- (id)initWithParent:(RATreeNode *)parent children:(NSArray *)children item:(id)item
+- (id)initWithParent:(RATreeNode *)parent children:(NSArray *)children
 {
   self = [super init];
   if (self) {
     self.parentTreeNode = parent;
     self.childrenTreeNodes = children;
-    self.item = item;
   }
+  
   return self;
 }
 

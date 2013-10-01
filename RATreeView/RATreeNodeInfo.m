@@ -28,7 +28,7 @@
 @property (nonatomic, readwrite) NSInteger treeDepthLevel;
 
 @property (nonatomic, readwrite) NSInteger siblingsNumber;
-@property (nonatomic, readwrite) NSInteger positionInSinblings;
+@property (nonatomic, readwrite) NSInteger positionInSiblings;
 
 @property (strong, nonatomic, readwrite) RATreeNodeInfo *parent;
 @property (strong, nonatomic, readwrite) NSArray *children;
@@ -64,5 +64,6 @@
   }
   return _children;
 }
+
 
 @end
