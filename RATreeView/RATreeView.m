@@ -1,4 +1,3 @@
-
 //The MIT License (MIT)
 //
 //Copyright (c) 2013 Rafał Augustyniak
@@ -101,7 +100,8 @@
 {
   self = [super initWithCoder:aDecoder];
   if (self) {
-    [self commonInitWithFrame:self.frame style:RATreeViewStylePlain];
+      CGRect frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+      [self commonInitWithFrame:frame style:RATreeViewStylePlain];
   }
   return self;
 }
