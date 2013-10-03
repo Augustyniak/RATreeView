@@ -376,11 +376,17 @@
 
 - (void)reloadRowsForItems:(NSArray *)items withRowAnimation:(RATreeViewRowAnimation)animation
 {
-  NSArray *rows = [self itemsForSelectedRows];
+  NSMutableArray *indexes = [NSMutableArray array];
+  for (id item in items) {
+    NSInteger index = [self.treeNodeCollectionController indexForItem:item];
+    RATreeNode *treeNode = [self.treeNodeCollectionController treeNodeForIndex:index];
+    for (int index = [treeNode startIndex] + 1; index <= [treeNode endIndex]; index++) {
+      [indexes addObject:[NSIndexPath indexPathForRow:index inSection:0]];
+    }
+  }
   UITableViewRowAnimation tableViewRowAnimation = [RATreeView tableViewRowAnimationForTreeViewRowAnimation:animation];
-  [self.tableView reloadRowsAtIndexPaths:rows withRowAnimation:tableViewRowAnimation];
+  [self.tableView reloadRowsAtIndexPaths:indexes withRowAnimation:tableViewRowAnimation];
 }
-
 
 #pragma mark UIScrollView
 
