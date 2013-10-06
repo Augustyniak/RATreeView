@@ -7,10 +7,9 @@ RATreeView is a class designed to support implementation of the Tree View on IOS
 RATreeView is implemented using ARC.
 
 ##Installation 
-To use RATreeView in your app, just drag RATreeView class files into your project. You can also setup RATreeView in your project using Pods (' pod "RATreeView" ' in your Podfile).
+To use RATreeView in your app, just drag RATreeView class files into your project and add *Quartz* framework to your project (*Quartz* is required since version 0.1.0). You can also setup RATreeView in your project using Pods (' pod "RATreeView" ' in your Podfile).
 
-Nextly, just import RATreeView.h header file and use it!
-
+Nextly, just import RATreeView.h header file and use it! 
 
 ##Introduction
 As RATreeView is a wrapper for UITableView, most of delegate and data dource methods are just equivalents of specific methods from UITableView delegate and data source protocols. They are changed in the way they provide easier managment for the tree structures. There are also some new methods in protocols to provide support for expanding and collapsing rows of the tree view. It should work on IOS 5.0+.
@@ -60,6 +59,9 @@ Collapses row which is associated with given item. All children of the specified
      - (void)collapseRowForItem:(id)item;
 Collapses row which is associated with given item. All children of the specified item will be collapsed. Uses animation type specified in **
 *rowsCollapsingAnimation* property.
+
+	 - (void)reloadRows
+Reload all rows of the RATreeView without collapsing expanded ones. 
 
 ##RATreeView Data Source
 #####RATreeViewDataSource contains following **required** methods:
@@ -113,6 +115,10 @@ This method ask the delegate whether row for the provided *item* should be expan
     
 This method informs delegate that specific row will be expanded due to the user interaction (selection by the user).
 
+	- (void)treeView:(RATreeView *)treeView didExpandRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo
+
+This method informs delegate that specific row was expanded due to the user interaction (selection by the user).
+
     - (BOOL)treeView:(RATreeView *)treeView shouldCollapaseRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo;
 
 This methods ask the delegate whether row for the provided *item* should be collapsed due to the user interaction. Called for expanded rows with at least one child. By default row would be collapsed.
@@ -121,7 +127,12 @@ This methods ask the delegate whether row for the provided *item* should be coll
   
 This method informs delegate that specific row will be collapsed due to the user interaction.
 
+	- (void)treeView:(RATreeView *)treeView didCollapseRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo;
+
+This method informs delegate that specific row was collapsed due to the user interaction.
+	
     - (BOOL)treeView:(RATreeView *)treeView shouldItemBeExpandedAfterDataReload:(id)item treeDepthLevel:(NSInteger)treeDepthLevel;
+    
 
 This method ask the delegate whether the specific row should be expanded after data reload. It is called for every element after each reload of the data of the RATreeView. In case delegate return *YES* for the item whoose parent (or parents) aren't expanded, all unexpanded parent will be expanded.
 
