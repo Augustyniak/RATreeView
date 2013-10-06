@@ -101,7 +101,8 @@
 {
   self = [super initWithCoder:aDecoder];
   if (self) {
-    [self commonInitWithFrame:self.frame style:RATreeViewStylePlain];
+    CGRect frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
+    [self commonInitWithFrame:frame style:RATreeViewStylePlain];
   }
   return self;
 }
@@ -116,7 +117,7 @@
   tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
   tableView.backgroundColor = [UIColor clearColor];
   [self addSubview:tableView];
-  self.tableView = tableView;
+  [self setTableView:tableView];
   
   self.rowsExpandingAnimation = RATreeViewRowAnimationTop;
   self.rowsExpandingAnimation = RATreeViewRowAnimationBottom;
@@ -376,9 +377,14 @@
 
 - (void)reloadRowsForItems:(NSArray *)items withRowAnimation:(RATreeViewRowAnimation)animation
 {
-  NSArray *rows = [self itemsForSelectedRows];
+  NSMutableArray *indexes = [NSMutableArray array];
   UITableViewRowAnimation tableViewRowAnimation = [RATreeView tableViewRowAnimationForTreeViewRowAnimation:animation];
-  [self.tableView reloadRowsAtIndexPaths:rows withRowAnimation:tableViewRowAnimation];
+  for (id item in items) {
+    NSIndexPath *indexPath = [self indexPathForItem:item];
+    [indexes addObject:indexPath];
+  }
+  
+  [self.tableView reloadRowsAtIndexPaths:indexes withRowAnimation:tableViewRowAnimation];
 }
 
 

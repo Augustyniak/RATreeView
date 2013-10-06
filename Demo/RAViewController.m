@@ -118,6 +118,7 @@
   if ([item isEqual:self.expanded]) {
     return YES;
   }
+  
   return NO;
 }
 
@@ -144,6 +145,7 @@
   if (treeNodeInfo.treeDepthLevel == 0) {
     cell.detailTextLabel.textColor = [UIColor blackColor];
   }
+  
   return cell;
 }
 
@@ -152,6 +154,7 @@
   if (item == nil) {
     return [self.data count];
   }
+  
   RADataObject *data = item;
   return [data.children count];
 }
@@ -162,6 +165,7 @@
   if (item == nil) {
     return [self.data objectAtIndex:index];
   }
+  
   return [data.children objectAtIndex:index];
 }
 

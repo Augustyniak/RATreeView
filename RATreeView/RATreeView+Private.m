@@ -39,6 +39,7 @@
   for (int i = 0; i < numberOfChildren; i++) {
     [children addObject:[self.dataSource treeView:self child:i ofItem:item]];
   }
+  
   return [NSArray arrayWithArray:children];
 }
 
@@ -56,6 +57,7 @@
     if ([self.dataSource respondsToSelector:@selector(treeView:shouldItemBeExpandedAfterDataReload:treeDepthLevel:)]) {
       expanded = [self.delegate treeView:self shouldItemBeExpandedAfterDataReload:item treeDepthLevel:treeDepthLevel];
     }
+    
     RATreeNode *treeNode = [[RATreeNode alloc] initWithItem:item parent:parentTreeNode expanded:expanded];
     
     [self setupTreeStructureWithParentNode:treeNode treeDepthLevel:(treeDepthLevel + 1)];
@@ -87,6 +89,7 @@
   for (int index = [treeNode startIndex] + 1; index <= [treeNode endIndex]; index++) {
     [indexes addObject:[NSIndexPath indexPathForRow:index inSection:0]];
   }
+  
   [treeNode collapse];
   UITableViewRowAnimation tableViewRowAnimation = [RATreeView tableViewRowAnimationForTreeViewRowAnimation:rowAnimation];
   [self.tableView deleteRowsAtIndexPaths:indexes withRowAnimation:tableViewRowAnimation];
@@ -106,6 +109,7 @@
   for (int index = [treeNode startIndex] + 1; index <= [treeNode endIndex]; index++) {
     [indexes addObject:[NSIndexPath indexPathForRow:index inSection:0]];
   }
+  
   UITableViewRowAnimation tableViewRowAnimation = [RATreeView tableViewRowAnimationForTreeViewRowAnimation:rowAnimation];
   [self.tableView insertRowsAtIndexPaths:indexes withRowAnimation:tableViewRowAnimation];
   [self.tableView endUpdates];
