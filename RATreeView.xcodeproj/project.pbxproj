@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B535574C1801AC4700390489 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B535574B1801AC4700390489 /* QuartzCore.framework */; };
 		B53B974417D3840800A05E2F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B53B974317D3840800A05E2F /* UIKit.framework */; };
 		B53B974617D3840800A05E2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B53B974517D3840800A05E2F /* Foundation.framework */; };
 		B53B974817D3840800A05E2F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B53B974717D3840800A05E2F /* CoreGraphics.framework */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B535574B1801AC4700390489 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B53B974017D3840800A05E2F /* RATreeView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RATreeView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B53B974317D3840800A05E2F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B53B974517D3840800A05E2F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -79,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B535574C1801AC4700390489 /* QuartzCore.framework in Frameworks */,
 				B53B974417D3840800A05E2F /* UIKit.framework in Frameworks */,
 				B53B974617D3840800A05E2F /* Foundation.framework in Frameworks */,
 				B53B974817D3840800A05E2F /* CoreGraphics.framework in Frameworks */,
@@ -109,6 +112,7 @@
 		B53B974217D3840800A05E2F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B535574B1801AC4700390489 /* QuartzCore.framework */,
 				B53B974317D3840800A05E2F /* UIKit.framework */,
 				B53B974517D3840800A05E2F /* Foundation.framework */,
 				B53B974717D3840800A05E2F /* CoreGraphics.framework */,

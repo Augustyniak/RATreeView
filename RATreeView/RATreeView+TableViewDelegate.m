@@ -18,6 +18,7 @@
 //CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
+#import <QuartzCore/QuartzCore.h>
 
 #import "RATreeView+TableViewDelegate.h"
 #import "RATreeView+Private.h"
@@ -248,7 +249,17 @@
       [self.delegate treeView:self willCollapseRowForItem:treeNode.item treeNodeInfo:[treeNode treeNodeInfo]];
     }
   }
+  
+  [CATransaction begin];
+  [CATransaction setCompletionBlock:^{
+    if ([self.delegate respondsToSelector:@selector(treeView:didCollapseRowForItem:treeNodeInfo:)] &&
+        informDelegate) {
+      [self.delegate treeView:self didCollapseRowForItem:treeNode.item treeNodeInfo:[treeNode treeNodeInfo]];
+    }
+  }];
+  
   [self collapseCellForTreeNode:treeNode];
+  [CATransaction commit];
 }
 
 - (void)expandCellForTreeNode:(RATreeNode *)treeNode informDelegate:(BOOL)informDelegate
@@ -258,7 +269,18 @@
       [self.delegate treeView:self willExpandRowForItem:treeNode.item treeNodeInfo:[treeNode treeNodeInfo]];
     }
   }
+  
+  [CATransaction begin];
+  [CATransaction setCompletionBlock:^{
+    if ([self.delegate respondsToSelector:@selector(treeView:didExpandRowForItem:treeNodeInfo:)] &&
+        informDelegate) {
+      [self.delegate treeView:self didExpandRowForItem:treeNode.item treeNodeInfo:[treeNode treeNodeInfo]];
+    }
+  }];
+    
   [self expandCellForTreeNode:treeNode];
+  [CATransaction commit];
+
 }
 
 
