@@ -387,6 +387,12 @@
   [self.tableView reloadRowsAtIndexPaths:indexes withRowAnimation:tableViewRowAnimation];
 }
 
+- (void)reloadRows
+{
+  NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:0];
+  [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
+}
+
 
 #pragma mark UIScrollView
 
