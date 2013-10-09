@@ -92,7 +92,7 @@
 {
   self = [super initWithFrame:frame];
   if (self) {
-    [self commonInitWithFrame:frame style:style];
+    [self commonInitWithFrame:self.bounds style:style];
   }
   return self;
 }
@@ -101,8 +101,7 @@
 {
   self = [super initWithCoder:aDecoder];
   if (self) {
-    CGRect frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
-    [self commonInitWithFrame:frame style:RATreeViewStylePlain];
+    [self commonInitWithFrame:self.bounds style:RATreeViewStylePlain];
   }
   return self;
 }
