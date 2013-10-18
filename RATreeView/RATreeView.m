@@ -1,4 +1,3 @@
-
 //The MIT License (MIT)
 //
 //Copyright (c) 2013 Rafał Augustyniak
@@ -92,7 +91,7 @@
 {
   self = [super initWithFrame:frame];
   if (self) {
-    [self commonInitWithFrame:frame style:style];
+    [self commonInitWithFrame:self.bounds style:style];
   }
   return self;
 }
