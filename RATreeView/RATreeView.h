@@ -146,10 +146,14 @@ typedef enum RATreeViewRowAnimation {
 @property (nonatomic) RATreeViewRowAnimation rowsCollapsingAnimation;
 
 // Creating Table View Cells
+- (void)registerClass:(Class)cellClass forCellReuseIdentifier:(NSString *)identifier NS_AVAILABLE_IOS(6_0);
 - (void)registerNib:(UINib *)nib forCellReuseIdentifier:(NSString *)identifier;
 - (id)dequeueReusableCellWithIdentifier:(NSString *)identifier;
 
 // Accessing Header and Footer Views
+- (void)registerNib:(UINib *)nib forHeaderFooterViewReuseIdentifier:(NSString *)identifier NS_AVAILABLE_IOS(6_0);
+- (void)registerClass:(Class)aClass forHeaderFooterViewReuseIdentifier:(NSString *)identifier NS_AVAILABLE_IOS(6_0);
+- (id)dequeueReusableHeaderFooterViewWithIdentifier:(NSString *)identifier NS_AVAILABLE_IOS(6_0);
 @property (strong, nonatomic) UIView *treeHeaderView;
 @property (strong, nonatomic) UIView *treeFooterView;
 

@@ -218,12 +218,32 @@
   [self.tableView registerNib:nib forCellReuseIdentifier:identifier];
 }
 
+- (void)registerClass:(Class)cellClass forCellReuseIdentifier:(NSString *)identifier
+{
+  [self.tableView registerClass:cellClass forCellReuseIdentifier:identifier];
+}
+
 - (id)dequeueReusableCellWithIdentifier:(NSString *)identifier
 {
   return [self.tableView dequeueReusableCellWithIdentifier:identifier];
 }
 
 #pragma mark Accessing Header and Footer Views
+
+- (void)registerNib:(UINib *)nib forHeaderFooterViewReuseIdentifier:(NSString *)identifier
+{
+  [self.tableView registerNib:nib forHeaderFooterViewReuseIdentifier:identifier];
+}
+
+- (void)registerClass:(Class)aClass forHeaderFooterViewReuseIdentifier:(NSString *)identifier
+{
+  [self.tableView registerClass:aClass forHeaderFooterViewReuseIdentifier:identifier];
+}
+
+- (id)dequeueReusableHeaderFooterViewWithIdentifier:(NSString *)identifier
+{
+  return [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
+}
 
 - (UIView *)treeHeaderView
 {
