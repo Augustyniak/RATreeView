@@ -92,7 +92,8 @@
 {
   self = [super initWithFrame:frame];
   if (self) {
-    [self commonInitWithFrame:frame style:style];
+    CGRect innerFrame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
+    [self commonInitWithFrame:innerFrame style:style];
   }
   return self;
 }
@@ -101,8 +102,8 @@
 {
   self = [super initWithCoder:aDecoder];
   if (self) {
-    CGRect frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
-    [self commonInitWithFrame:frame style:RATreeViewStylePlain];
+    CGRect innerFrame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
+    [self commonInitWithFrame:innerFrame style:RATreeViewStylePlain];
   }
   return self;
 }
@@ -120,7 +121,7 @@
   [self setTableView:tableView];
   
   self.rowsExpandingAnimation = RATreeViewRowAnimationTop;
-  self.rowsExpandingAnimation = RATreeViewRowAnimationBottom;
+  self.rowsCollapsingAnimation = RATreeViewRowAnimationBottom;
 }
 
 
