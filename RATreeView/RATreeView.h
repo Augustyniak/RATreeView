@@ -77,6 +77,9 @@ typedef enum RATreeViewRowAnimation {
 @protocol RATreeViewDelegate <NSObject, UIScrollViewDelegate>
 @optional
 // Configuring Rows for the Table View
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
+- (CGFloat)treeView:(RATreeView *)treeView estimatedHeightForRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo;
+#endif
 - (CGFloat)treeView:(RATreeView *)treeView heightForRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo;
 - (NSInteger)treeView:(RATreeView *)treeView indentationLevelForRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo;
 - (void)treeView:(RATreeView *)treeView willDisplayCell:(UITableViewCell *)cell forItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo;
