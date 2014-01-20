@@ -160,6 +160,7 @@ typedef enum RATreeViewRowAnimation {
 // Accessing Cells
 - (UITableViewCell *)cellForItem:(id)item;
 - (NSArray *)visibleCells;
+- (NSArray *)itemsForVisibleCells;
 
 // Scrolling the TreeView
 - (void)scrollToRowForItem:(id)item atScrollPosition:(RATreeViewScrollPosition)scrollPosition animated:(BOOL)animated;

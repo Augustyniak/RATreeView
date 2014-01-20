@@ -279,6 +279,18 @@
   return [self.tableView visibleCells];
 }
 
+- (NSArray *)itemsForVisibleCells
+{
+  NSArray *indexPaths = [self.tableView indexPathsForVisibleRows];
+  NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:[indexPaths count]];
+  
+  for (NSIndexPath *indexPath in indexPaths) {
+      [items addObject:[self treeNodeForIndex:indexPath.row].item];
+  }
+  
+  return items;
+}
+
 #pragma mark Scrolling the TreeView
 
 - (void)scrollToRowForItem:(id)item atScrollPosition:(RATreeViewScrollPosition)scrollPosition animated:(BOOL)animated
