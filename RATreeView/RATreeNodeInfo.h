@@ -28,7 +28,7 @@
 @property (nonatomic, readonly) NSInteger siblingsNumber;
 @property (nonatomic, readonly) NSInteger positionInSiblings;
 
-@property (strong, nonatomic, readonly) RATreeNodeInfo *parent;
+@property (weak, nonatomic, readonly) RATreeNodeInfo *parent;
 @property (strong, nonatomic, readonly) NSArray *children;
 
 @property (strong, nonatomic, readonly) id item;

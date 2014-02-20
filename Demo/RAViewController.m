@@ -88,12 +88,14 @@
 - (void)viewWillAppear:(BOOL)animated
 {
   [super viewWillAppear:animated];
+  
   if([[[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."][0] intValue] >= 7) {
     CGRect statusBarViewRect = [[UIApplication sharedApplication] statusBarFrame];
     float heightPadding = statusBarViewRect.size.height+self.navigationController.navigationBar.frame.size.height;
     self.treeView.contentInset = UIEdgeInsetsMake(heightPadding, 0.0, 0.0, 0.0);
     self.treeView.contentOffset = CGPointMake(0.0, -heightPadding);
   }
+  
   self.treeView.frame = self.view.bounds;
 }
 
@@ -138,10 +140,12 @@
 - (UITableViewCell *)treeView:(RATreeView *)treeView cellForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo
 {
   NSInteger numberOfChildren = [treeNodeInfo.children count];
+  
   UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-  cell.detailTextLabel.text = [NSString stringWithFormat:@"Number of children %d", numberOfChildren];
+  cell.detailTextLabel.text = [NSString stringWithFormat:@"Number of children %@", [@(numberOfChildren) stringValue]];
   cell.textLabel.text = ((RADataObject *)item).name;
   cell.selectionStyle = UITableViewCellSelectionStyleNone;
+  
   if (treeNodeInfo.treeDepthLevel == 0) {
     cell.detailTextLabel.textColor = [UIColor blackColor];
   }
