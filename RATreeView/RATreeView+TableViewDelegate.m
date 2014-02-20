@@ -46,7 +46,7 @@
     RATreeNode *treeNode = [self treeNodeForIndex:indexPath.row];
     return [self.delegate treeView:self estimatedHeightForRowForItem:treeNode.item treeNodeInfo:[treeNode treeNodeInfo]];
   }
-  return self.tableView.estimatedRowHeight;
+  return UITableViewAutomaticDimension;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath
