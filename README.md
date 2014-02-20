@@ -1,18 +1,31 @@
 #RATreeView (iOS 5.0+)
+
 [![](https://raw.github.com/Augustyniak/RATreeView/master/Screens/animation.gif)](https://raw.github.com/Augustyniak/RATreeView/master/Screens/animation.gif)
-##Purpose 
+
+##Introduction
 RATreeView is a class designed to support implementation of the Tree View on IOS. It works as a wrapper for the UITableView, defining its own delegate and data source methods for easier managment for tree data structures.
+
+As RATreeView is a wrapper for UITableView, most of delegate and data dource methods are just equivalents of specific methods from UITableView delegate and data source protocols. They are changed in the way they provide easier managment for the tree structures. There are also some new methods in protocols to provide support for expanding and collapsing rows of the tree view. It should work on IOS 5.0+.
 
 ##ARC Compatibility
 RATreeView is implemented using ARC.
 
-##Installation 
-To use RATreeView in your app, just drag RATreeView class files into your project and add *Quartz* framework to your project (*Quartz* is required since version 0.1.0). You can also setup RATreeView in your project using Pods (' pod "RATreeView" ' in your Podfile).
+##Installation
+To use RATreeView in your app, just drag RATreeView class files into your project and add *Quartz* framework to your project (*Quartz* is required since version 0.1.0). You can also setup RATreeView in your project using Pods. Nextly, import RATreeView.h header file and use it!
 
-Nextly, just import RATreeView.h header file and use it! 
+####Podfile
+     pod "RATreeView", "~> 0.2.0" 
 
-##Introduction
-As RATreeView is a wrapper for UITableView, most of delegate and data dource methods are just equivalents of specific methods from UITableView delegate and data source protocols. They are changed in the way they provide easier managment for the tree structures. There are also some new methods in protocols to provide support for expanding and collapsing rows of the tree view. It should work on IOS 5.0+.
+
+##Usage
+
+    RATreeView *treeView = [[RATreeView alloc] initWithFrame:self.view.bounds];
+    treeView.delegate = self;
+    treeView.dataSource = self;
+    
+    [self.view addSubview:treeView];
+    [treeView reloadData];
+
 
 ##RATreeNodeInfo
 Almost every methods of the RATreeViewDelegate's and RATreeViewDataSource's protocol have the argument of the class RATreeNodeInfo. RATreeNodeInfo is logically connected with *item*. The purpose of this parameter is to support programmer with as much information as possible.
@@ -140,6 +153,9 @@ This method ask the delegate whether the specific row should be expanded after d
 
      - (CGFloat)treeView:(RATreeView *)treeView heightForRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo;
 Asks the delegate for the height to use for a row with a specified *item*.
+
+     - (CGFloat)treeView:(RATreeView *)treeView estimatedHeightForRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo;
+Asks the delegate for the estimated height of a row for specified *item*.
 
      - (NSInteger)treeView:(RATreeView *)treeView indentationLevelForRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo;
 Asks the delegate to return the level od indentation for a row with a specified item.
@@ -270,7 +286,9 @@ Equivalent for the UITableViewRowAnimation:
     } RATreeViewRowAnimation;
 
 
-
+##Creator
+Rafał Augustyniak. Follow me on twitter ([@RaAugustyniak](https://twitter.com/RaAugustyniak
+)).
 
 
 
