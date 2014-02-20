@@ -80,7 +80,7 @@
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  if ([self.treeNodeCollectionController respondsToSelector:@selector(treeView:willSelectRowForItem:treeNodeInfo:)]) {
+  if ([self.delegate respondsToSelector:@selector(treeView:willSelectRowForItem:treeNodeInfo:)]) {
     RATreeNode *treeNode = [self treeNodeForIndex:indexPath.row];
     id item = [self.delegate treeView:self willSelectRowForItem:treeNode treeNodeInfo:[treeNode treeNodeInfo]];
     NSIndexPath *delegateIndexPath = [self indexPathForItem:item];
