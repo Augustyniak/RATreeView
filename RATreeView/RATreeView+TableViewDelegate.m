@@ -31,6 +31,17 @@
 
 #pragma mark Configuring Rows for the Table View
 
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    if ([self.delegate respondsToSelector:@selector(treeView:estimatedHeightForRowForItem:treeNodeInfo:)]) {
+        RATreeNode *treeNode = [self treeNodeForIndex:indexPath.row];
+        return [self.delegate treeView:self estimatedHeightForRowForItem:treeNode.item treeNodeInfo:[treeNode treeNodeInfo]];
+    }
+    return 0;
+}
+#endif
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   if ([self.delegate respondsToSelector:@selector(treeView:heightForRowForItem:treeNodeInfo:)]) {
