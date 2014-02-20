@@ -40,6 +40,15 @@
   return self.tableView.rowHeight;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  if ([self.delegate respondsToSelector:@selector(treeView:estimatedHeightForRowForItem:treeNodeInfo:)]) {
+    RATreeNode *treeNode = [self treeNodeForIndex:indexPath.row];
+    return [self.delegate treeView:self estimatedHeightForRowForItem:treeNode.item treeNodeInfo:[treeNode treeNodeInfo]];
+  }
+  return self.tableView.estimatedRowHeight;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   if ([self.delegate respondsToSelector:@selector(treeView:indentationLevelForRowForItem:treeNodeInfo:)]) {

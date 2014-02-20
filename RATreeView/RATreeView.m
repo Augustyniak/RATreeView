@@ -174,6 +174,27 @@
 }
 
 
+- (CGFloat)estimatedRowHeight
+{
+  return self.tableView.estimatedRowHeight;
+}
+
+- (void)setEstimatedRowHeight:(CGFloat)estimatedRowHeight
+{
+  self.tableView.estimatedRowHeight = estimatedRowHeight;
+}
+
+- (UIEdgeInsets)separatorInset
+{
+  return self.tableView.separatorInset;
+}
+
+- (void)setSeparatorInset:(UIEdgeInsets)separatorInset
+{
+  self.tableView.separatorInset = separatorInset;
+}
+
+
 - (UIView *)backgroundView
 {
   return self.tableView.backgroundView;

@@ -78,6 +78,7 @@ typedef enum RATreeViewRowAnimation {
 @optional
 // Configuring Rows for the Table View
 - (CGFloat)treeView:(RATreeView *)treeView heightForRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo;
+- (CGFloat)treeView:(RATreeView *)treeView estimatedHeightForRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo NS_AVAILABLE_IOS(7_0);
 - (NSInteger)treeView:(RATreeView *)treeView indentationLevelForRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo;
 - (void)treeView:(RATreeView *)treeView willDisplayCell:(UITableViewCell *)cell forItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo;
 
@@ -135,6 +136,8 @@ typedef enum RATreeViewRowAnimation {
 @property (nonatomic) RATreeViewCellSeparatorStyle separatorStyle;
 @property (strong, nonatomic) UIColor *separatorColor;
 @property (nonatomic) CGFloat rowHeight;
+@property (nonatomic) CGFloat estimatedRowHeight NS_AVAILABLE_IOS(7_0);
+@property (nonatomic) UIEdgeInsets separatorInset NS_AVAILABLE_IOS(7_0);
 @property (strong, nonatomic) UIView *backgroundView;
 
 //Expanding and Collapsing Rows
