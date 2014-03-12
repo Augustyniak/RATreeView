@@ -86,7 +86,7 @@
 {
   [self.tableView beginUpdates];
   NSMutableArray *indexes = [NSMutableArray array];
-  for (int index = [treeNode startIndex] + 1; index <= [treeNode endIndex]; index++) {
+  for (NSInteger index = [treeNode startIndex] + 1; index <= [treeNode endIndex]; index++) {
     [indexes addObject:[NSIndexPath indexPathForRow:index inSection:0]];
   }
   
@@ -106,7 +106,7 @@
   [self.tableView beginUpdates];
   [treeNode expand];
   NSMutableArray *indexes = [NSMutableArray array];
-  for (int index = [treeNode startIndex] + 1; index <= [treeNode endIndex]; index++) {
+  for (NSInteger index = [treeNode startIndex] + 1; index <= [treeNode endIndex]; index++) {
     [indexes addObject:[NSIndexPath indexPathForRow:index inSection:0]];
   }
   
