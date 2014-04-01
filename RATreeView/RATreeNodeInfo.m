@@ -30,7 +30,7 @@
 @property (nonatomic, readwrite) NSInteger siblingsNumber;
 @property (nonatomic, readwrite) NSInteger positionInSiblings;
 
-@property (strong, nonatomic, readwrite) RATreeNodeInfo *parent;
+@property (weak, nonatomic, readwrite) RATreeNodeInfo *parent;
 @property (strong, nonatomic, readwrite) NSArray *children;
 
 @property (strong, nonatomic, readwrite) RATreeNode *parentTreeNode;
