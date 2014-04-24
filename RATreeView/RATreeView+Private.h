@@ -1,4 +1,3 @@
-
 //The MIT License (MIT)
 //
 //Copyright (c) 2013 Rafał Augustyniak
@@ -27,7 +26,6 @@
 @property (weak, nonatomic) UITableView *tableView;
 
 - (RATreeNode *)treeNodeForIndex:(NSInteger)index;
-- (NSIndexPath *)indexPathForItem:(id)item;
 - (void)setupTreeStructure;
 
 - (void)collapseCellForTreeNode:(RATreeNode *)treeNode;
