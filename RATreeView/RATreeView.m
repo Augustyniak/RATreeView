@@ -1,4 +1,3 @@
-
 //The MIT License (MIT)
 //
 //Copyright (c) 2013 Rafał Augustyniak
@@ -298,6 +297,11 @@
 - (NSArray *)visibleCells
 {
   return [self.tableView visibleCells];
+}
+
+- (NSIndexPath *)indexPathForItem:(id)item
+{
+    return [NSIndexPath indexPathForRow:[self.treeNodeCollectionController indexForItem:item] inSection:0];
 }
 
 #pragma mark Scrolling the TreeView
