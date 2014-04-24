@@ -1,4 +1,3 @@
-
 //The MIT License (MIT)
 //
 //Copyright (c) 2013 Rafał Augustyniak
@@ -68,11 +67,6 @@
 - (RATreeNode *)treeNodeForIndex:(NSInteger)index
 {
   return [self.treeNodeCollectionController treeNodeForIndex:index];
-}
-
-- (NSIndexPath *)indexPathForItem:(id)item
-{
-  return [NSIndexPath indexPathForRow:[self.treeNodeCollectionController indexForItem:item] inSection:0];
 }
 
 #pragma mark Collapsing and Expanding Rows
