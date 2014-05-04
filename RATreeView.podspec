@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "RATreeView"
-  s.version      = "0.2.0"
+  s.version      = "0.2.1"
   s.summary      = "RATreeView provide you a great support to display the tree structures on IOS."
   s.homepage     = "https://github.com/Augustyniak/RATreeView"
   s.screenshots  = "https://raw.github.com/Augustyniak/RATreeView/master/Screens/animation.gif"

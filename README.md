@@ -14,7 +14,7 @@ RATreeView is implemented using ARC.
 To use RATreeView in your app, just drag RATreeView class files into your project and add *Quartz* framework to your project (*Quartz* is required since version 0.1.0). You can also setup RATreeView in your project using Pods. Nextly, import RATreeView.h header file and use it!
 
 ####Podfile
-     pod "RATreeView", "~> 0.2.0" 
+     pod "RATreeView", "~> 0.2.1" 
 
 
 ##Usage
