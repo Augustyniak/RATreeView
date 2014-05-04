@@ -216,6 +216,9 @@
 {
   NSInteger index = [self.treeNodeCollectionController indexForItem:item];
   RATreeNode *treeNode = [self.treeNodeCollectionController treeNodeForIndex:index];
+  if (treeNode.expanded) {
+    return;
+  }
   [self expandCellForTreeNode:treeNode withRowAnimation:animation];
 }
 
