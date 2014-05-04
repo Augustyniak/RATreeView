@@ -1,4 +1,5 @@
-#RATreeView (iOS 5.0+)
+RATreeView (iOS 5.0+) [![Build Status](https://travis-ci.org/Augustyniak/RATreeView.svg?branch=master)](https://travis-ci.org/Augustyniak/RATreeView)
+==============
 
 [![](https://raw.github.com/Augustyniak/RATreeView/master/Screens/animation.gif)](https://raw.github.com/Augustyniak/RATreeView/master/Screens/animation.gif)
 
