@@ -1,4 +1,3 @@
-
 //The MIT License (MIT)
 //
 //Copyright (c) 2013 Rafał Augustyniak
@@ -163,6 +162,7 @@ typedef enum RATreeViewRowAnimation {
 // Accessing Cells
 - (UITableViewCell *)cellForItem:(id)item;
 - (NSArray *)visibleCells;
+- (NSIndexPath *)indexPathForItem:(id)item;
 
 // Scrolling the TreeView
 - (void)scrollToRowForItem:(id)item atScrollPosition:(RATreeViewScrollPosition)scrollPosition animated:(BOOL)animated;
