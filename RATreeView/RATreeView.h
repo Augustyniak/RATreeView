@@ -50,13 +50,14 @@ typedef enum RATreeViewScrollPosition {
 } RATreeViewScrollPosition;
 
 typedef enum RATreeViewRowAnimation {
-  RATreeViewRowAnimationNone = 0,
+  RATreeViewRowAnimationFade = 0,
   RATreeViewRowAnimationRight,
   RATreeViewRowAnimationLeft,
   RATreeViewRowAnimationTop,
   RATreeViewRowAnimationBottom,
+  RATreeViewRowAnimationNone,
   RATreeViewRowAnimationMiddle,
-  RATreeViewRowAnimationAutomatic
+  RATreeViewRowAnimationAutomatic = 100
 } RATreeViewRowAnimation;
 
 

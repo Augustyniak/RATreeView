@@ -28,6 +28,8 @@
 + (UITableViewRowAnimation)tableViewRowAnimationForTreeViewRowAnimation:(RATreeViewRowAnimation)rowAnimation
 {
   switch (rowAnimation) {
+    case RATreeViewRowAnimationFade:
+      return UITableViewRowAnimationFade;
     case RATreeViewRowAnimationNone:
       return UITableViewRowAnimationNone;
     case RATreeViewRowAnimationAutomatic:
