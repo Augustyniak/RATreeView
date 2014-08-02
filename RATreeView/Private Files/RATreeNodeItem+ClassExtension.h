@@ -1,7 +1,7 @@
 
 //The MIT License (MIT)
 //
-//Copyright (c) 2013 Rafał Augustyniak
+//Copyright (c) 2014 Rafał Augustyniak
 //
 //Permission is hereby granted, free of charge, to any person obtaining a copy of
 //this software and associated documentation files (the "Software"), to deal in
@@ -18,33 +18,14 @@
 //CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
-@class RATreeNodeInfo;
+#import "RATreeNodeItem.h"
 
-@interface RATreeNode : NSObject
+@interface RATreeNodeItem ()
 
-@property (nonatomic, getter = isExpanded, readonly) BOOL expanded;
-@property (nonatomic, getter = isVisible, readonly) BOOL visible;
+@property (nonatomic, strong) id item;
+@property (nonatomic, weak) id parent;
+@property (nonatomic) NSInteger index;
 
-@property (weak, nonatomic) RATreeNode *parent;
-@property (strong, nonatomic) NSArray *children;
-
-@property (strong, nonatomic, readonly) RATreeNodeInfo *treeNodeInfo;
-@property (strong, nonatomic, readonly) id item;
-
-@property (strong, nonatomic, readonly) NSArray *descendants;
-
-- (id)initWithItem:(id)item parent:(RATreeNode *)parent expanded:(BOOL)expanded;
-- (void)addChildNode:(RATreeNode *)child;
-
-- (NSArray *)visibleDescendants;
-- (NSInteger)numberOfVisibleDescendants;
-
-- (void)collapse;
-- (void)expand;
-
-- (NSInteger)startIndex;
-- (NSInteger)endIndex;
-
+@property (nonatomic, weak) id<RATreeNodeItemDataSource> dataSource;
 
 @end

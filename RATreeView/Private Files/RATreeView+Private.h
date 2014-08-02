@@ -17,8 +17,23 @@
 //IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
-#import <UIKit/UIKit.h>
 
-@interface RAViewController : UIViewController
+#import "RATreeView.h"
+@class RATreeNode;
+
+@interface RATreeView (Private)
+
+- (RATreeNode *)treeNodeForIndexPath:(NSIndexPath *)indexPath;
+- (NSIndexPath *)indexPathForItem:(id)item;
+
+- (void)setupTreeStructure;
+
+- (void)collapseCellForTreeNode:(RATreeNode *)treeNode;
+- (void)collapseCellForTreeNode:(RATreeNode *)treeNode withRowAnimation:(RATreeViewRowAnimation)rowAnimation;
+- (void)expandCellForTreeNode:(RATreeNode *)treeNode;
+- (void)expandCellForTreeNode:(RATreeNode *)treeNode withRowAnimation:(RATreeViewRowAnimation)rowAnimation;
+
+- (void)insertItemAtIndex:(NSInteger)index inParent:(id)parent withAnimation:(RATreeViewRowAnimation)animation;
+- (void)removeItemAtIndex:(NSInteger)indexe inParent:(id)parent withAnimation:(RATreeViewRowAnimation)animation;
 
 @end

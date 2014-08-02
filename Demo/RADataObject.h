@@ -29,4 +29,7 @@
 
 + (id)dataObjectWithName:(NSString *)name children:(NSArray *)children;
 
+- (void)addChild:(id)child;
+- (void)removeChild:(id)child;
+
 @end

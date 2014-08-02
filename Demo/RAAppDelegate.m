@@ -1,7 +1,7 @@
 
 //The MIT License (MIT)
 //
-//Copyright (c) 2013 Rafał Augustyniak
+//Copyright (c) 2014 Rafał Augustyniak
 //
 //Permission is hereby granted, free of charge, to any person obtaining a copy of
 //this software and associated documentation files (the "Software"), to deal in
@@ -26,16 +26,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-  if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-      self.viewController = [[RAViewController alloc] initWithNibName:@"RAViewController_iPhone" bundle:nil];
-  } else {
-      self.viewController = [[RAViewController alloc] initWithNibName:@"RAViewController_iPad" bundle:nil];
-  }
-  self.window.rootViewController = self.viewController;
-    [self.window makeKeyAndVisible];
-    return YES;
+  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+  self.viewController = [[RAViewController alloc] initWithNibName:@"RAViewController_iPhone" bundle:nil];
+  
+  UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+  self.window.rootViewController = navigationController;
+  [self.window makeKeyAndVisible];
+  return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

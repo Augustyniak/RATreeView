@@ -1,7 +1,7 @@
 
 //The MIT License (MIT)
 //
-//Copyright (c) 2013 Rafał Augustyniak
+//Copyright (c) 2014 Rafał Augustyniak
 //
 //Permission is hereby granted, free of charge, to any person obtaining a copy of
 //this software and associated documentation files (the "Software"), to deal in
@@ -22,14 +22,15 @@
 #import "RATreeView.h"
 #import "RADataObject.h"
 
-#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+#import "RATableViewCell.h"
 
 
 @interface RAViewController () <RATreeViewDelegate, RATreeViewDataSource>
 
 @property (strong, nonatomic) NSArray *data;
-@property (strong, nonatomic) id expanded;
 @property (weak, nonatomic) RATreeView *treeView;
+
+@property (strong, nonatomic) UIBarButtonItem *editButton;
 
 @end
 
@@ -39,50 +40,26 @@
 {
   [super viewDidLoad];
   
-  RADataObject *phone1 = [RADataObject dataObjectWithName:@"Phone 1" children:nil];
-  RADataObject *phone2 = [RADataObject dataObjectWithName:@"Phone 2" children:nil];
-  RADataObject *phone3 = [RADataObject dataObjectWithName:@"Phone 3" children:nil];
-  RADataObject *phone4 = [RADataObject dataObjectWithName:@"Phone 4" children:nil];
+  [self loadData];
   
-  RADataObject *phone = [RADataObject dataObjectWithName:@"Phones"
-                                                children:[NSArray arrayWithObjects:phone1, phone2, phone3, phone4, nil]];
-  
-  RADataObject *notebook1 = [RADataObject dataObjectWithName:@"Notebook 1" children:nil];
-  RADataObject *notebook2 = [RADataObject dataObjectWithName:@"Notebook 2" children:nil];
-  self.expanded = notebook1;
-  
-  RADataObject *computer1 = [RADataObject dataObjectWithName:@"Computer 1"
-                                                    children:[NSArray arrayWithObjects:notebook1, notebook2, nil]];
-  RADataObject *computer2 = [RADataObject dataObjectWithName:@"Computer 2" children:nil];
-  RADataObject *computer3 = [RADataObject dataObjectWithName:@"Computer 3" children:nil];
-  
-  RADataObject *computer = [RADataObject dataObjectWithName:@"Computers"
-                                                   children:[NSArray arrayWithObjects:computer1, computer2, computer3, nil]];
-  RADataObject *car = [RADataObject dataObjectWithName:@"Cars" children:nil];
-  RADataObject *bike = [RADataObject dataObjectWithName:@"Bikes" children:nil];
-  RADataObject *house = [RADataObject dataObjectWithName:@"Houses" children:nil];
-  RADataObject *flats = [RADataObject dataObjectWithName:@"Flats" children:nil];
-  RADataObject *motorbike = [RADataObject dataObjectWithName:@"Motorbikes" children:nil];
-  RADataObject *drinks = [RADataObject dataObjectWithName:@"Drinks" children:nil];
-  RADataObject *food = [RADataObject dataObjectWithName:@"Food" children:nil];
-  RADataObject *sweets = [RADataObject dataObjectWithName:@"Sweets" children:nil];
-  RADataObject *watches = [RADataObject dataObjectWithName:@"Watches" children:nil];
-  RADataObject *walls = [RADataObject dataObjectWithName:@"Walls" children:nil];
-  
-  self.data = [NSArray arrayWithObjects:phone, computer, car, bike, house, flats, motorbike, drinks, food, sweets, watches, walls, nil];
-  
-  RATreeView *treeView = [[RATreeView alloc] initWithFrame:self.view.frame];
+  RATreeView *treeView = [[RATreeView alloc] initWithFrame:self.view.bounds];
   
   treeView.delegate = self;
   treeView.dataSource = self;
   treeView.separatorStyle = RATreeViewCellSeparatorStyleSingleLine;
   
   [treeView reloadData];
-  [treeView expandRowForItem:phone withRowAnimation:RATreeViewRowAnimationLeft]; //expands Row
-  [treeView setBackgroundColor:UIColorFromRGB(0xF7F7F7)];
+  [treeView setBackgroundColor:[UIColor colorWithWhite:0.97 alpha:1.0]];
+  
   
   self.treeView = treeView;
-  [self.view addSubview:treeView];
+  [self.view insertSubview:treeView atIndex:0];
+  
+  [self.navigationController setNavigationBarHidden:NO];
+  self.navigationItem.title = NSLocalizedString(@"Things", nil);
+  [self updateNavigationItemButton];
+  
+  [self.treeView registerNib:[UINib nibWithNibName:NSStringFromClass([RATableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([RATableViewCell class])];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -99,56 +76,98 @@
   self.treeView.frame = self.view.bounds;
 }
 
+
+#pragma mark - Actions 
+
+- (void)editButtonTapped:(id)sender
+{
+  [self.treeView setEditing:!self.treeView.isEditing animated:YES];
+  [self updateNavigationItemButton];
+}
+
+- (void)updateNavigationItemButton
+{
+  UIBarButtonSystemItem systemItem = self.treeView.isEditing ? UIBarButtonSystemItemDone : UIBarButtonSystemItemEdit;
+  self.editButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:systemItem target:self action:@selector(editButtonTapped:)];
+  self.navigationItem.rightBarButtonItem = self.editButton;
+}
+
+
 #pragma mark TreeView Delegate methods
-- (CGFloat)treeView:(RATreeView *)treeView heightForRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo
+
+- (CGFloat)treeView:(RATreeView *)treeView heightForRowForItem:(id)item
 {
-  return 47;
+  return 44;
 }
 
-- (NSInteger)treeView:(RATreeView *)treeView indentationLevelForRowForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo
-{
-  return 3 * treeNodeInfo.treeDepthLevel;
-}
-
-- (BOOL)treeView:(RATreeView *)treeView shouldExpandItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo
+- (BOOL)treeView:(RATreeView *)treeView canEditRowForItem:(id)item
 {
   return YES;
 }
 
-- (BOOL)treeView:(RATreeView *)treeView shouldItemBeExpandedAfterDataReload:(id)item treeDepthLevel:(NSInteger)treeDepthLevel
+- (void)treeView:(RATreeView *)treeView willExpandRowForItem:(id)item
 {
-  if ([item isEqual:self.expanded]) {
-    return YES;
-  }
-  
-  return NO;
+  RATableViewCell *cell = (RATableViewCell *)[treeView cellForItem:item];
+  [cell setAdditionButtonHidden:NO animated:YES];
 }
 
-- (void)treeView:(RATreeView *)treeView willDisplayCell:(UITableViewCell *)cell forItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo
+- (void)treeView:(RATreeView *)treeView willCollapseRowForItem:(id)item
 {
-  if (treeNodeInfo.treeDepthLevel == 0) {
-    cell.backgroundColor = UIColorFromRGB(0xF7F7F7);
-  } else if (treeNodeInfo.treeDepthLevel == 1) {
-    cell.backgroundColor = UIColorFromRGB(0xD1EEFC);
-  } else if (treeNodeInfo.treeDepthLevel == 2) {
-    cell.backgroundColor = UIColorFromRGB(0xE0F8D8);
+  RATableViewCell *cell = (RATableViewCell *)[treeView cellForItem:item];
+  [cell setAdditionButtonHidden:YES animated:YES];
+}
+
+- (void)treeView:(RATreeView *)treeView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowForItem:(id)item
+{
+  if (editingStyle != UITableViewCellEditingStyleDelete) {
+    return;
+  }
+  
+  RADataObject *parent = [self.treeView parentForItem:item];
+  NSInteger index = 0;
+  
+  if (parent == nil) {
+    index = [self.data indexOfObject:item];
+    NSMutableArray *children = [self.data mutableCopy];
+    [children removeObject:item];
+    self.data = [children copy];
+    
+  } else {
+    index = [parent.children indexOfObject:item];
+    [parent removeChild:item];
+  }
+  
+  [self.treeView deleteItemsAtIndexes:[NSIndexSet indexSetWithIndex:index] inParent:parent withAnimation:RATreeViewRowAnimationRight];
+  if (parent) {
+    [self.treeView reloadRowsForItems:@[parent] withRowAnimation:RATreeViewRowAnimationNone];
   }
 }
 
 #pragma mark TreeView Data Source
 
-- (UITableViewCell *)treeView:(RATreeView *)treeView cellForItem:(id)item treeNodeInfo:(RATreeNodeInfo *)treeNodeInfo
+- (UITableViewCell *)treeView:(RATreeView *)treeView cellForItem:(id)item
 {
-  NSInteger numberOfChildren = [treeNodeInfo.children count];
+  RADataObject *dataObject = item;
   
-  UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-  cell.detailTextLabel.text = [NSString stringWithFormat:@"Number of children %@", [@(numberOfChildren) stringValue]];
-  cell.textLabel.text = ((RADataObject *)item).name;
+  NSInteger level = [self.treeView levelForCellForItem:item];
+  NSInteger numberOfChildren = [dataObject.children count];
+  NSString *detailText = [NSString localizedStringWithFormat:@"Number of children %@", [@(numberOfChildren) stringValue]];
+  BOOL expanded = [self.treeView isCellForItemExpanded:item];
+  
+  RATableViewCell *cell = [self.treeView dequeueReusableCellWithIdentifier:NSStringFromClass([RATableViewCell class])];
+  [cell setupWithTitle:dataObject.name detailText:detailText level:level additionButtonHidden:!expanded];
   cell.selectionStyle = UITableViewCellSelectionStyleNone;
   
-  if (treeNodeInfo.treeDepthLevel == 0) {
-    cell.detailTextLabel.textColor = [UIColor blackColor];
-  }
+  __weak typeof(self) weakSelf = self;
+  cell.additionButtonTapAction = ^(id sender){
+    if (![weakSelf.treeView isCellForItemExpanded:dataObject] || weakSelf.treeView.isEditing) {
+      return;
+    }
+    RADataObject *newDataObject = [[RADataObject alloc] initWithName:@"Added value" children:@[]];
+    [dataObject addChild:newDataObject];
+    [weakSelf.treeView insertItemsAtIndexes:[NSIndexSet indexSetWithIndex:0] inParent:dataObject withAnimation:RATreeViewRowAnimationLeft];
+    [weakSelf.treeView reloadRowsForItems:@[dataObject] withRowAnimation:RATreeViewRowAnimationNone];
+  };
   
   return cell;
 }
@@ -170,7 +189,44 @@
     return [self.data objectAtIndex:index];
   }
   
-  return [data.children objectAtIndex:index];
+  return data.children[index];
+}
+
+#pragma mark - Helpers 
+
+- (void)loadData
+{
+  RADataObject *phone1 = [RADataObject dataObjectWithName:@"Phone 1" children:nil];
+  RADataObject *phone2 = [RADataObject dataObjectWithName:@"Phone 2" children:nil];
+  RADataObject *phone3 = [RADataObject dataObjectWithName:@"Phone 3" children:nil];
+  RADataObject *phone4 = [RADataObject dataObjectWithName:@"Phone 4" children:nil];
+  
+  RADataObject *phone = [RADataObject dataObjectWithName:@"Phones"
+                                                children:[NSArray arrayWithObjects:phone1, phone2, phone3, phone4, nil]];
+  
+  RADataObject *notebook1 = [RADataObject dataObjectWithName:@"Notebook 1" children:nil];
+  RADataObject *notebook2 = [RADataObject dataObjectWithName:@"Notebook 2" children:nil];
+  
+  RADataObject *computer1 = [RADataObject dataObjectWithName:@"Computer 1"
+                                                    children:[NSArray arrayWithObjects:notebook1, notebook2, nil]];
+  RADataObject *computer2 = [RADataObject dataObjectWithName:@"Computer 2" children:nil];
+  RADataObject *computer3 = [RADataObject dataObjectWithName:@"Computer 3" children:nil];
+  
+  RADataObject *computer = [RADataObject dataObjectWithName:@"Computers"
+                                                   children:[NSArray arrayWithObjects:computer1, computer2, computer3, nil]];
+  RADataObject *car = [RADataObject dataObjectWithName:@"Cars" children:nil];
+  RADataObject *bike = [RADataObject dataObjectWithName:@"Bikes" children:nil];
+  RADataObject *house = [RADataObject dataObjectWithName:@"Houses" children:nil];
+  RADataObject *flats = [RADataObject dataObjectWithName:@"Flats" children:nil];
+  RADataObject *motorbike = [RADataObject dataObjectWithName:@"Motorbikes" children:nil];
+  RADataObject *drinks = [RADataObject dataObjectWithName:@"Drinks" children:nil];
+  RADataObject *food = [RADataObject dataObjectWithName:@"Food" children:nil];
+  RADataObject *sweets = [RADataObject dataObjectWithName:@"Sweets" children:nil];
+  RADataObject *watches = [RADataObject dataObjectWithName:@"Watches" children:nil];
+  RADataObject *walls = [RADataObject dataObjectWithName:@"Walls" children:nil];
+  
+  self.data = [NSArray arrayWithObjects:phone, computer, car, bike, house, flats, motorbike, drinks, food, sweets, watches, walls, nil];
+
 }
 
 @end

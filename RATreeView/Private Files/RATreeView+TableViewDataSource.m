@@ -1,7 +1,7 @@
 
 //The MIT License (MIT)
 //
-//Copyright (c) 2013 Rafał Augustyniak
+//Copyright (c) 2014 Rafał Augustyniak
 //
 //Permission is hereby granted, free of charge, to any person obtaining a copy of
 //this software and associated documentation files (the "Software"), to deal in
@@ -20,8 +20,10 @@
 
 #import "RATreeView+TableViewDataSource.h"
 #import "RATreeView+Private.h"
+#import "RATreeView_ClassExtension.h"
 
 #import "RATreeNodeCollectionController.h"
+#import "RATreeNodeController.h"
 #import "RATreeNode.h"
 
 @implementation RATreeView (TableViewDataSource)
@@ -36,30 +38,31 @@
   if (self.treeNodeCollectionController == nil) {
     [self setupTreeStructure];
   }
-  return [self.treeNodeCollectionController.root numberOfVisibleDescendants];
+  return self.treeNodeCollectionController.numberOfVisibleRowsForItems;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  RATreeNode *treeNode = [self.treeNodeCollectionController treeNodeForIndex:indexPath.row];
-  return [self.dataSource treeView:self cellForItem:treeNode.item treeNodeInfo:[treeNode treeNodeInfo]];
+  RATreeNode *treeNode = [self treeNodeForIndexPath:indexPath];
+  return [self.dataSource treeView:self cellForItem:treeNode.item];
 }
 
-#pragma mark Inserting or Deleting Table Rows
+
+#pragma mark - Inserting or Deleting Table Rows
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  if ([self.dataSource respondsToSelector:@selector(treeView:commitEditingStyle:forRowForItem:treeNodeInfo:)]) {
-    RATreeNode *treeNode = [self treeNodeForIndex:indexPath.row];
-    [self.dataSource treeView:self commitEditingStyle:editingStyle forRowForItem:treeNode.item treeNodeInfo:[treeNode treeNodeInfo]];
+  if ([self.dataSource respondsToSelector:@selector(treeView:commitEditingStyle:forRowForItem:)]) {
+    RATreeNode *treeNode = [self treeNodeForIndexPath:indexPath];
+    [self.dataSource treeView:self commitEditingStyle:editingStyle forRowForItem:treeNode.item];
   }
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  if ([self.dataSource respondsToSelector:@selector(treeView:canEditRowForItem:treeNodeInfo:)]) {
-    RATreeNode *treeNode = [self treeNodeForIndex:indexPath.row];
-    return [self.dataSource treeView:self canEditRowForItem:treeNode.item treeNodeInfo:[treeNode treeNodeInfo]];
+  if ([self.dataSource respondsToSelector:@selector(treeView:canEditRowForItem:)]) {
+    RATreeNode *treeNode = [self treeNodeForIndexPath:indexPath];
+    return [self.dataSource treeView:self canEditRowForItem:treeNode.item];
   }
   return YES;
 }

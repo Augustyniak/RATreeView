@@ -17,8 +17,19 @@
 //IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
-#import <UIKit/UIKit.h>
 
-@interface RAViewController : UIViewController
+#import "RATreeNodeItem.h"
+
+@protocol RATreeNodeItemDataSource <NSObject>
+
+- (id)itemForTreeNodeItem:(RATreeNodeItem *)treeNodeItem;
+
+@end
+
+@interface RATreeNodeItem (Private)
+
+@property (nonatomic, strong, readonly) id parent;
+@property (nonatomic, readonly) NSInteger index;
+@property (nonatomic, weak) id<RATreeNodeItemDataSource> dataSource;
 
 @end

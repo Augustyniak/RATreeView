@@ -1,7 +1,7 @@
 
 //The MIT License (MIT)
 //
-//Copyright (c) 2013 Rafał Augustyniak
+//Copyright (c) 2014 Rafał Augustyniak
 //
 //Permission is hereby granted, free of charge, to any person obtaining a copy of
 //this software and associated documentation files (the "Software"), to deal in
@@ -27,7 +27,7 @@
 {
   self = [super init];
   if (self) {
-    self.children = children;
+    self.children = [NSArray arrayWithArray:children];
     self.name = name;
   }
   return self;
@@ -36,6 +36,20 @@
 + (id)dataObjectWithName:(NSString *)name children:(NSArray *)children
 {
   return [[self alloc] initWithName:name children:children];
+}
+
+- (void)addChild:(id)child
+{
+  NSMutableArray *children = [self.children mutableCopy];
+  [children insertObject:child atIndex:0];
+  self.children = [children copy];
+}
+
+- (void)removeChild:(id)child
+{
+  NSMutableArray *children = [self.children mutableCopy];
+  [children removeObject:child];
+  self.children = [children copy];
 }
 
 @end

@@ -17,8 +17,19 @@
 //IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
-#import <UIKit/UIKit.h>
 
-@interface RAViewController : UIViewController
+#import "RATreeView+RATreeNodeCollectionControllerDataSource.h"
+
+@implementation RATreeView (RATreeNodeCollectionControllerDataSource)
+
+- (NSInteger)treeNodeCollectionController:(RATreeNodeCollectionController *)controller numberOfChildrenForItem:(id)item
+{
+  return [self.dataSource treeView:self numberOfChildrenOfItem:item];
+}
+
+- (id)treeNodeCollectionController:(RATreeNodeCollectionController *)controller child:(NSInteger)childIndex ofItem:(id)item
+{
+  return [self.dataSource treeView:self child:childIndex ofItem:item];
+}
 
 @end

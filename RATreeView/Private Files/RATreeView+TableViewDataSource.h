@@ -1,7 +1,7 @@
 
 //The MIT License (MIT)
 //
-//Copyright (c) 2013 Rafał Augustyniak
+//Copyright (c) 2014 Rafał Augustyniak
 //
 //Permission is hereby granted, free of charge, to any person obtaining a copy of
 //this software and associated documentation files (the "Software"), to deal in
@@ -20,8 +20,6 @@
 
 #import "RATreeView.h"
 
-@interface RATreeView (UIScrollView)
+@interface RATreeView (TableViewDataSource) <UITableViewDataSource>
 
 @end
-
-

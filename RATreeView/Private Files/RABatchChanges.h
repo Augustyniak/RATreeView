@@ -1,7 +1,7 @@
 
 //The MIT License (MIT)
 //
-//Copyright (c) 2013 Rafał Augustyniak
+//Copyright (c) 2014 Rafał Augustyniak
 //
 //Permission is hereby granted, free of charge, to any person obtaining a copy of
 //this software and associated documentation files (the "Software"), to deal in
@@ -19,16 +19,19 @@
 //
 
 #import <Foundation/Foundation.h>
-@class RATreeNode;
-@class RATreeNodeInfo;
 
-@interface RATreeNodeCollectionController : NSObject
 
-@property (strong, nonatomic) RATreeNode *root;
+@interface RABatchChanges : NSObject
 
-- (void)addTreeNode:(RATreeNode *)treeNode;
+- (void)beginUpdates;
+- (void)endUpdates;
 
-- (RATreeNode *)treeNodeForIndex:(NSInteger)index;
-- (NSInteger)indexForItem:(id)item;
+- (void)expandItemWithBlock:(void(^)())update atIndex:(NSInteger)index;
+- (void)insertItemWithBlock:(void(^)())update atIndex:(NSInteger)index;
+
+- (void)collapseItemWithBlock:(void(^)())update lastIndex:(NSInteger)index;
+- (void)deleteItemWithBlock:(void(^)())update lastIndex:(NSInteger)index;
+
+- (void)moveItemWithDeletionBlock:(void (^)())deletionUpdate fromLastIndex:(NSInteger)lastIndex additionBlock:(void (^)())additionUpdate toIndex:(NSInteger)index;
 
 @end

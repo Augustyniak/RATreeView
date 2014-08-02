@@ -1,7 +1,7 @@
 
 //The MIT License (MIT)
 //
-//Copyright (c) 2013 Rafał Augustyniak
+//Copyright (c) 2014 Rafał Augustyniak
 //
 //Permission is hereby granted, free of charge, to any person obtaining a copy of
 //this software and associated documentation files (the "Software"), to deal in
@@ -18,22 +18,16 @@
 //CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "RATreeView.h"
-@class RATreeNode;
+#import <Foundation/Foundation.h>
 
-@interface RATreeView (Private)
+@class RATreeNodeItem;
 
-@property (strong, nonatomic) RATreeNodeCollectionController *treeNodeCollectionController;
-@property (weak, nonatomic) UITableView *tableView;
 
-- (RATreeNode *)treeNodeForIndex:(NSInteger)index;
-- (NSIndexPath *)indexPathForItem:(id)item;
-- (void)setupTreeStructure;
+@interface RATreeNode : NSObject
+ 
+@property (nonatomic, readonly) BOOL expanded;
+@property (strong, nonatomic, readonly) id item;
 
-- (void)collapseCellForTreeNode:(RATreeNode *)treeNode;
-- (void)collapseCellForTreeNode:(RATreeNode *)treeNode withRowAnimation:(RATreeViewRowAnimation)rowAnimation;
-- (void)expandCellForTreeNode:(RATreeNode *)treeNode;
-- (void)expandCellForTreeNode:(RATreeNode *)treeNode withRowAnimation:(RATreeViewRowAnimation)rowAnimation;
-
+- (id)initWithLazyItem:(RATreeNodeItem *)item expanded:(BOOL)expanded;
 
 @end

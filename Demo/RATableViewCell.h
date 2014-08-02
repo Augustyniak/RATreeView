@@ -17,8 +17,15 @@
 //IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
+
 #import <UIKit/UIKit.h>
 
-@interface RAViewController : UIViewController
+@interface RATableViewCell : UITableViewCell
+
+@property (nonatomic, copy) void (^additionButtonTapAction)(id sender);
+@property (nonatomic) BOOL additionButtonHidden;
+
+- (void)setupWithTitle:(NSString *)title detailText:(NSString *)detailText level:(NSInteger)level additionButtonHidden:(BOOL)additionButtonHidden;
+- (void)setAdditionButtonHidden:(BOOL)additionButtonHidden animated:(BOOL)animated;
 
 @end

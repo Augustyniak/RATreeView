@@ -1,7 +1,7 @@
 
 //The MIT License (MIT)
 //
-//Copyright (c) 2013 Rafał Augustyniak
+//Copyright (c) 2014 Rafał Augustyniak
 //
 //Permission is hereby granted, free of charge, to any person obtaining a copy of
 //this software and associated documentation files (the "Software"), to deal in
@@ -18,8 +18,29 @@
 //CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "RATreeView.h"
+#import "RATreeNodeItem.h"
+#import "RATreeNodeItem+Private.h"
+#import "RATreeNodeItem+ClassExtension.h"
 
-@interface RATreeView (TableViewDataSource) <UITableViewDataSource>
+@implementation RATreeNodeItem
+
+- (instancetype)initWithParent:(id)parent index:(NSInteger)index
+{
+  self = [super init];
+  if (self) {
+    _parent = parent;
+    _index = index;
+  }
+  
+  return self;
+}
+
+- (id)item
+{
+  if (!_item) {
+    _item = [self.dataSource itemForTreeNodeItem:self];
+  }
+  return _item;
+}
 
 @end
