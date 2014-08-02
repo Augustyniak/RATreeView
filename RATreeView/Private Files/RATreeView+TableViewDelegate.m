@@ -86,8 +86,12 @@
   if ([self.delegate respondsToSelector:@selector(treeView:willSelectRowForItem:)]) {
     RATreeNode *treeNode = [self treeNodeForIndexPath:indexPath];
     id item = [self.delegate treeView:self willSelectRowForItem:treeNode.item];
-    NSIndexPath *newIndexPath = [self indexPathForItem:item];
-    return (newIndexPath.row == -1) ? indexPath : newIndexPath;
+    if (item) {
+      NSIndexPath *newIndexPath = [self indexPathForItem:item];
+      return (newIndexPath.row == NSNotFound) ? indexPath : newIndexPath;
+    } else {
+      return nil;
+    }
   }
   return indexPath;
 }
@@ -124,7 +128,7 @@
     RATreeNode *treeNode = [self treeNodeForIndexPath:indexPath];
     id item = [self.delegate treeView:self willDeselectRowForItem:treeNode.item];
     NSIndexPath *delegateIndexPath = [self indexPathForItem:item];
-    return delegateIndexPath.row == -1 ? indexPath : delegateIndexPath;
+    return delegateIndexPath.row == NSNotFound ? indexPath : delegateIndexPath;
   } else {
     return indexPath;
   }
