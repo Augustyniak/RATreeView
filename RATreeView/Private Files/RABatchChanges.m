@@ -123,7 +123,7 @@ typedef NS_ENUM(NSInteger, RABatchChangeType) {
 {
   self.batchChangesCounter--;
   if (self.batchChangesCounter == 0) {
-    [self.operationsStorage sortedArrayUsingSelector:@selector(compare:)];
+    [self.operationsStorage sortUsingSelector:@selector(compare:)];
     
     for (RABatchChangeEntity *entity in self.operationsStorage) {
       entity.updatesBlock();
