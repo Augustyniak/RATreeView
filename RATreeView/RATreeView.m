@@ -187,6 +187,16 @@
   self.tableView.separatorInset = separatorInset;
 }
 
+- (UIEdgeInsets)layoutMargins
+{
+    return self.tableView.layoutMargins;
+}
+
+- (void)setLayoutMargins:(UIEdgeInsets)layoutMargins
+{
+    self.tableView.layoutMargins = layoutMargins;
+}
+
 - (UIView *)backgroundView
 {
   return self.tableView.backgroundView;
