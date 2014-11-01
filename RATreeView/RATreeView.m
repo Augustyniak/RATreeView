@@ -378,7 +378,7 @@
 - (id)itemForRowAtPoint:(CGPoint)point
 {
   NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:point];
-  return [self treeNodeForIndexPath:indexPath].item;
+  return !indexPath ? nil : [self treeNodeForIndexPath:indexPath].item;
 }
 
 - (id)itemsForRowsInRect:(CGRect)rect
