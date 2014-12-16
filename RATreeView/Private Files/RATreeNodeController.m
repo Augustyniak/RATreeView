@@ -29,6 +29,7 @@
 
 @property (nonatomic, weak) RATreeNodeController *parentController;
 @property (nonatomic, strong) NSMutableArray *mutablechildControllers;
+@property (nonatomic, readwrite) NSInteger index;
 
 @end
 
@@ -41,6 +42,7 @@
     _parentController = parentController;
     _treeNode = [[RATreeNode alloc] initWithLazyItem:item expanded:expanded];
     _mutablechildControllers = [NSMutableArray array];
+    _index = NSIntegerMin;
   }
   
   return self;
@@ -142,6 +144,9 @@
 
 - (NSInteger)index
 {
+  if (_index != NSIntegerMin)
+    return _index;
+  
   if (!self.parentController) {
     return -1;
     
@@ -149,12 +154,20 @@
     NSInteger indexInParent = [self.parentController.childControllers indexOfObject:self];
     if (indexInParent != 0) {
       RATreeNodeController *controller = self.parentController.childControllers[indexInParent-1];
-      return [controller lastVisibleDescendatIndex] + 1;
+      return _index = [controller lastVisibleDescendatIndex] + 1;
       
     } else {
-      return self.parentController.index + 1 + indexInParent;
+      return _index = self.parentController.index + 1 + indexInParent;
       
     }
+  }
+}
+
+-(void)resetIndex {
+  _index = NSIntegerMin;
+  
+  for (RATreeNodeController *subnodeController in self.childControllers) {
+    [subnodeController resetIndex];
   }
 }
 
