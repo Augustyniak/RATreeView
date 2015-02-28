@@ -209,7 +209,7 @@
 {
   NSIndexPath *indexPath = [self indexPathForItem:item];
   RATreeNode *treeNode = [self treeNodeForIndexPath:indexPath];
-  if (treeNode.expanded) {
+  if (!treeNode || treeNode.expanded) {
     return;
   }
   [self expandCellForTreeNode:treeNode withRowAnimation:animation];
@@ -224,6 +224,9 @@
 {
   NSIndexPath *indexPath = [self indexPathForItem:item];
   RATreeNode *treeNode = [self treeNodeForIndexPath:indexPath];
+  if (!treeNode) {
+    return;
+  }
   [self collapseCellForTreeNode:treeNode withRowAnimation:animation];
 }
 
