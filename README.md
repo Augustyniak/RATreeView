@@ -27,7 +27,7 @@ Installation
 1. Add additional entry to your Podfile.
 
   ```ruby
-  pod "RATreeView", "~> 0.9.2"
+  pod "RATreeView", "~> 1.0.0"
   ```
 
 2. Install  Pod(s) running `pod install` command.
@@ -54,7 +54,7 @@ Usage
 -----------------
 
 
-Check out the demo for example usage of library. Make sure you read the [RATreeView documentation on Cocoa Docs](http://cocoadocs.org/docsets/RATreeView/0.9.2).
+Check out the demo for example usage of library. Make sure you read the [RATreeView documentation on Cocoa Docs](http://cocoadocs.org/docsets/RATreeView/1.0.0).
 
 
 ### Basics
@@ -109,8 +109,15 @@ Check out the demo for example usage of library. Make sure you read the [RATreeV
 Documentation
 -----------------
 
+Documentation is available on [CocoaPods](http://cocoadocs.org/docsets/RATreeView/1.0.0).
 
-Documentation is available on [CocoaPods](http://cocoadocs.org/docsets/RATreeView/0.9.2).
+TODO
+-----------------
+
+- Better delegate callbacks in case of recursive collapse and expand operations.
+- Improved documentation.
+- Unit tests.
+- Re-order rows feature.
   
 Author
 -----------------
@@ -120,6 +127,13 @@ RATreeView was created by Rafał Augustyniak. You can find me on twitter ([@RaAu
 
 Release Notes 
 -----------------
+
+Version 1.0.0
+
+- Improved performance.
+- Added recursive expand operation. It can be performed by using `expandRowForItem: expandChildren:withRowAnimation:` method. Default behavior is non recursive expand.
+- Added recursive collapse operation. It can be performed by using `collapseRowForItem: expandChildren:withRowAnimation:` method. Default behavior is non recursive collapse.
+- Fixed bug in `itemForRowAtPoint` method when passed point isn't inside any cell.
 
 Version 0.9.2
 
