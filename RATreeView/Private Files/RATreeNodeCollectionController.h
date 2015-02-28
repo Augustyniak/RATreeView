@@ -43,8 +43,8 @@
 - (NSInteger)indexForItem:(id)item;
 - (NSInteger)lastVisibleDescendantIndexForItem:(id)item;
 
-- (void)expandRowForItem:(id)item updates:(void(^)(NSIndexSet *))updates;
-- (void)collapseRowForItem:(id)item updates:(void(^)(NSIndexSet *))updates;
+- (void)collapseRowForItem:(id)item collapseChildren:(BOOL)collapseChildren updates:(void(^)(NSIndexSet *))updates;
+- (void)expandRowForItem:(id)item expandChildren:(BOOL)expandChildren updates:(void (^)(NSIndexSet *))updates;
 
 - (void)insertItemsAtIndexes:(NSIndexSet *)indexes inParent:(id)item;
 - (void)moveItemAtIndex:(NSInteger)index inParent:(id)parent toIndex:(NSInteger)newIndex inParent:(id)newParent updates:(void(^)(NSIndexSet *deletions, NSIndexSet *additions))updates;

@@ -38,10 +38,10 @@
 @property (nonatomic, strong, readonly) NSIndexSet *descendantsIndexes;
 @property (nonatomic, readonly) NSInteger level;
 
-- (instancetype)initWithParent:(RATreeNodeController *)parentController item:(RATreeNodeItem *)item expanded:(BOOL)expanded;
+- (instancetype)initWithParent:(RATreeNodeController *)parentController item:(RATreeNodeItem *)item expandedBlock:(BOOL (^)(id))expanded;
 
-- (void)collapse;
-- (void)expand;
+- (void)collapseAndCollapseChildren:(BOOL)collapseChildren;
+- (void)expandAndExpandChildren:(BOOL)expandChildren;
 
 - (void)insertChildControllers:(NSArray *)controllers atIndexes:(NSIndexSet *)indexes;
 - (void)moveChildControllerAtIndex:(NSInteger)index toIndex:(NSInteger)newIndex;

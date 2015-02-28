@@ -18,6 +18,7 @@
 //CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
+
 #import <Foundation/Foundation.h>
 
 @class RATreeNodeItem;
@@ -28,6 +29,6 @@
 @property (nonatomic, readonly) BOOL expanded;
 @property (strong, nonatomic, readonly) id item;
 
-- (id)initWithLazyItem:(RATreeNodeItem *)item expanded:(BOOL)expanded;
+- (id)initWithLazyItem:(RATreeNodeItem *)item expandedBlock:(BOOL (^)(id))expandedBlock;
 
 @end

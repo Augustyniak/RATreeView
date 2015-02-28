@@ -70,10 +70,10 @@
 
 - (void)collapseCellForTreeNode:(RATreeNode *)treeNode
 {
-  [self collapseCellForTreeNode:treeNode withRowAnimation:self.rowsCollapsingAnimation];
+  [self collapseCellForTreeNode:treeNode collapseChildren:self.collapsesChildRowsWhenRowCollapses withRowAnimation:self.rowsCollapsingAnimation];
 }
 
-- (void)collapseCellForTreeNode:(RATreeNode *)treeNode withRowAnimation:(RATreeViewRowAnimation)rowAnimation
+- (void)collapseCellForTreeNode:(RATreeNode *)treeNode collapseChildren:(BOOL)collapseChildren withRowAnimation:(RATreeViewRowAnimation)rowAnimation
 {
   [self.tableView beginUpdates];
   [self.batchChanges beginUpdates];
@@ -83,7 +83,7 @@
   __weak typeof(self) weakSelf = self;
   [self.batchChanges collapseItemWithBlock:^{
     UITableViewRowAnimation tableViewRowAnimation = [RATreeView tableViewRowAnimationForTreeViewRowAnimation:rowAnimation];
-    [weakSelf.treeNodeCollectionController collapseRowForItem:treeNode.item updates:^(NSIndexSet *deletions) {
+    [weakSelf.treeNodeCollectionController collapseRowForItem:treeNode.item collapseChildren:collapseChildren updates:^(NSIndexSet *deletions) {
       [weakSelf.tableView deleteRowsAtIndexPaths:IndexesToIndexPaths(deletions) withRowAnimation:tableViewRowAnimation];
     }];
   } lastIndex:index];
@@ -94,10 +94,10 @@
 
 - (void)expandCellForTreeNode:(RATreeNode *)treeNode
 {
-  [self expandCellForTreeNode:treeNode withRowAnimation:self.rowsExpandingAnimation];
+  [self expandCellForTreeNode:treeNode expandChildren:self.expandsChildRowsWhenRowExpands withRowAnimation:self.rowsExpandingAnimation];
 }
 
-- (void)expandCellForTreeNode:(RATreeNode *)treeNode withRowAnimation:(RATreeViewRowAnimation)rowAnimation
+- (void)expandCellForTreeNode:(RATreeNode *)treeNode expandChildren:(BOOL)expandChildren withRowAnimation:(RATreeViewRowAnimation)rowAnimation
 {
   [self.tableView beginUpdates];
   [self.batchChanges beginUpdates];
@@ -106,7 +106,7 @@
   __weak typeof(self) weakSelf = self;
   [self.batchChanges expandItemWithBlock:^{
     UITableViewRowAnimation tableViewRowAnimation = [RATreeView tableViewRowAnimationForTreeViewRowAnimation:rowAnimation];
-    [weakSelf.treeNodeCollectionController expandRowForItem:treeNode.item updates:^(NSIndexSet *insertions) {
+    [weakSelf.treeNodeCollectionController expandRowForItem:treeNode.item expandChildren:expandChildren updates:^(NSIndexSet *insertions) {
       [weakSelf.tableView insertRowsAtIndexPaths:IndexesToIndexPaths(insertions) withRowAnimation:tableViewRowAnimation];
     }];
   } atIndex:index];

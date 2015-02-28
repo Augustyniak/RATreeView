@@ -40,14 +40,14 @@
 
 @implementation RATreeNodeController
 
-- (instancetype)initWithParent:(RATreeNodeController *)parentController item:(RATreeNodeItem *)item expanded:(BOOL)expanded
+- (instancetype)initWithParent:(RATreeNodeController *)parentController item:(RATreeNodeItem *)item expandedBlock:(BOOL (^)(id))expandedBlock
 {
   self = [super init];
   if (self) {
     [self invalidate];
     _level = NSIntegerMin;
     _parentController = parentController;
-    _treeNode = [[RATreeNode alloc] initWithLazyItem:item expanded:expanded];
+    _treeNode = [[RATreeNode alloc] initWithLazyItem:item expandedBlock:expandedBlock];
     _mutablechildControllers = [NSMutableArray array];
   }
   
@@ -105,6 +105,10 @@
     return self;
   }
   
+  if (!self.treeNode.expanded) {
+    return nil;
+  }
+  
   for (RATreeNodeController *controller in self.childControllers) {
     RATreeNodeController *result = [controller controllerForIndex:index];
     if (result) {
@@ -127,8 +131,8 @@
     return [self lastVisibleDescendatIndex];
   }
   
-  for (RATreeNodeController *subnodeController in self.childControllers) {
-    NSInteger lastIndex = [subnodeController lastVisibleDescendatIndexForItem:item];
+  for (RATreeNodeController *nodeController in self.childControllers) {
+    NSInteger lastIndex = [nodeController lastVisibleDescendatIndexForItem:item];
     if (lastIndex != NSNotFound) {
       return lastIndex;
     }
@@ -140,33 +144,45 @@
 
 #pragma mark - Collapsing and expanding
 
-- (void)expand
+- (void)expandAndExpandChildren:(BOOL)expandChildren
 {
-  [self privateExpand];
-  [self invalidate];
-  [self invalidateTreeNodesAfterChildAtIndex:0];
+  for (RATreeNodeController *nodeController in self.childControllers) {
+    [nodeController invalidate];
+  }
+  [self privateExpandAndExpandChildren:expandChildren];
 }
 
-- (void)privateExpand
+- (void)privateExpandAndExpandChildren:(BOOL)expandChildren
 {
   [self.treeNode setExpanded:YES];
-  [self.parentController expand];
-}
-
-- (void)collapse
-{
-  [self privateCollapse];
   [self invalidate];
-  [self invalidateTreeNodesAfterChildAtIndex:0];
+  
+  for (RATreeNodeController *nodeController in self.childControllers) {
+    if (nodeController.treeNode.expanded || expandChildren) {
+      [nodeController expandAndExpandChildren:expandChildren];
+    }
+  }
+
+  [self.parentController invalidateTreeNodesAfterChildAtIndex:[self.parentController.childControllers indexOfObject:self]];
 }
 
-- (void)privateCollapse
+- (void)collapseAndCollapseChildren:(BOOL)collapseChildren
+{
+  [self privateCollapseAndCollapseChildren:collapseChildren];
+}
+
+- (void)privateCollapseAndCollapseChildren:(BOOL)collapseChildren
 {
   [self.treeNode setExpanded:NO];
-  for (RATreeNodeController *controller in self.mutablechildControllers) {
-    [controller collapse];
+  [self invalidate];
+  
+  if (collapseChildren) {
+    for (RATreeNodeController *controller in self.childControllers) {
+      [controller collapseAndCollapseChildren:collapseChildren];
+    }
   }
-  [self.mutablechildControllers removeAllObjects];
+  
+  [self.parentController invalidateTreeNodesAfterChildAtIndex:[self.parentController.childControllers indexOfObject:self]];
 }
 
 
@@ -185,32 +201,27 @@
 
 - (void)invalideIndex
 {
-  if (_index == NSIntegerMin) {
-    return;
-  }
   self.index = NSIntegerMin;
-  for (RATreeNodeController *nodeController in self.childControllers) {
-    [nodeController invalidate];
-  }
 }
 
 - (void)invalidateTreeNodesAfterChildAtIndex:(NSInteger)index
 {
-  RATreeNodeController *controller = self.childControllers.count == 0 ? nil : self.childControllers[MAX(index, 0)];
-  [self invalidateTreeNodesAfterChild:controller];
+  NSInteger selfIndex = [self.parentController.childControllers indexOfObject:self];
+  [self.parentController invalidateTreeNodesAfterChildAtIndex:selfIndex];
+  
+  [self invalidate];
+  [self invalidateDescendantsNodesAfterChildAtIndex:index];
 }
 
-- (void)invalidateTreeNodesAfterChild:(RATreeNodeController *)controller
+- (void)invalidateDescendantsNodesAfterChildAtIndex:(NSInteger)index
 {
-  NSInteger index = controller ? [self.childControllers indexOfObject:controller] : 0;
-  for (NSInteger i = index; i < self.childControllers.count; i++) {
+  if (!self.treeNode.expanded) {
+    return;
+  }
+  for (NSInteger i = index + 1; i < self.childControllers.count; i++) {
     RATreeNodeController *controller = self.childControllers[i];
     [controller invalidate];
-  }
-  
-  [self.parentController invalidateTreeNodesAfterChild:self];
-  if (!self.parentController) {
-    [self invalidate];
+    [controller invalidateDescendantsNodesAfterChildAtIndex:-1];
   }
 }
 
@@ -224,20 +235,23 @@
 
 - (NSInteger)index
 {
+  if (_index != NSIntegerMin) {
+    return _index;
+  }
   if (!self.parentController) {
-    return -1;
+    _index = -1;
+    
+  } else if (!self.parentController.treeNode.expanded) {
+    _index = NSNotFound;
     
   } else {
-    if (_index != NSIntegerMin) {
-      return _index;
-    }
     NSInteger indexInParent = [self.parentController.childControllers indexOfObject:self];
     if (indexInParent != 0) {
       RATreeNodeController *controller = self.parentController.childControllers[indexInParent-1];
       _index =  [controller lastVisibleDescendatIndex] + 1;
       
     } else {
-      _index = self.parentController.index + 1 + indexInParent;
+      _index = self.parentController.index + 1;
     }
   }
   return _index;
@@ -263,11 +277,15 @@
 - (NSInteger)numberOfVisibleDescendants
 {
   if (_numberOfVisibleDescendants == NSIntegerMin) {
-    NSInteger numberOfVisibleDescendants = [self.childControllers count];
-    for (RATreeNodeController *controller in self.childControllers) {
-      numberOfVisibleDescendants += controller.numberOfVisibleDescendants;
+    if (self.treeNode.expanded) {
+      NSInteger numberOfVisibleDescendants = [self.childControllers count];
+      for (RATreeNodeController *controller in self.childControllers) {
+        numberOfVisibleDescendants += controller.numberOfVisibleDescendants;
+      }
+      _numberOfVisibleDescendants = numberOfVisibleDescendants;
+    } else {
+      _numberOfVisibleDescendants = 0;
     }
-    _numberOfVisibleDescendants = numberOfVisibleDescendants;
   }
   return _numberOfVisibleDescendants;
 }

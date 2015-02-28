@@ -18,6 +18,7 @@
 //CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
+
 #import "RATreeNodeCollectionController.h"
 #import "RATreeNodeController.h"
 
@@ -75,27 +76,79 @@
 
 - (void)expandRowForItem:(id)item updates:(void (^)(NSIndexSet *))updates
 {
+  [self expandRowForItem:item expandChildren:YES updates:updates];
+}
+
+- (void)expandRowForItem:(id)item expandChildren:(BOOL)expandChildren updates:(void (^)(NSIndexSet *))updates
+{
   NSParameterAssert(updates);
   
   RATreeNodeController *parentController = [self.rootController controllerForItem:item];
+  NSMutableArray *items = [@[item] mutableCopy];
   
-  NSInteger numberOfChildren = [self.dataSource treeNodeCollectionController:self numberOfChildrenForItem:parentController.treeNode.item];
-  NSIndexSet *indexes = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, numberOfChildren)];
-  NSArray *childControllers = [self controllersForNodesWithIndexes:indexes inParentController:parentController];
-  
-  [parentController insertChildControllers:childControllers atIndexes:indexes];
-  [parentController expand];
+  while ([items count] > 0) {
+    id currentItem = [items firstObject];
+    [items removeObject:currentItem];
+    
+    RATreeNodeController *controller = [self.rootController controllerForItem:currentItem];
+    NSMutableArray *oldChildItems = [NSMutableArray array];
+    for (RATreeNodeController *nodeController in controller.childControllers) {
+      [oldChildItems addObject:nodeController.treeNode.item];
+    }
+    
+    NSInteger numberOfChildren = [self.dataSource treeNodeCollectionController:self numberOfChildrenForItem:controller.treeNode.item];
+    NSIndexSet *allIndexes = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, numberOfChildren)];
+    
+    NSArray *newChildControllersAndIndexes = [self controllersAndIndexesForNodesWithIndexes:allIndexes inParentController:parentController];
+    NSArray *newChildControllers = [newChildControllersAndIndexes valueForKey:@"controller"];
+    
+    NSMutableArray *childControllersToInsert = [NSMutableArray array];
+    NSMutableIndexSet *indexesForInsertions = [NSMutableIndexSet indexSet];
+    NSMutableArray *childControllersToRemove = [NSMutableArray array];
+    NSMutableIndexSet *indexesForDeletions = [NSMutableIndexSet indexSet];
+    
+    for (RATreeNodeController *loopNodeController in newChildControllers) {
+      if (![controller.childControllers containsObject:loopNodeController]) {
+        if (![oldChildItems containsObject:controller.treeNode.item]) {
+          [childControllersToInsert addObject:loopNodeController];
+          NSInteger index = [newChildControllers indexOfObject:loopNodeController];
+          NSAssert(index != NSNotFound, nil);
+          [indexesForInsertions addIndex:index];
+        }
+      }
+    }
+    for (RATreeNodeController *loopNodeController in controller.childControllers) {
+      if (![newChildControllers containsObject:loopNodeController]
+          && [childControllersToInsert containsObject:loopNodeController]) {
+        [childControllersToRemove addObject:loopNodeController];
+        NSInteger index = [controller.childControllers indexOfObject:loopNodeController];
+        NSAssert(index != NSNotFound, nil);
+        [indexesForDeletions addIndex:index];
+      }
+    }
+    
+    [controller removeChildControllersAtIndexes:indexesForDeletions];
+    [controller insertChildControllers:[newChildControllersAndIndexes valueForKey:@"controller"] atIndexes:indexesForInsertions];
+    
+    if (expandChildren) {
+      for (RATreeNodeController *nodeController in controller.childControllers) {
+        [items addObject:nodeController.treeNode.item];
+      }
+    }
+
+    [controller expandAndExpandChildren:expandChildren];
+  }
   
   updates(parentController.descendantsIndexes);
 }
 
-- (void)collapseRowForItem:(id)item updates:(void (^)(NSIndexSet *))updates
+- (void)collapseRowForItem:(id)item collapseChildren:(BOOL)collapseChildren updates:(void (^)(NSIndexSet *))updates
 {
   NSParameterAssert(updates);
   
   RATreeNodeController *controller = [self.rootController controllerForItem:item];
   NSIndexSet *deletions = controller.descendantsIndexes;
-  [controller collapse];
+  [controller collapseAndCollapseChildren:collapseChildren];
   
   updates(deletions);
 }
@@ -152,17 +205,53 @@
   updates(indexesToRemoval);
 }
 
-- (NSArray *)controllersForNodesWithIndexes:(NSIndexSet *)indexes inParentController:(RATreeNodeController *)parentController
+- (NSArray *)controllersAndIndexesForNodesWithIndexes:(NSIndexSet *)indexes inParentController:(RATreeNodeController *)parentController
 {
+  NSMutableArray *childControllers = [parentController.childControllers mutableCopy];
   NSMutableArray *newControllers = [NSMutableArray array];
+  
+  NSMutableArray *invalidItems = [NSMutableArray array];
+  for (RATreeNodeController *nodeController in parentController.childControllers) {
+    [invalidItems addObject:nodeController.treeNode.item];
+  }
+  
   [indexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+    
+    RATreeNodeController *controller;
+    RATreeNodeController *oldControllerForCurrentIndex = nil;
+    
+    
     RATreeNodeItem *lazyItem = [[RATreeNodeItem alloc] initWithParent:parentController.treeNode.item index:idx];
-    [lazyItem setDataSource:self];
-    RATreeNodeController *controller = [[RATreeNodeController alloc] initWithParent:parentController item:lazyItem expanded:NO];
-    [newControllers addObject:controller];
+    lazyItem.dataSource = self;
+    
+    
+    for (RATreeNodeController *controller in parentController.childControllers) {
+      if (controller.treeNode.item == lazyItem.item) {
+        oldControllerForCurrentIndex = controller;
+        return;
+      }
+    }
+    if (oldControllerForCurrentIndex != nil) {
+      controller = oldControllerForCurrentIndex;
+      
+    } else {
+      controller = [[RATreeNodeController alloc] initWithParent:parentController item:lazyItem expandedBlock:^BOOL(id item) {
+        return [childControllers indexOfObjectPassingTest:^BOOL(RATreeNodeController *controller, NSUInteger idx, BOOL *stop) {
+          return controller.treeNode.item == item;
+        }] != NSNotFound;
+      }];
+    }
+    
+    [newControllers addObject:@{ @"index" : @(idx),
+                                 @"controller" : controller }];
   }];
   
   return [newControllers copy];
+}
+
+- (NSArray *)controllersForNodesWithIndexes:(NSIndexSet *)indexes inParentController:(RATreeNodeController *)parentController
+{
+  return [[self controllersAndIndexesForNodesWithIndexes:indexes inParentController:parentController] valueForKey:@"controller"];
 }
 
 - (NSArray *)controllersForNodes:(NSInteger)nodesNumber inParentController:(RATreeNodeController *)parentController
@@ -197,7 +286,9 @@
 - (RATreeNodeController *)rootController
 {
   if (!_rootController) {
-    _rootController = [[RATreeNodeController alloc] initWithParent:nil item:nil expanded:YES];
+    _rootController = [[RATreeNodeController alloc] initWithParent:nil item:nil expandedBlock:^BOOL(id _) {
+      return YES;
+    }];
     
     NSInteger numberOfChildren = [self.dataSource treeNodeCollectionController:self numberOfChildrenForItem:nil];
     NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, numberOfChildren)];

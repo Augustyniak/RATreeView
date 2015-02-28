@@ -18,8 +18,12 @@
 //CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
+
 #import "RATreeView.h"
+
+
 @class RATreeNode;
+
 
 @interface RATreeView (Private)
 
@@ -29,9 +33,9 @@
 - (void)setupTreeStructure;
 
 - (void)collapseCellForTreeNode:(RATreeNode *)treeNode;
-- (void)collapseCellForTreeNode:(RATreeNode *)treeNode withRowAnimation:(RATreeViewRowAnimation)rowAnimation;
+- (void)collapseCellForTreeNode:(RATreeNode *)treeNode collapseChildren:(BOOL)collapseChildren withRowAnimation:(RATreeViewRowAnimation)rowAnimation;
 - (void)expandCellForTreeNode:(RATreeNode *)treeNode;
-- (void)expandCellForTreeNode:(RATreeNode *)treeNode withRowAnimation:(RATreeViewRowAnimation)rowAnimation;
+- (void)expandCellForTreeNode:(RATreeNode *)treeNode expandChildren:(BOOL)expandChildren withRowAnimation:(RATreeViewRowAnimation)rowAnimation;
 
 - (void)insertItemAtIndex:(NSInteger)index inParent:(id)parent withAnimation:(RATreeViewRowAnimation)animation;
 - (void)removeItemAtIndex:(NSInteger)indexe inParent:(id)parent withAnimation:(RATreeViewRowAnimation)animation;

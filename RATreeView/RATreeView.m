@@ -117,6 +117,8 @@
   [self addSubview:tableView];
   [self setTableView:tableView];
   
+  self.expandsChildRowsWhenRowExpands = NO;
+  self.collapsesChildRowsWhenRowCollapses = NO;
   self.rowsExpandingAnimation = RATreeViewRowAnimationTop;
   self.rowsCollapsingAnimation = RATreeViewRowAnimationBottom;
 }
@@ -207,12 +209,17 @@
 
 - (void)expandRowForItem:(id)item withRowAnimation:(RATreeViewRowAnimation)animation
 {
+  [self expandRowForItem:item expandChildren:NO withRowAnimation:animation];
+}
+
+- (void)expandRowForItem:(id)item expandChildren:(BOOL)expandChildren withRowAnimation:(RATreeViewRowAnimation)animation
+{
   NSIndexPath *indexPath = [self indexPathForItem:item];
   RATreeNode *treeNode = [self treeNodeForIndexPath:indexPath];
   if (!treeNode || treeNode.expanded) {
     return;
   }
-  [self expandCellForTreeNode:treeNode withRowAnimation:animation];
+  [self expandCellForTreeNode:treeNode expandChildren:expandChildren withRowAnimation:animation];
 }
 
 - (void)collapseRowForItem:(id)item
@@ -222,12 +229,17 @@
 
 - (void)collapseRowForItem:(id)item withRowAnimation:(RATreeViewRowAnimation)animation
 {
+  [self collapseRowForItem:item collapseChildren:NO withRowAnimation:animation];
+}
+
+- (void)collapseRowForItem:(id)item collapseChildren:(BOOL)collapseChildren withRowAnimation:(RATreeViewRowAnimation)animation
+{
   NSIndexPath *indexPath = [self indexPathForItem:item];
   RATreeNode *treeNode = [self treeNodeForIndexPath:indexPath];
   if (!treeNode) {
     return;
   }
-  [self collapseCellForTreeNode:treeNode withRowAnimation:animation];
+  [self collapseCellForTreeNode:treeNode collapseChildren:collapseChildren withRowAnimation:animation];
 }
 
 
