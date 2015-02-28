@@ -23,10 +23,6 @@
 @class RATreeNodeController, RATreeNode, RATreeNodeItem;
 
 
-@protocol RATreeNodeControllerDelegate <NSObject>
-
-@end
-
 @interface RATreeNodeController : NSObject
 
 @property (nonatomic, weak, readonly) RATreeNodeController *parentController;

@@ -28,7 +28,7 @@
 #import "RABatchChanges.h"
 
 
-@interface RATreeNodeCollectionController () <RATreeNodeControllerDelegate, RATreeNodeItemDataSource>
+@interface RATreeNodeCollectionController () <RATreeNodeItemDataSource>
 
 @property (nonatomic, strong) RATreeNodeController *rootController;
 
