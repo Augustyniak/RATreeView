@@ -66,7 +66,8 @@
 {
   [super viewWillAppear:animated];
   
-  if([[[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."][0] intValue] >= 7) {
+  int systemVersion = [[[[UIDevice currentDevice] systemVersion] componentsSeparatedByString:@"."][0] intValue];
+  if (systemVersion >= 7 && systemVersion < 8) {
     CGRect statusBarViewRect = [[UIApplication sharedApplication] statusBarFrame];
     float heightPadding = statusBarViewRect.size.height+self.navigationController.navigationBar.frame.size.height;
     self.treeView.contentInset = UIEdgeInsetsMake(heightPadding, 0.0, 0.0, 0.0);
