@@ -18,19 +18,25 @@
 //CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
+
 #import "RATreeNodeController.h"
 
 #import "RATreeNode.h"
 #import "RATreeNode_ClassExtension.h"
 
+
 @interface RATreeNodeController ()
 
 @property (nonatomic, strong) RATreeNode *treeNode;
 
+@property (nonatomic) NSInteger index;
+@property (nonatomic) NSInteger numberOfVisibleDescendants;
+@property (nonatomic) NSInteger level;
 @property (nonatomic, weak) RATreeNodeController *parentController;
 @property (nonatomic, strong) NSMutableArray *mutablechildControllers;
 
 @end
+
 
 @implementation RATreeNodeController
 
@@ -38,6 +44,8 @@
 {
   self = [super init];
   if (self) {
+    [self invalidate];
+    _level = NSIntegerMin;
     _parentController = parentController;
     _treeNode = [[RATreeNode alloc] initWithLazyItem:item expanded:expanded];
     _mutablechildControllers = [NSMutableArray array];
@@ -46,36 +54,33 @@
   return self;
 }
 
-- (void)expand
-{
-  [self.treeNode setExpanded:YES];
-  [self.parentController expand];
-}
-
-- (void)collapse
-{
-  [self.treeNode setExpanded:NO];
-  for (RATreeNodeController *controller in self.mutablechildControllers) {
-    [controller collapse];
-  }
-  [self.mutablechildControllers removeAllObjects];
-}
-
 - (void)insertChildControllers:(NSArray *)controllers atIndexes:(NSIndexSet *)indexes
 {
+  if (indexes.count == 0) {
+    return;
+  }
   [self.mutablechildControllers insertObjects:controllers atIndexes:indexes];
+  [self invalidateTreeNodesAfterChildAtIndex:[indexes firstIndex] - 1];
 }
 
 - (void)removeChildControllersAtIndexes:(NSIndexSet *)indexes
 {
+  if (indexes.count == 0) {
+    return;
+  }
   [self.mutablechildControllers removeObjectsAtIndexes:indexes];
+  [self invalidateTreeNodesAfterChildAtIndex:[indexes firstIndex] - 1];
 }
 
 - (void)moveChildControllerAtIndex:(NSInteger)index toIndex:(NSInteger)newIndex
 {
+  if (index == newIndex) {
+    return;
+  }
   id controller = self.mutablechildControllers[index];
   [self.mutablechildControllers removeObjectAtIndex:index];
   [self.mutablechildControllers insertObject:controller atIndex:index];
+  [self invalidateTreeNodesAfterChildAtIndex:MIN(index, newIndex)-1];
 }
 
 - (RATreeNodeController *)controllerForItem:(id)item
@@ -133,11 +138,88 @@
 }
 
 
+#pragma mark - Collapsing and expanding
+
+- (void)expand
+{
+  [self privateExpand];
+  [self invalidate];
+  [self invalidateTreeNodesAfterChildAtIndex:0];
+}
+
+- (void)privateExpand
+{
+  [self.treeNode setExpanded:YES];
+  [self.parentController expand];
+}
+
+- (void)collapse
+{
+  [self privateCollapse];
+  [self invalidate];
+  [self invalidateTreeNodesAfterChildAtIndex:0];
+}
+
+- (void)privateCollapse
+{
+  [self.treeNode setExpanded:NO];
+  for (RATreeNodeController *controller in self.mutablechildControllers) {
+    [controller collapse];
+  }
+  [self.mutablechildControllers removeAllObjects];
+}
+
+
+#pragma mark -
+
+- (void)invalidate
+{
+  [self invalidateNumberOfVisibleDescendants];
+  [self invalideIndex];
+}
+
+- (void)invalidateNumberOfVisibleDescendants
+{
+  self.numberOfVisibleDescendants = NSIntegerMin;
+}
+
+- (void)invalideIndex
+{
+  if (_index == NSIntegerMin) {
+    return;
+  }
+  self.index = NSIntegerMin;
+  for (RATreeNodeController *nodeController in self.childControllers) {
+    [nodeController invalidate];
+  }
+}
+
+- (void)invalidateTreeNodesAfterChildAtIndex:(NSInteger)index
+{
+  RATreeNodeController *controller = self.childControllers.count == 0 ? nil : self.childControllers[MAX(index, 0)];
+  [self invalidateTreeNodesAfterChild:controller];
+}
+
+- (void)invalidateTreeNodesAfterChild:(RATreeNodeController *)controller
+{
+  NSInteger index = controller ? [self.childControllers indexOfObject:controller] : 0;
+  for (NSInteger i = index; i < self.childControllers.count; i++) {
+    RATreeNodeController *controller = self.childControllers[i];
+    [controller invalidate];
+  }
+  
+  [self.parentController invalidateTreeNodesAfterChild:self];
+  if (!self.parentController) {
+    [self invalidate];
+  }
+}
+
+
 #pragma mark - Properties
 
 - (NSArray *)childControllers
 {
-  return [self.mutablechildControllers copy];
+  return self.mutablechildControllers;
 }
 
 - (NSInteger)index
@@ -146,16 +228,19 @@
     return -1;
     
   } else {
+    if (_index != NSIntegerMin) {
+      return _index;
+    }
     NSInteger indexInParent = [self.parentController.childControllers indexOfObject:self];
     if (indexInParent != 0) {
       RATreeNodeController *controller = self.parentController.childControllers[indexInParent-1];
-      return [controller lastVisibleDescendatIndex] + 1;
+      _index =  [controller lastVisibleDescendatIndex] + 1;
       
     } else {
-      return self.parentController.index + 1 + indexInParent;
-      
+      _index = self.parentController.index + 1 + indexInParent;
     }
   }
+  return _index;
 }
 
 - (NSInteger)lastVisibleDescendatIndex
@@ -177,11 +262,14 @@
 
 - (NSInteger)numberOfVisibleDescendants
 {
-  NSInteger numberOfVisibleDescendants = [self.childControllers count];
-  for (RATreeNodeController *controller in self.childControllers) {
-    numberOfVisibleDescendants += controller.numberOfVisibleDescendants;
+  if (_numberOfVisibleDescendants == NSIntegerMin) {
+    NSInteger numberOfVisibleDescendants = [self.childControllers count];
+    for (RATreeNodeController *controller in self.childControllers) {
+      numberOfVisibleDescendants += controller.numberOfVisibleDescendants;
+    }
+    _numberOfVisibleDescendants = numberOfVisibleDescendants;
   }
-  return numberOfVisibleDescendants;
+  return _numberOfVisibleDescendants;
 }
 
 - (NSInteger)level
@@ -190,7 +278,11 @@
     return -1;
   }
   
-  return self.parentController.level + 1;
+  if (_level == NSIntegerMin) {
+    _level = self.parentController.level + 1;
+  }
+  
+  return _level;
 }
 
 @end
