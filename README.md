@@ -133,7 +133,7 @@ Version 1.0.0
 - Improved performance.
 - Added recursive expand operation. It can be performed by using `expandRowForItem: expandChildren:withRowAnimation:` method. Default behavior is non recursive expand.
 - Added recursive collapse operation. It can be performed by using `collapseRowForItem: expandChildren:withRowAnimation:` method. Default behavior is non recursive collapse.
-- Fixed bug in `itemForRowAtPoint` method when passed point isn't inside any cell.
+- Fixed bug in `itemForRowAtPoint:` method when passed point isn't inside any cell.
 
 Version 0.9.2
 
