@@ -99,7 +99,7 @@
     NSInteger numberOfChildren = [self.dataSource treeNodeCollectionController:self numberOfChildrenForItem:controller.treeNode.item];
     NSIndexSet *allIndexes = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, numberOfChildren)];
     
-    NSArray *newChildControllersAndIndexes = [self controllersAndIndexesForNodesWithIndexes:allIndexes inParentController:parentController];
+    NSArray *newChildControllersAndIndexes = [self controllersAndIndexesForNodesWithIndexes:allIndexes inParentController:controller];
     NSArray *newChildControllers = [newChildControllersAndIndexes valueForKey:@"controller"];
     
     NSMutableArray *childControllersToInsert = [NSMutableArray array];
