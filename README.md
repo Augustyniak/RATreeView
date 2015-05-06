@@ -27,7 +27,7 @@ Installation
 1. Add additional entry to your Podfile.
 
   ```ruby
-  pod "RATreeView", "~> 1.0"
+  pod "RATreeView", "~> 1.0.2"
   ```
 
 2. Install  Pod(s) running `pod install` command.
@@ -109,7 +109,7 @@ Check out the demo for example usage of library. Make sure you read the [RATreeV
 Documentation
 -----------------
 
-Documentation is available on [CocoaPods](http://cocoadocs.org/docsets/RATreeView/1.0.1).
+Documentation is available on [CocoaPods](http://cocoadocs.org/docsets/RATreeView/1.0.2).
 
 TODO
 -----------------
@@ -127,6 +127,10 @@ RATreeView was created by Rafał Augustyniak. You can find me on twitter ([@RaAu
 
 Release Notes 
 -----------------
+
+Version 1.0.2
+- Fixed bug in select and deselect operations.
+- Fixed bug in recursive expand operation (via @Arrnas).
 
 Version 1.0.1
 - Fixed bug in recursive expand operation.
