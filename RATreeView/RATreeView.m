@@ -441,15 +441,19 @@
 
 - (void)selectRowForItem:(id)item animated:(BOOL)animated scrollPosition:(RATreeViewScrollPosition)scrollPosition
 {
-  NSIndexPath *indexPath = [self indexPathForItem:item];
-  UITableViewScrollPosition tableViewScrollPosition = [RATreeView tableViewScrollPositionForTreeViewScrollPosition:scrollPosition];
-  [self.tableView selectRowAtIndexPath:indexPath animated:animated scrollPosition:tableViewScrollPosition];
+  if ([self isCellForItemExpanded:[self parentForItem:item]]) {
+    NSIndexPath *indexPath = [self indexPathForItem:item];
+    UITableViewScrollPosition tableViewScrollPosition = [RATreeView tableViewScrollPositionForTreeViewScrollPosition:scrollPosition];
+    [self.tableView selectRowAtIndexPath:indexPath animated:animated scrollPosition:tableViewScrollPosition];
+  }
 }
 
 - (void)deselectRowForItem:(id)item animated:(BOOL)animated
 {
-  NSIndexPath *indexPath = [self indexPathForItem:item];
-  [self.tableView deselectRowAtIndexPath:indexPath animated:animated];
+  if ([self isCellForItemExpanded:[self parentForItem:item]]) {
+    NSIndexPath *indexPath = [self indexPathForItem:item];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:animated];
+  }
 }
 
 - (BOOL)allowsSelection
