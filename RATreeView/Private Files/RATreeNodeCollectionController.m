@@ -119,7 +119,7 @@
     }
     for (RATreeNodeController *loopNodeController in controller.childControllers) {
       if (![newChildControllers containsObject:loopNodeController]
-          && [childControllersToInsert containsObject:loopNodeController]) {
+          && ![childControllersToInsert containsObject:loopNodeController]) {
         [childControllersToRemove addObject:loopNodeController];
         NSInteger index = [controller.childControllers indexOfObject:loopNodeController];
         NSAssert(index != NSNotFound, nil);
