@@ -347,6 +347,17 @@ typedef enum RATreeViewRowAnimation {
 - (BOOL)treeView:(RATreeView *)treeView shouldIndentWhileEditingRowForItem:(id)item;
 
 
+/**
+ *  Asks the data source for the edit actions for an item. This is an iOS 8 only method.
+ *
+ *  @praram treeView	The tree-view object requesting this information.
+ *  @param item			An item identifying a cell in the tree view.
+ *
+ *  @return An NSArray of `UITableViewRowAction` objects to show for editing.
+ */
+- (NSArray *)treeView:(RATreeView *)treeView editActionsForItem:(id)item;
+
+
 ///------------------------------------------------
 /// @name Tracking the Removal of Views
 ///------------------------------------------------
