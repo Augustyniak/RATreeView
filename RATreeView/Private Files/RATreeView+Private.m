@@ -137,6 +137,11 @@
 
 - (void)expandAllCells
 {
+  [self expandAllCellsWithRowAnimation:self.rowsExpandingAnimation];
+}
+
+- (void)expandAllCellsWithRowAnimation:(RATreeViewRowAnimation)animation
+{
   [self.tableView beginUpdates];
   [self.batchChanges beginUpdates];
   
@@ -146,7 +151,7 @@
     
     __weak typeof(self) weakSelf = self;
     [self.batchChanges expandItemWithBlock:^{
-      UITableViewRowAnimation tableViewRowAnimation = [RATreeView tableViewRowAnimationForTreeViewRowAnimation:self.rowsExpandingAnimation];
+      UITableViewRowAnimation tableViewRowAnimation = [RATreeView tableViewRowAnimationForTreeViewRowAnimation:animation];
       [weakSelf.treeNodeCollectionController expandRowForItem:node.item expandChildren:YES updates:^(NSIndexSet *insertions) {
         [weakSelf.tableView insertRowsAtIndexPaths:IndexesToIndexPaths(insertions) withRowAnimation:tableViewRowAnimation];
       }];

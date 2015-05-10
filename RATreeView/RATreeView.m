@@ -207,6 +207,12 @@
 {
   [self expandAllCells];
 }
+
+- (void)expandAllRowsWithRowAnimation:(RATreeViewRowAnimation)animation
+{
+  [self expandAllCellsWithRowAnimation:animation];
+}
+
 - (void)expandRowForItem:(id)item
 {
   [self expandRowForItem:item withRowAnimation:self.rowsExpandingAnimation];

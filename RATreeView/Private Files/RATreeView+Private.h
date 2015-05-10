@@ -37,6 +37,7 @@
 - (void)expandCellForTreeNode:(RATreeNode *)treeNode;
 - (void)expandCellForTreeNode:(RATreeNode *)treeNode expandChildren:(BOOL)expandChildren withRowAnimation:(RATreeViewRowAnimation)rowAnimation;
 - (void)expandAllCells;
+- (void)expandAllCellsWithRowAnimation:(RATreeViewRowAnimation)animation;
 
 - (void)insertItemAtIndex:(NSInteger)index inParent:(id)parent withAnimation:(RATreeViewRowAnimation)animation;
 - (void)removeItemAtIndex:(NSInteger)indexe inParent:(id)parent withAnimation:(RATreeViewRowAnimation)animation;
