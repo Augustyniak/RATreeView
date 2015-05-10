@@ -135,6 +135,29 @@
   } atIndex:idx];
 }
 
+- (void)expandAllCells
+{
+  [self.tableView beginUpdates];
+  [self.batchChanges beginUpdates];
+  
+  NSInteger numberOfChildren = [self.dataSource treeView:self numberOfChildrenOfItem:nil];
+  for (int i = 0; i < numberOfChildren; i++) {
+    RATreeNode *node = [self.treeNodeCollectionController treeNodeForIndex:i];
+    
+    __weak typeof(self) weakSelf = self;
+    [self.batchChanges expandItemWithBlock:^{
+      UITableViewRowAnimation tableViewRowAnimation = [RATreeView tableViewRowAnimationForTreeViewRowAnimation:self.rowsExpandingAnimation];
+      [weakSelf.treeNodeCollectionController expandRowForItem:node.item expandChildren:YES updates:^(NSIndexSet *insertions) {
+        [weakSelf.tableView insertRowsAtIndexPaths:IndexesToIndexPaths(insertions) withRowAnimation:tableViewRowAnimation];
+      }];
+    } atIndex:i];
+
+  }
+  
+  [self.batchChanges endUpdates];
+  [self.tableView endUpdates];
+}
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
 - (void)moveItemAtIndex:(NSInteger)index inParent:(id)parent toIndex:(NSInteger)newIndex inParent:(id)newParent

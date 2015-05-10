@@ -119,6 +119,7 @@
   
   self.expandsChildRowsWhenRowExpands = NO;
   self.collapsesChildRowsWhenRowCollapses = NO;
+  self.expandsChildrenOnLoad = NO;
   self.rowsExpandingAnimation = RATreeViewRowAnimationTop;
   self.rowsCollapsingAnimation = RATreeViewRowAnimationBottom;
 }
@@ -202,6 +203,10 @@
 
 #pragma mark Expanding and Collapsing Rows
 
+- (void)expandAllRows
+{
+  [self expandAllCells];
+}
 - (void)expandRowForItem:(id)item
 {
   [self expandRowForItem:item withRowAnimation:self.rowsExpandingAnimation];
@@ -521,6 +526,10 @@
 {
   [self setupTreeStructure];
   [self.tableView reloadData];
+
+  if (self.expandsChildrenOnLoad) {
+    [self expandAllRows];
+  }
 }
 
 - (void)reloadRowsForItems:(NSArray *)items withRowAnimation:(RATreeViewRowAnimation)animation
