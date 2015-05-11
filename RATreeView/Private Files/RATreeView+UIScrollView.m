@@ -235,12 +235,12 @@
 
 - (UIPanGestureRecognizer *)panGestureRecognizer
 {
-  return self.panGestureRecognizer;
+  return self.tableView.panGestureRecognizer;
 }
 
 - (UIPinchGestureRecognizer *)pinchGestureRecognizer
 {
-  return self.pinchGestureRecognizer;
+  return self.tableView.pinchGestureRecognizer;
 }
 
 

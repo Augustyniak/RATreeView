@@ -188,6 +188,15 @@
   }
 }
 
+- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  if ([self.delegate respondsToSelector:@selector(treeView:editActionsForItem:)]) {
+    RATreeNode *treeNode = [self treeNodeForIndexPath:indexPath];
+    return [self.delegate treeView:self editActionsForItem:treeNode.item];
+  }
+  return nil;
+}
+
 
 #pragma mark - Tracking the Removal of Views
 
