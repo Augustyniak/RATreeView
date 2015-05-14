@@ -98,6 +98,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+  [tableView deselectRowAtIndexPath:indexPath animated:YES];
+  [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
   RATreeNode *treeNode = [self treeNodeForIndexPath:indexPath];
   if ([self.delegate respondsToSelector:@selector(treeView:didSelectRowForItem:)]) {
     [self.delegate treeView:self didSelectRowForItem:treeNode.item];
