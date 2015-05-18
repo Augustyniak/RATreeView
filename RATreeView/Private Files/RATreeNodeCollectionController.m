@@ -91,10 +91,8 @@
     [items removeObject:currentItem];
     
     RATreeNodeController *controller = [self.rootController controllerForItem:currentItem];
-    NSMutableArray *oldChildItems = [NSMutableArray array];
-    for (RATreeNodeController *nodeController in controller.childControllers) {
-      [oldChildItems addObject:nodeController.treeNode.item];
-    }
+    NSMutableIndexSet *allIdxSet = [NSMutableIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [controller.childControllers count])];
+    [controller removeChildControllersAtIndexes:allIdxSet];
     
     NSInteger numberOfChildren = [self.dataSource treeNodeCollectionController:self numberOfChildrenForItem:controller.treeNode.item];
     NSIndexSet *allIndexes = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, numberOfChildren)];
@@ -104,30 +102,16 @@
     
     NSMutableArray *childControllersToInsert = [NSMutableArray array];
     NSMutableIndexSet *indexesForInsertions = [NSMutableIndexSet indexSet];
-    NSMutableArray *childControllersToRemove = [NSMutableArray array];
-    NSMutableIndexSet *indexesForDeletions = [NSMutableIndexSet indexSet];
     
     for (RATreeNodeController *loopNodeController in newChildControllers) {
       if (![controller.childControllers containsObject:loopNodeController]) {
-        if (![oldChildItems containsObject:controller.treeNode.item]) {
-          [childControllersToInsert addObject:loopNodeController];
-          NSInteger index = [newChildControllers indexOfObject:loopNodeController];
-          NSAssert(index != NSNotFound, nil);
-          [indexesForInsertions addIndex:index];
-        }
-      }
-    }
-    for (RATreeNodeController *loopNodeController in controller.childControllers) {
-      if (![newChildControllers containsObject:loopNodeController]
-          && [childControllersToInsert containsObject:loopNodeController]) {
-        [childControllersToRemove addObject:loopNodeController];
-        NSInteger index = [controller.childControllers indexOfObject:loopNodeController];
+        [childControllersToInsert addObject:loopNodeController];
+        NSInteger index = [newChildControllers indexOfObject:loopNodeController];
         NSAssert(index != NSNotFound, nil);
-        [indexesForDeletions addIndex:index];
+        [indexesForInsertions addIndex:index];
       }
     }
-    
-    [controller removeChildControllersAtIndexes:indexesForDeletions];
+
     [controller insertChildControllers:[newChildControllersAndIndexes valueForKey:@"controller"] atIndexes:indexesForInsertions];
     
     if (expandChildren) {
