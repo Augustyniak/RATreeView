@@ -75,21 +75,38 @@
 
 - (void)collapseCellForTreeNode:(RATreeNode *)treeNode collapseChildren:(BOOL)collapseChildren withRowAnimation:(RATreeViewRowAnimation)rowAnimation
 {
-  [self.tableView beginUpdates];
-  [self.batchChanges beginUpdates];
-  
-  NSInteger index = [self.treeNodeCollectionController lastVisibleDescendantIndexForItem:treeNode.item];
-  
-  __weak typeof(self) weakSelf = self;
-  [self.batchChanges collapseItemWithBlock:^{
-    UITableViewRowAnimation tableViewRowAnimation = [RATreeView tableViewRowAnimationForTreeViewRowAnimation:rowAnimation];
-    [weakSelf.treeNodeCollectionController collapseRowForItem:treeNode.item collapseChildren:collapseChildren updates:^(NSIndexSet *deletions) {
-      [weakSelf.tableView deleteRowsAtIndexPaths:IndexesToIndexPaths(deletions) withRowAnimation:tableViewRowAnimation];
-    }];
-  } lastIndex:index];
-  
-  [self.batchChanges endUpdates];
-  [self.tableView endUpdates];
+    double sysVersion = [[[UIDevice currentDevice] systemVersion] doubleValue];
+    if (sysVersion >= [@"7.0" doubleValue]
+        && sysVersion < [@"7.1.0" doubleValue]) {
+        [self.batchChanges beginUpdates];
+        
+        NSInteger index = [self.treeNodeCollectionController lastVisibleDescendantIndexForItem:treeNode.item];
+        
+        __weak typeof(self) weakSelf = self;
+        [self.batchChanges collapseItemWithBlock:^{
+            [weakSelf.treeNodeCollectionController collapseRowForItem:treeNode.item collapseChildren:collapseChildren updates:^(NSIndexSet *deletions) {
+                [self.tableView reloadData];
+            }];
+        } lastIndex:index];
+        
+        [self.batchChanges endUpdates];
+    } else {
+        [self.tableView beginUpdates];
+        [self.batchChanges beginUpdates];
+        
+        NSInteger index = [self.treeNodeCollectionController lastVisibleDescendantIndexForItem:treeNode.item];
+        
+        __weak typeof(self) weakSelf = self;
+        [self.batchChanges collapseItemWithBlock:^{
+            UITableViewRowAnimation tableViewRowAnimation = [RATreeView tableViewRowAnimationForTreeViewRowAnimation:rowAnimation];
+            [weakSelf.treeNodeCollectionController collapseRowForItem:treeNode.item collapseChildren:collapseChildren updates:^(NSIndexSet *deletions) {
+                [weakSelf.tableView deleteRowsAtIndexPaths:IndexesToIndexPaths(deletions) withRowAnimation:tableViewRowAnimation];
+            }];
+        } lastIndex:index];
+        
+        [self.batchChanges endUpdates];
+        [self.tableView endUpdates];
+    }
 }
 
 - (void)expandCellForTreeNode:(RATreeNode *)treeNode
@@ -99,21 +116,38 @@
 
 - (void)expandCellForTreeNode:(RATreeNode *)treeNode expandChildren:(BOOL)expandChildren withRowAnimation:(RATreeViewRowAnimation)rowAnimation
 {
-  [self.tableView beginUpdates];
-  [self.batchChanges beginUpdates];
-  
-  NSInteger index = [self.treeNodeCollectionController indexForItem:treeNode.item];
-  __weak typeof(self) weakSelf = self;
-  [self.batchChanges expandItemWithBlock:^{
-    UITableViewRowAnimation tableViewRowAnimation = [RATreeView tableViewRowAnimationForTreeViewRowAnimation:rowAnimation];
-    [weakSelf.treeNodeCollectionController expandRowForItem:treeNode.item expandChildren:expandChildren updates:^(NSIndexSet *insertions) {
-      [weakSelf.tableView insertRowsAtIndexPaths:IndexesToIndexPaths(insertions) withRowAnimation:tableViewRowAnimation];
-    }];
-  } atIndex:index];
-  
-  
-  [self.batchChanges endUpdates];
-  [self.tableView endUpdates];
+    double sysVersion = [[[UIDevice currentDevice] systemVersion] doubleValue];
+    if (sysVersion >= [@"7.0" doubleValue]
+        && sysVersion < [@"7.1.0" doubleValue]) {
+        [self.batchChanges beginUpdates];
+        
+        NSInteger index = [self.treeNodeCollectionController indexForItem:treeNode.item];
+        __weak typeof(self) weakSelf = self;
+        [self.batchChanges expandItemWithBlock:^{
+            [weakSelf.treeNodeCollectionController expandRowForItem:treeNode.item expandChildren:expandChildren updates:^(NSIndexSet *insertions) {
+                [self.tableView reloadData];
+            }];
+        } atIndex:index];
+        
+        
+        [self.batchChanges endUpdates];
+    } else {
+        [self.tableView beginUpdates];
+        [self.batchChanges beginUpdates];
+        
+        NSInteger index = [self.treeNodeCollectionController indexForItem:treeNode.item];
+        __weak typeof(self) weakSelf = self;
+        [self.batchChanges expandItemWithBlock:^{
+            UITableViewRowAnimation tableViewRowAnimation = [RATreeView tableViewRowAnimationForTreeViewRowAnimation:rowAnimation];
+            [weakSelf.treeNodeCollectionController expandRowForItem:treeNode.item expandChildren:expandChildren updates:^(NSIndexSet *insertions) {
+                [weakSelf.tableView insertRowsAtIndexPaths:IndexesToIndexPaths(insertions) withRowAnimation:tableViewRowAnimation];
+            }];
+        } atIndex:index];
+        
+        
+        [self.batchChanges endUpdates];
+        [self.tableView endUpdates];
+    }
 }
 
 - (void)insertItemAtIndex:(NSInteger)index inParent:(id)parent withAnimation:(RATreeViewRowAnimation)animation
