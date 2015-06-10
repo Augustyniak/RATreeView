@@ -27,7 +27,7 @@ Installation
 1. Add additional entry to your Podfile.
 
   ```ruby
-  pod "RATreeView", "~> 1.0.2"
+  pod "RATreeView", "~> 1.0.3"
   ```
 
 2. Install  Pod(s) running `pod install` command.
@@ -54,7 +54,7 @@ Usage
 -----------------
 
 
-Check out the demo for example usage of library. Make sure you read the [RATreeView documentation on Cocoa Docs](http://cocoadocs.org/docsets/RATreeView/1.0.1).
+Check out the demo for example usage of library. Make sure you read the [RATreeView documentation on Cocoa Docs](http://cocoadocs.org/docsets/RATreeView/1.0.3).
 
 
 ### Basics
@@ -109,7 +109,7 @@ Check out the demo for example usage of library. Make sure you read the [RATreeV
 Documentation
 -----------------
 
-Documentation is available on [CocoaPods](http://cocoadocs.org/docsets/RATreeView/1.0.2).
+Documentation is available on [CocoaPods](http://cocoadocs.org/docsets/RATreeView/1.0.3).
 
 TODO
 -----------------
@@ -127,6 +127,8 @@ RATreeView was created by Rafał Augustyniak. You can find me on twitter ([@RaAu
 
 Release Notes 
 -----------------
+
+Information about newer versions of the library can be found in the [releases section](https://github.com/Augustyniak/RATreeView/releases) of the repository.
 
 Version 1.0.2
 - Fixed bug in select and deselect operations.

@@ -99,27 +99,27 @@
     NSInteger numberOfChildren = [self.dataSource treeNodeCollectionController:self numberOfChildrenForItem:controller.treeNode.item];
     NSIndexSet *allIndexes = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, numberOfChildren)];
     
-    NSArray *newChildControllersAndIndexes = [self controllersAndIndexesForNodesWithIndexes:allIndexes inParentController:controller];
-    NSArray *newChildControllers = [newChildControllersAndIndexes valueForKey:@"controller"];
+    NSArray *currentChildControllersAndIndexes = [self controllersAndIndexesForNodesWithIndexes:allIndexes inParentController:controller];
+    NSArray *currentChildControllers = [currentChildControllersAndIndexes valueForKey:@"controller"];
     
     NSMutableArray *childControllersToInsert = [NSMutableArray array];
     NSMutableIndexSet *indexesForInsertions = [NSMutableIndexSet indexSet];
     NSMutableArray *childControllersToRemove = [NSMutableArray array];
     NSMutableIndexSet *indexesForDeletions = [NSMutableIndexSet indexSet];
     
-    for (RATreeNodeController *loopNodeController in newChildControllers) {
-      if (![controller.childControllers containsObject:loopNodeController]) {
-        if (![oldChildItems containsObject:controller.treeNode.item]) {
-          [childControllersToInsert addObject:loopNodeController];
-          NSInteger index = [newChildControllers indexOfObject:loopNodeController];
-          NSAssert(index != NSNotFound, nil);
-          [indexesForInsertions addIndex:index];
-        }
+    for (RATreeNodeController *loopNodeController in currentChildControllers) {
+      if (![controller.childControllers containsObject:loopNodeController]
+          && ![oldChildItems containsObject:controller.treeNode.item]) {
+        [childControllersToInsert addObject:loopNodeController];
+        NSInteger index = [currentChildControllers indexOfObject:loopNodeController];
+        NSAssert(index != NSNotFound, nil);
+        [indexesForInsertions addIndex:index];
       }
     }
+    
     for (RATreeNodeController *loopNodeController in controller.childControllers) {
-      if (![newChildControllers containsObject:loopNodeController]
-          && [childControllersToInsert containsObject:loopNodeController]) {
+      if (![currentChildControllers containsObject:loopNodeController]
+          && ![childControllersToInsert containsObject:loopNodeController]) {
         [childControllersToRemove addObject:loopNodeController];
         NSInteger index = [controller.childControllers indexOfObject:loopNodeController];
         NSAssert(index != NSNotFound, nil);
@@ -128,7 +128,7 @@
     }
     
     [controller removeChildControllersAtIndexes:indexesForDeletions];
-    [controller insertChildControllers:[newChildControllersAndIndexes valueForKey:@"controller"] atIndexes:indexesForInsertions];
+    [controller insertChildControllers:childControllersToInsert atIndexes:indexesForInsertions];
     
     if (expandChildren) {
       for (RATreeNodeController *nodeController in controller.childControllers) {
@@ -208,7 +208,7 @@
 - (NSArray *)controllersAndIndexesForNodesWithIndexes:(NSIndexSet *)indexes inParentController:(RATreeNodeController *)parentController
 {
   NSMutableArray *childControllers = [parentController.childControllers mutableCopy];
-  NSMutableArray *newControllers = [NSMutableArray array];
+  NSMutableArray *currentControllers = [NSMutableArray array];
   
   NSMutableArray *invalidItems = [NSMutableArray array];
   for (RATreeNodeController *nodeController in parentController.childControllers) {
@@ -226,9 +226,8 @@
     
     
     for (RATreeNodeController *controller in parentController.childControllers) {
-      if (controller.treeNode.item == lazyItem.item) {
+      if ([controller.treeNode.item isEqual:lazyItem.item]) {
         oldControllerForCurrentIndex = controller;
-        return;
       }
     }
     if (oldControllerForCurrentIndex != nil) {
@@ -237,16 +236,16 @@
     } else {
       controller = [[RATreeNodeController alloc] initWithParent:parentController item:lazyItem expandedBlock:^BOOL(id item) {
         return [childControllers indexOfObjectPassingTest:^BOOL(RATreeNodeController *controller, NSUInteger idx, BOOL *stop) {
-          return controller.treeNode.item == item;
+          return [controller.treeNode.item isEqual:item];
         }] != NSNotFound;
       }];
     }
     
-    [newControllers addObject:@{ @"index" : @(idx),
+    [currentControllers addObject:@{ @"index" : @(idx),
                                  @"controller" : controller }];
   }];
   
-  return [newControllers copy];
+  return [currentControllers copy];
 }
 
 - (NSArray *)controllersForNodesWithIndexes:(NSIndexSet *)indexes inParentController:(RATreeNodeController *)parentController
