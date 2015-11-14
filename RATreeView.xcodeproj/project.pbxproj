@@ -7,6 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0626D55E1BF7E81E00CD3B04 /* RATreeView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0626D5571BF7E81E00CD3B04 /* RATreeView.framework */; };
+		0626D55F1BF7E81E00CD3B04 /* RATreeView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0626D5571BF7E81E00CD3B04 /* RATreeView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0626D5631BF7E85200CD3B04 /* RATreeView.h in Headers */ = {isa = PBXBuildFile; fileRef = B53B976917D3843600A05E2F /* RATreeView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0626D5641BF7E85B00CD3B04 /* RABatchChanges.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F730F198D6E42006BAED0 /* RABatchChanges.h */; };
+		0626D5661BF7E85B00CD3B04 /* RATreeNode.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F7311198D6E42006BAED0 /* RATreeNode.h */; };
+		0626D5681BF7E85B00CD3B04 /* RATreeNode_ClassExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F7313198D6E42006BAED0 /* RATreeNode_ClassExtension.h */; };
+		0626D5691BF7E85B00CD3B04 /* RATreeNodeCollectionController.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F7314198D6E42006BAED0 /* RATreeNodeCollectionController.h */; };
+		0626D56B1BF7E85B00CD3B04 /* RATreeNodeController.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F7316198D6E42006BAED0 /* RATreeNodeController.h */; };
+		0626D56D1BF7E85B00CD3B04 /* RATreeNodeItem+ClassExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F7318198D6E42006BAED0 /* RATreeNodeItem+ClassExtension.h */; };
+		0626D56E1BF7E85B00CD3B04 /* RATreeNodeItem+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F7319198D6E42006BAED0 /* RATreeNodeItem+Private.h */; };
+		0626D5701BF7E85B00CD3B04 /* RATreeNodeItem.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F731B198D6E42006BAED0 /* RATreeNodeItem.h */; };
+		0626D5721BF7E85B00CD3B04 /* RATreeView+Enums.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F731D198D6E42006BAED0 /* RATreeView+Enums.h */; };
+		0626D5741BF7E85B00CD3B04 /* RATreeView+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F731F198D6E42006BAED0 /* RATreeView+Private.h */; };
+		0626D5761BF7E85B00CD3B04 /* RATreeView+RATreeNodeCollectionControllerDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F7321198D6E42006BAED0 /* RATreeView+RATreeNodeCollectionControllerDataSource.h */; };
+		0626D5781BF7E85B00CD3B04 /* RATreeView+TableViewDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F7323198D6E42006BAED0 /* RATreeView+TableViewDataSource.h */; };
+		0626D57A1BF7E85B00CD3B04 /* RATreeView+TableViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F7325198D6E42006BAED0 /* RATreeView+TableViewDelegate.h */; };
+		0626D57C1BF7E85C00CD3B04 /* RATreeView+UIScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F7327198D6E42006BAED0 /* RATreeView+UIScrollView.h */; };
+		0626D57E1BF7E85C00CD3B04 /* RATreeView_ClassExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F7329198D6E42006BAED0 /* RATreeView_ClassExtension.h */; };
+		0626D57F1BF7E89800CD3B04 /* RATreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B53B976A17D3843600A05E2F /* RATreeView.m */; };
+		0626D5801BF7E89800CD3B04 /* RABatchChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F7310198D6E42006BAED0 /* RABatchChanges.m */; };
+		0626D5811BF7E89800CD3B04 /* RATreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F7312198D6E42006BAED0 /* RATreeNode.m */; };
+		0626D5821BF7E89800CD3B04 /* RATreeNodeCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F7315198D6E42006BAED0 /* RATreeNodeCollectionController.m */; };
+		0626D5831BF7E89800CD3B04 /* RATreeNodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F7317198D6E42006BAED0 /* RATreeNodeController.m */; };
+		0626D5841BF7E89800CD3B04 /* RATreeNodeItem+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F731A198D6E42006BAED0 /* RATreeNodeItem+Private.m */; };
+		0626D5851BF7E89800CD3B04 /* RATreeNodeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F731C198D6E42006BAED0 /* RATreeNodeItem.m */; };
+		0626D5861BF7E89800CD3B04 /* RATreeView+Enums.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F731E198D6E42006BAED0 /* RATreeView+Enums.m */; };
+		0626D5871BF7E89800CD3B04 /* RATreeView+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F7320198D6E42006BAED0 /* RATreeView+Private.m */; };
+		0626D5881BF7E89800CD3B04 /* RATreeView+RATreeNodeCollectionControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F7322198D6E42006BAED0 /* RATreeView+RATreeNodeCollectionControllerDataSource.m */; };
+		0626D5891BF7E89800CD3B04 /* RATreeView+TableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F7324198D6E42006BAED0 /* RATreeView+TableViewDataSource.m */; };
+		0626D58A1BF7E89800CD3B04 /* RATreeView+TableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F7326198D6E42006BAED0 /* RATreeView+TableViewDelegate.m */; };
+		0626D58B1BF7E89800CD3B04 /* RATreeView+UIScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F7328198D6E42006BAED0 /* RATreeView+UIScrollView.m */; };
 		B535574C1801AC4700390489 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B535574B1801AC4700390489 /* QuartzCore.framework */; };
 		B53B974417D3840800A05E2F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B53B974317D3840800A05E2F /* UIKit.framework */; };
 		B53B974617D3840800A05E2F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B53B974517D3840800A05E2F /* Foundation.framework */; };
@@ -36,14 +67,39 @@
 		B5A8A7E017DB98DA007C67E3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B5A8A7DD17DB98DA007C67E3 /* Default@2x.png */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		0626D55C1BF7E81E00CD3B04 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B53B973817D3840800A05E2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0626D5561BF7E81E00CD3B04;
+			remoteInfo = "RATreeView-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0626D5011BF7E2F800CD3B04 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0626D55F1BF7E81E00CD3B04 /* RATreeView.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0626D5571BF7E81E00CD3B04 /* RATreeView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RATreeView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B535574B1801AC4700390489 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B53B974017D3840800A05E2F /* RATreeView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RATreeView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B53B974317D3840800A05E2F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B53B974517D3840800A05E2F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B53B974717D3840800A05E2F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B53B976917D3843600A05E2F /* RATreeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RATreeView.h; sourceTree = "<group>"; };
-		B53B976A17D3843600A05E2F /* RATreeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RATreeView.m; sourceTree = "<group>"; };
+		B53B976A17D3843600A05E2F /* RATreeView.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = RATreeView.m; sourceTree = "<group>"; tabWidth = 2; };
 		B53B97BD17D3C21700A05E2F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Demo/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		B53B97BF17D3C21F00A05E2F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Demo/main.m; sourceTree = SOURCE_ROOT; };
 		B53B97C117D3C22D00A05E2F /* RAAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RAAppDelegate.h; path = Demo/RAAppDelegate.h; sourceTree = "<group>"; };
@@ -90,10 +146,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0626D5531BF7E81E00CD3B04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B53B973D17D3840800A05E2F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0626D55E1BF7E81E00CD3B04 /* RATreeView.framework in Frameworks */,
 				B535574C1801AC4700390489 /* QuartzCore.framework in Frameworks */,
 				B53B974417D3840800A05E2F /* UIKit.framework in Frameworks */,
 				B53B974617D3840800A05E2F /* Foundation.framework in Frameworks */,
@@ -118,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				B53B974017D3840800A05E2F /* RATreeView.app */,
+				0626D5571BF7E81E00CD3B04 /* RATreeView.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -211,7 +276,51 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		0626D5541BF7E81E00CD3B04 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0626D5631BF7E85200CD3B04 /* RATreeView.h in Headers */,
+				0626D5641BF7E85B00CD3B04 /* RABatchChanges.h in Headers */,
+				0626D5661BF7E85B00CD3B04 /* RATreeNode.h in Headers */,
+				0626D5681BF7E85B00CD3B04 /* RATreeNode_ClassExtension.h in Headers */,
+				0626D5691BF7E85B00CD3B04 /* RATreeNodeCollectionController.h in Headers */,
+				0626D56B1BF7E85B00CD3B04 /* RATreeNodeController.h in Headers */,
+				0626D56D1BF7E85B00CD3B04 /* RATreeNodeItem+ClassExtension.h in Headers */,
+				0626D56E1BF7E85B00CD3B04 /* RATreeNodeItem+Private.h in Headers */,
+				0626D5701BF7E85B00CD3B04 /* RATreeNodeItem.h in Headers */,
+				0626D5721BF7E85B00CD3B04 /* RATreeView+Enums.h in Headers */,
+				0626D5741BF7E85B00CD3B04 /* RATreeView+Private.h in Headers */,
+				0626D5761BF7E85B00CD3B04 /* RATreeView+RATreeNodeCollectionControllerDataSource.h in Headers */,
+				0626D5781BF7E85B00CD3B04 /* RATreeView+TableViewDataSource.h in Headers */,
+				0626D57A1BF7E85B00CD3B04 /* RATreeView+TableViewDelegate.h in Headers */,
+				0626D57C1BF7E85C00CD3B04 /* RATreeView+UIScrollView.h in Headers */,
+				0626D57E1BF7E85C00CD3B04 /* RATreeView_ClassExtension.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		0626D5561BF7E81E00CD3B04 /* RATreeView-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0626D5601BF7E81E00CD3B04 /* Build configuration list for PBXNativeTarget "RATreeView-iOS" */;
+			buildPhases = (
+				0626D5521BF7E81E00CD3B04 /* Sources */,
+				0626D5531BF7E81E00CD3B04 /* Frameworks */,
+				0626D5541BF7E81E00CD3B04 /* Headers */,
+				0626D5551BF7E81E00CD3B04 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RATreeView-iOS";
+			productName = "RATreeView-iOS";
+			productReference = 0626D5571BF7E81E00CD3B04 /* RATreeView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		B53B973F17D3840800A05E2F /* RATreeView */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B53B976617D3840800A05E2F /* Build configuration list for PBXNativeTarget "RATreeView" */;
@@ -219,10 +328,12 @@
 				B53B973C17D3840800A05E2F /* Sources */,
 				B53B973D17D3840800A05E2F /* Frameworks */,
 				B53B973E17D3840800A05E2F /* Resources */,
+				0626D5011BF7E2F800CD3B04 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0626D55D1BF7E81E00CD3B04 /* PBXTargetDependency */,
 			);
 			name = RATreeView;
 			productName = RATreeView;
@@ -238,6 +349,11 @@
 				CLASSPREFIX = RA;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Rafal Augustyniak";
+				TargetAttributes = {
+					0626D5561BF7E81E00CD3B04 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+				};
 			};
 			buildConfigurationList = B53B973B17D3840800A05E2F /* Build configuration list for PBXProject "RATreeView" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -252,11 +368,19 @@
 			projectRoot = "";
 			targets = (
 				B53B973F17D3840800A05E2F /* RATreeView */,
+				0626D5561BF7E81E00CD3B04 /* RATreeView-iOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0626D5551BF7E81E00CD3B04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B53B973E17D3840800A05E2F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -272,6 +396,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0626D5521BF7E81E00CD3B04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0626D57F1BF7E89800CD3B04 /* RATreeView.m in Sources */,
+				0626D5801BF7E89800CD3B04 /* RABatchChanges.m in Sources */,
+				0626D5811BF7E89800CD3B04 /* RATreeNode.m in Sources */,
+				0626D5821BF7E89800CD3B04 /* RATreeNodeCollectionController.m in Sources */,
+				0626D5831BF7E89800CD3B04 /* RATreeNodeController.m in Sources */,
+				0626D5841BF7E89800CD3B04 /* RATreeNodeItem+Private.m in Sources */,
+				0626D5851BF7E89800CD3B04 /* RATreeNodeItem.m in Sources */,
+				0626D5861BF7E89800CD3B04 /* RATreeView+Enums.m in Sources */,
+				0626D5871BF7E89800CD3B04 /* RATreeView+Private.m in Sources */,
+				0626D5881BF7E89800CD3B04 /* RATreeView+RATreeNodeCollectionControllerDataSource.m in Sources */,
+				0626D5891BF7E89800CD3B04 /* RATreeView+TableViewDataSource.m in Sources */,
+				0626D58A1BF7E89800CD3B04 /* RATreeView+TableViewDelegate.m in Sources */,
+				0626D58B1BF7E89800CD3B04 /* RATreeView+UIScrollView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B53B973C17D3840800A05E2F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -299,6 +443,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		0626D55D1BF7E81E00CD3B04 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0626D5561BF7E81E00CD3B04 /* RATreeView-iOS */;
+			targetProxy = 0626D55C1BF7E81E00CD3B04 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		B53B97BC17D3C21700A05E2F /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -311,6 +463,75 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0626D5611BF7E81E00CD3B04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = RATreeView/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = RATreeView;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0626D5621BF7E81E00CD3B04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = RATreeView/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = RATreeView;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		B53B976417D3840800A05E2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -376,6 +597,7 @@
 				GCC_PREFIX_HEADER = "Demo/RATreeView-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Demo/RATreeView-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -390,6 +612,7 @@
 				GCC_PREFIX_HEADER = "Demo/RATreeView-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/Demo/RATreeView-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -400,6 +623,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0626D5601BF7E81E00CD3B04 /* Build configuration list for PBXNativeTarget "RATreeView-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0626D5611BF7E81E00CD3B04 /* Debug */,
+				0626D5621BF7E81E00CD3B04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		B53B973B17D3840800A05E2F /* Build configuration list for PBXProject "RATreeView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
