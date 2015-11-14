@@ -189,6 +189,38 @@
   self.tableView.separatorInset = separatorInset;
 }
 
+- (UIVisualEffect *)separatorEffect
+{
+  if ([self.tableView respondsToSelector:@selector(separatorEffect)]) {
+    return self.tableView.separatorEffect;
+  } else {
+    return nil;
+  }
+}
+
+- (void)setSeparatorEffect:(UIVisualEffect *)separatorEffect
+{
+  if ([self.tableView respondsToSelector:@selector(separatorEffect)]) {
+    self.tableView.separatorEffect = separatorEffect;
+  }
+}
+
+- (BOOL)cellLayoutMarginsFollowReadableWidth
+{
+  if ([self.tableView respondsToSelector:@selector(cellLayoutMarginsFollowReadableWidth)]) {
+    return self.tableView.cellLayoutMarginsFollowReadableWidth;
+  } else {
+    return NO;
+  }
+}
+
+- (void)setCellLayoutMarginsFollowReadableWidth:(BOOL)cellLayoutMarginsFollowReadableWidth
+{
+  if ([self.tableView respondsToSelector:@selector(cellLayoutMarginsFollowReadableWidth)]) {
+    self.tableView.cellLayoutMarginsFollowReadableWidth = cellLayoutMarginsFollowReadableWidth;
+  }
+}
+
 - (UIView *)backgroundView
 {
   return self.tableView.backgroundView;

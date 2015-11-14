@@ -471,6 +471,9 @@ typedef enum RATreeViewRowAnimation {
 @property (nonatomic) CGFloat rowHeight;
 @property (nonatomic) CGFloat estimatedRowHeight NS_AVAILABLE_IOS(7_0);
 @property (nonatomic) UIEdgeInsets separatorInset NS_AVAILABLE_IOS(7_0);
+@property (copy, nonatomic) UIVisualEffect *separatorEffect NS_AVAILABLE_IOS(8_0) UI_APPEARANCE_SELECTOR __TVOS_PROHIBITED;
+
+@property (nonatomic) BOOL cellLayoutMarginsFollowReadableWidth NS_AVAILABLE_IOS(9_0);
 @property (strong, nonatomic) UIView *backgroundView;
 
 
