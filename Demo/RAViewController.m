@@ -53,6 +53,8 @@
   
   
   self.treeView = treeView;
+  self.treeView.frame = self.view.bounds;
+  self.treeView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
   [self.view insertSubview:treeView atIndex:0];
   
   [self.navigationController setNavigationBarHidden:NO];

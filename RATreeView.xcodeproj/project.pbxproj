@@ -31,7 +31,6 @@
 		B59F7333198D6E42006BAED0 /* RATreeView+TableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F7324198D6E42006BAED0 /* RATreeView+TableViewDataSource.m */; };
 		B59F7334198D6E42006BAED0 /* RATreeView+TableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F7326198D6E42006BAED0 /* RATreeView+TableViewDelegate.m */; };
 		B59F7335198D6E42006BAED0 /* RATreeView+UIScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F7328198D6E42006BAED0 /* RATreeView+UIScrollView.m */; };
-		B5A8A7CD17DB95AC007C67E3 /* RAViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5A8A7CB17DB95AC007C67E3 /* RAViewController_iPhone.xib */; };
 		B5A8A7DE17DB98DA007C67E3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B5A8A7DB17DB98DA007C67E3 /* Default-568h@2x.png */; };
 		B5A8A7DF17DB98DA007C67E3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B5A8A7DC17DB98DA007C67E3 /* Default.png */; };
 		B5A8A7E017DB98DA007C67E3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B5A8A7DD17DB98DA007C67E3 /* Default@2x.png */; };
@@ -83,7 +82,6 @@
 		B59F7327198D6E42006BAED0 /* RATreeView+UIScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RATreeView+UIScrollView.h"; sourceTree = "<group>"; };
 		B59F7328198D6E42006BAED0 /* RATreeView+UIScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RATreeView+UIScrollView.m"; sourceTree = "<group>"; };
 		B59F7329198D6E42006BAED0 /* RATreeView_ClassExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RATreeView_ClassExtension.h; sourceTree = "<group>"; };
-		B5A8A7CB17DB95AC007C67E3 /* RAViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RAViewController_iPhone.xib; path = Demo/RAViewController_iPhone.xib; sourceTree = "<group>"; };
 		B5A8A7D017DB964B007C67E3 /* RATreeView-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "RATreeView-Info.plist"; path = "Demo/RATreeView-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B5A8A7D117DB964B007C67E3 /* RATreeView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "RATreeView-Prefix.pch"; path = "Demo/RATreeView-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		B5A8A7DB17DB98DA007C67E3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Demo/Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -169,7 +167,6 @@
 				B53B97C417D3C22D00A05E2F /* RADataObject.m */,
 				B53B97C517D3C22D00A05E2F /* RAViewController.h */,
 				B53B97C617D3C22D00A05E2F /* RAViewController.m */,
-				B5A8A7CB17DB95AC007C67E3 /* RAViewController_iPhone.xib */,
 				B59F7309198D6D5F006BAED0 /* RATableViewCell.h */,
 				B59F730A198D6D5F006BAED0 /* RATableViewCell.m */,
 				B59F730B198D6D5F006BAED0 /* RATableViewCell.xib */,
@@ -265,7 +262,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B53B97BE17D3C21700A05E2F /* InfoPlist.strings in Resources */,
-				B5A8A7CD17DB95AC007C67E3 /* RAViewController_iPhone.xib in Resources */,
 				B5A8A7DE17DB98DA007C67E3 /* Default-568h@2x.png in Resources */,
 				B5A8A7DF17DB98DA007C67E3 /* Default.png in Resources */,
 				B59F730D198D6D5F006BAED0 /* RATableViewCell.xib in Resources */,
@@ -382,7 +378,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -396,7 +392,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
