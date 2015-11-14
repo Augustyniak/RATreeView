@@ -32,7 +32,7 @@
 
 @interface RATreeNodeCollectionController : NSObject
 
-@property (strong, nonatomic) id<RATreeNodeCollectionControllerDataSource> dataSource;
+@property (nonatomic, weak) id<RATreeNodeCollectionControllerDataSource> dataSource;
 @property (nonatomic, readonly) NSInteger numberOfVisibleRowsForItems;
 
 - (RATreeNode *)treeNodeForIndex:(NSInteger)index;
