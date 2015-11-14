@@ -108,7 +108,7 @@
 - (void)commonInitWithFrame:(CGRect)frame style:(RATreeViewStyle)style
 {
   UITableViewStyle tableViewStyle = [RATreeView tableViewStyleForTreeViewStyle:style];
-  
+
   UITableView *tableView =  [[UITableView alloc] initWithFrame:frame style:tableViewStyle];
   tableView.delegate = (id<UITableViewDelegate>)self;
   tableView.dataSource = (id<UITableViewDataSource>)self;
@@ -116,7 +116,7 @@
   tableView.backgroundColor = [UIColor clearColor];
   [self addSubview:tableView];
   [self setTableView:tableView];
-  
+
   self.expandsChildRowsWhenRowExpands = NO;
   self.collapsesChildRowsWhenRowCollapses = NO;
   self.rowsExpandingAnimation = RATreeViewRowAnimationTop;
@@ -171,22 +171,34 @@
 
 - (CGFloat)estimatedRowHeight
 {
-  return self.tableView.estimatedRowHeight;
+  if ([self.tableView respondsToSelector:@selector(estimatedRowHeight)]) {
+    return self.tableView.estimatedRowHeight;
+  } else {
+    return 0;
+  }
 }
 
 - (void)setEstimatedRowHeight:(CGFloat)estimatedRowHeight
 {
-  self.tableView.estimatedRowHeight = estimatedRowHeight;
+  if ([self.tableView respondsToSelector:@selector(estimatedRowHeight)]) {
+    self.tableView.estimatedRowHeight = estimatedRowHeight;
+  }
 }
 
 - (UIEdgeInsets)separatorInset
 {
-  return self.tableView.separatorInset;
+  if ([self.tableView respondsToSelector:@selector(separatorInset)]) {
+    return self.tableView.separatorInset;
+  } else {
+    return UIEdgeInsetsZero;
+  }
 }
 
 - (void)setSeparatorInset:(UIEdgeInsets)separatorInset
 {
-  self.tableView.separatorInset = separatorInset;
+  if ([self.tableView respondsToSelector:@selector(separatorInset)]) {
+    self.tableView.separatorInset = separatorInset;
+  }
 }
 
 - (UIVisualEffect *)separatorEffect
@@ -563,7 +575,7 @@
     NSIndexPath *indexPath = [self indexPathForItem:item];
     [indexes addObject:indexPath];
   }
-  
+
   [self.tableView reloadRowsAtIndexPaths:indexes withRowAnimation:tableViewRowAnimation];
 }
 
@@ -602,7 +614,7 @@
 }
 
 
-#pragma mark - 
+#pragma mark -
 
 - (NSArray *)itemsForIndexPaths:(NSArray *)indexPaths
 {
@@ -610,7 +622,7 @@
   for (NSIndexPath *indexPath in indexPaths) {
     [items addObject:[self treeNodeForIndexPath:indexPath].item];
   }
-  
+
   return [items copy];
 }
 
