@@ -1,0 +1,14 @@
+PODS:
+  - RATreeView (1.0.3)
+
+DEPENDENCIES:
+  - RATreeView (from `../RATreeView.podspec`)
+
+EXTERNAL SOURCES:
+  RATreeView:
+    :path: "../RATreeView.podspec"
+
+SPEC CHECKSUMS:
+  RATreeView: f567bef7be4c0ae6a21ff18fccc115b7405b895d
+
+COCOAPODS: 0.39.0
