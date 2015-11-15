@@ -1,6 +1,6 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-workspace 'RATreeViewExample.xcworkspace'
+workspace 'RATreeViewExamples.xcworkspace'
 platform :ios, '5.0'
 
 pod 'RATreeView', :path => '../RATreeView.podspec'
