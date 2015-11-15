@@ -28,7 +28,7 @@ Installation
 1. Add additional entry to your Podfile.
 
   ```ruby
-  pod "RATreeView", "~> 1.0.4"
+  pod "RATreeView", "~> 2.0.0"
   ```
 
 2. Install  Pod(s) running `pod install` command.
@@ -55,7 +55,7 @@ Usage
 -----------------
 
 
-Check out the demo for example usage of library. Make sure you read the [RATreeView documentation on Cocoa Docs](http://cocoadocs.org/docsets/RATreeView/1.0.4).
+Check out the demo for example usage of library. Make sure you read the [RATreeView documentation on Cocoa Docs](http://cocoadocs.org/docsets/RATreeView/2.0.0).
 
 
 ### Basics
@@ -110,7 +110,7 @@ Check out the demo for example usage of library. Make sure you read the [RATreeV
 Documentation
 -----------------
 
-Documentation is available on [CocoaPods](http://cocoadocs.org/docsets/RATreeView/1.0.3).
+Documentation is available on [CocoaPods](http://cocoadocs.org/docsets/RATreeView/2.0.0).
 
 TODO
 -----------------
