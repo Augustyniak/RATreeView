@@ -98,28 +98,44 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  RATreeNode *treeNode = [self treeNodeForIndexPath:indexPath];
-  if ([self.delegate respondsToSelector:@selector(treeView:didSelectRowForItem:)]) {
-    [self.delegate treeView:self didSelectRowForItem:treeNode.item];
-  }
-  
-  if (treeNode.expanded) {
-    if ([self.delegate respondsToSelector:@selector(treeView:shouldCollapaseRowForItem:)]) {
-      if ([self.delegate treeView:self shouldCollapaseRowForItem:treeNode.item]) {
-        [self collapseCellForTreeNode:treeNode informDelegate:YES];
-      }
-    } else {
-      [self collapseCellForTreeNode:treeNode informDelegate:YES];
+    RATreeNode *treeNode = [self treeNodeForIndexPath:indexPath];
+    if ([self.delegate respondsToSelector:@selector(treeView:didSelectRowForItem:)]) {
+        [self.delegate treeView:self didSelectRowForItem:treeNode.item];
     }
-  } else {
-    if ([self.delegate respondsToSelector:@selector(treeView:shouldExpandRowForItem:)]) {
-      if ([self.delegate treeView:self shouldExpandRowForItem:treeNode.item]) {
-        [self expandCellForTreeNode:treeNode informDelegate:YES];
-      }
-    } else {
-      [self expandCellForTreeNode:treeNode informDelegate:YES];
+    
+    if (self.expandOnlyIfSelected == NO || (self.expandOnlyIfSelected == YES && treeNode.selected == YES))
+    {
+        if (treeNode.expanded) {
+            if ([self.delegate respondsToSelector:@selector(treeView:shouldCollapaseRowForItem:)]) {
+                if ([self.delegate treeView:self shouldCollapaseRowForItem:treeNode.item]) {
+                    [self collapseCellForTreeNode:treeNode informDelegate:YES];
+                }
+            } else {
+                [self collapseCellForTreeNode:treeNode informDelegate:YES];
+            }
+        } else {
+            if ([self.delegate respondsToSelector:@selector(treeView:shouldExpandRowForItem:)]) {
+                if ([self.delegate treeView:self shouldExpandRowForItem:treeNode.item]) {
+                    [self expandCellForTreeNode:treeNode informDelegate:YES];
+                }
+            } else {
+                [self expandCellForTreeNode:treeNode informDelegate:YES];
+            }
+        }
     }
-  }
+ 
+    if (self.showSelection == YES)
+    {
+        UITableViewCell *cell = [self cellForItem:treeNode.item];
+        cell.layer.borderWidth = 2;
+        if (treeNode.expanded == NO) {
+            cell.layer.borderColor = self.selectedCollapsedBorderColor.CGColor;
+        } else {
+            cell.layer.borderColor = self.selectedExpandedBorderColor.CGColor;
+        }
+    }
+    
+    treeNode.selected = YES;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willDeselectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -136,10 +152,18 @@
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  if ([self.delegate respondsToSelector:@selector(treeView:didDeselectRowForItem:)]) {
     RATreeNode *treeNode = [self treeNodeForIndexPath:indexPath];
-    [self.delegate treeView:self didDeselectRowForItem:treeNode.item];
-  }
+    treeNode.selected = NO;
+    
+    if (self.showSelection == YES)
+    {
+        UITableViewCell *cell = [self cellForItem:treeNode.item];
+        cell.layer.borderWidth = 0;
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(treeView:didDeselectRowForItem:)]) {
+        [self.delegate treeView:self didDeselectRowForItem:treeNode.item];
+    }
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath

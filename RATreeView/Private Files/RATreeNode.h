@@ -27,6 +27,7 @@
 @interface RATreeNode : NSObject
  
 @property (nonatomic, readonly) BOOL expanded;
+@property (nonatomic, assign) BOOL selected;
 @property (strong, nonatomic, readonly) id item;
 
 - (id)initWithLazyItem:(RATreeNodeItem *)item expandedBlock:(BOOL (^)(id))expandedBlock;

@@ -243,6 +243,22 @@
   self.tableView.backgroundView = backgroundView;
 }
 
+-(UIColor *)selectedCollapsedBorderColor
+{
+    if (_selectedCollapsedBorderColor == nil)
+        return [UIColor blueColor];
+    
+    return _selectedCollapsedBorderColor;
+}
+
+-(UIColor *)selectedExpandedBorderColor
+{
+    if (_selectedExpandedBorderColor == nil)
+        return [UIColor greenColor];
+    
+    return _selectedExpandedBorderColor;
+}
+
 
 #pragma mark Expanding and Collapsing Rows
 

@@ -50,7 +50,8 @@
   
   [treeView reloadData];
   [treeView setBackgroundColor:[UIColor colorWithWhite:0.97 alpha:1.0]];
-  
+//    treeView.showSelection = YES;
+    treeView.expandOnlyIfSelected = YES;
   
   self.treeView = treeView;
   self.treeView.frame = self.view.bounds;

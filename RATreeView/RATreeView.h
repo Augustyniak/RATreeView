@@ -476,6 +476,11 @@ typedef enum RATreeViewRowAnimation {
 @property (nonatomic) BOOL cellLayoutMarginsFollowReadableWidth NS_AVAILABLE_IOS(9_0);
 @property (strong, nonatomic) UIView *backgroundView;
 
+@property (nonatomic) BOOL showSelection;
+@property (nonatomic) BOOL expandOnlyIfSelected;
+@property (nonatomic, strong) UIColor *selectedCollapsedBorderColor;
+@property (nonatomic, strong) UIColor *selectedExpandedBorderColor;
+
 
 ///------------------------------------------------
 /// @name Expanding and Collapsing Rows
