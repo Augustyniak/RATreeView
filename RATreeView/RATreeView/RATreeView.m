@@ -23,54 +23,18 @@
 #import "RATreeView_ClassExtension.h"
 #import "RATreeView+Enums.h"
 #import "RATreeView+Private.h"
-#import "RATreeView+UIScrollView.h"
 
 #import "RABatchChanges.h"
 
 #import "RATreeNodeCollectionController.h"
 #import "RATreeNode.h"
 
+#import "RATableView.h"
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wincomplete-implementation"
 @implementation RATreeView
 #pragma clang diagnostic pop
-
-//Managing the Display of Content
-@dynamic contentOffset;
-@dynamic contentSize;
-@dynamic contentInset;
-
-//Managing Scrolling
-@dynamic scrollEnabled;
-@dynamic directionalLockEnabled;
-@dynamic scrollsToTop;
-@dynamic pagingEnabled;
-@dynamic bounces;
-@dynamic alwaysBounceVertical;
-@dynamic alwaysBounceHorizontal;
-@dynamic canCancelContentTouches;
-@dynamic delaysContentTouches;
-@dynamic decelerationRate;
-@dynamic dragging;
-@dynamic tracking;
-@dynamic decelerating;
-
-//Managing the Scroll Indicator
-@dynamic indicatorStyle;
-@dynamic scrollIndicatorInsets;
-@dynamic showsHorizontalScrollIndicator;
-@dynamic showsVerticalScrollIndicator;
-//- (void)flashScrollIndicators;
-
-//Zooming and Panning
-@dynamic panGestureRecognizer;
-@dynamic pinchGestureRecognizer;
-@dynamic zoomScale;
-@dynamic maximumZoomScale;
-@dynamic minimumZoomScale;
-@dynamic zoomBouncing;
-@dynamic zooming;
-@dynamic bouncesZoom;
 
 
 #pragma mark Initializing a TreeView Object
@@ -109,11 +73,12 @@
 {
   UITableViewStyle tableViewStyle = [RATreeView tableViewStyleForTreeViewStyle:style];
 
-  UITableView *tableView =  [[UITableView alloc] initWithFrame:frame style:tableViewStyle];
-  tableView.delegate = (id<UITableViewDelegate>)self;
+  RATableView *tableView =  [[RATableView alloc] initWithFrame:frame style:tableViewStyle];
+  tableView.tableViewDelegate = (id<UITableViewDelegate>)self;
   tableView.dataSource = (id<UITableViewDataSource>)self;
   tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
   tableView.backgroundColor = [UIColor clearColor];
+
   [self addSubview:tableView];
   [self setTableView:tableView];
 
@@ -121,6 +86,13 @@
   self.collapsesChildRowsWhenRowCollapses = NO;
   self.rowsExpandingAnimation = RATreeViewRowAnimationTop;
   self.rowsCollapsingAnimation = RATreeViewRowAnimationBottom;
+}
+
+#pragma mark Scroll View
+
+- (UIScrollView *)scrollView
+{
+  return self.tableView;
 }
 
 

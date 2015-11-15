@@ -72,8 +72,8 @@
   if (systemVersion >= 7 && systemVersion < 8) {
     CGRect statusBarViewRect = [[UIApplication sharedApplication] statusBarFrame];
     float heightPadding = statusBarViewRect.size.height+self.navigationController.navigationBar.frame.size.height;
-    self.treeView.contentInset = UIEdgeInsetsMake(heightPadding, 0.0, 0.0, 0.0);
-    self.treeView.contentOffset = CGPointMake(0.0, -heightPadding);
+    self.treeView.scrollView.contentInset = UIEdgeInsetsMake(heightPadding, 0.0, 0.0, 0.0);
+    self.treeView.scrollView.contentOffset = CGPointMake(0.0, -heightPadding);
   }
   
   self.treeView.frame = self.view.bounds;

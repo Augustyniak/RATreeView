@@ -21,7 +21,6 @@
 		0626D5761BF7E85B00CD3B04 /* RATreeView+RATreeNodeCollectionControllerDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F7321198D6E42006BAED0 /* RATreeView+RATreeNodeCollectionControllerDataSource.h */; };
 		0626D5781BF7E85B00CD3B04 /* RATreeView+TableViewDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F7323198D6E42006BAED0 /* RATreeView+TableViewDataSource.h */; };
 		0626D57A1BF7E85B00CD3B04 /* RATreeView+TableViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F7325198D6E42006BAED0 /* RATreeView+TableViewDelegate.h */; };
-		0626D57C1BF7E85C00CD3B04 /* RATreeView+UIScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F7327198D6E42006BAED0 /* RATreeView+UIScrollView.h */; };
 		0626D57E1BF7E85C00CD3B04 /* RATreeView_ClassExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F7329198D6E42006BAED0 /* RATreeView_ClassExtension.h */; };
 		0626D57F1BF7E89800CD3B04 /* RATreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B53B976A17D3843600A05E2F /* RATreeView.m */; };
 		0626D5801BF7E89800CD3B04 /* RABatchChanges.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F7310198D6E42006BAED0 /* RABatchChanges.m */; };
@@ -35,7 +34,6 @@
 		0626D5881BF7E89800CD3B04 /* RATreeView+RATreeNodeCollectionControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F7322198D6E42006BAED0 /* RATreeView+RATreeNodeCollectionControllerDataSource.m */; };
 		0626D5891BF7E89800CD3B04 /* RATreeView+TableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F7324198D6E42006BAED0 /* RATreeView+TableViewDataSource.m */; };
 		0626D58A1BF7E89800CD3B04 /* RATreeView+TableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F7326198D6E42006BAED0 /* RATreeView+TableViewDelegate.m */; };
-		0626D58B1BF7E89800CD3B04 /* RATreeView+UIScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F7328198D6E42006BAED0 /* RATreeView+UIScrollView.m */; };
 		0626D6951BF8A37800CD3B04 /* RATreeView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0626D68B1BF8A37800CD3B04 /* RATreeView.framework */; };
 		0626D69A1BF8A37800CD3B04 /* RATreeViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0626D6991BF8A37800CD3B04 /* RATreeViewTests.m */; };
 		0626D6A21BF8A91500CD3B04 /* RATreeView.h in Headers */ = {isa = PBXBuildFile; fileRef = B53B976917D3843600A05E2F /* RATreeView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -51,7 +49,6 @@
 		0626D6AC1BF8A94500CD3B04 /* RATreeView+RATreeNodeCollectionControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F7322198D6E42006BAED0 /* RATreeView+RATreeNodeCollectionControllerDataSource.m */; };
 		0626D6AD1BF8A94500CD3B04 /* RATreeView+TableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F7324198D6E42006BAED0 /* RATreeView+TableViewDataSource.m */; };
 		0626D6AE1BF8A94500CD3B04 /* RATreeView+TableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F7326198D6E42006BAED0 /* RATreeView+TableViewDelegate.m */; };
-		0626D6AF1BF8A94500CD3B04 /* RATreeView+UIScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F7328198D6E42006BAED0 /* RATreeView+UIScrollView.m */; };
 		06B6238D1BF8A98E0070DCA9 /* RABatchChanges.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F730F198D6E42006BAED0 /* RABatchChanges.h */; };
 		06B6238E1BF8A98E0070DCA9 /* RATreeNode.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F7311198D6E42006BAED0 /* RATreeNode.h */; };
 		06B6238F1BF8A98E0070DCA9 /* RATreeNode_ClassExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F7313198D6E42006BAED0 /* RATreeNode_ClassExtension.h */; };
@@ -65,8 +62,11 @@
 		06B623971BF8A98E0070DCA9 /* RATreeView+RATreeNodeCollectionControllerDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F7321198D6E42006BAED0 /* RATreeView+RATreeNodeCollectionControllerDataSource.h */; };
 		06B623981BF8A98E0070DCA9 /* RATreeView+TableViewDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F7323198D6E42006BAED0 /* RATreeView+TableViewDataSource.h */; };
 		06B623991BF8A98E0070DCA9 /* RATreeView+TableViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F7325198D6E42006BAED0 /* RATreeView+TableViewDelegate.h */; };
-		06B6239A1BF8A98E0070DCA9 /* RATreeView+UIScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F7327198D6E42006BAED0 /* RATreeView+UIScrollView.h */; };
 		06B6239B1BF8A98E0070DCA9 /* RATreeView_ClassExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F7329198D6E42006BAED0 /* RATreeView_ClassExtension.h */; };
+		06B623A51BF91AF90070DCA9 /* RATableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 06B623A31BF91AF90070DCA9 /* RATableView.h */; };
+		06B623A61BF91AF90070DCA9 /* RATableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 06B623A31BF91AF90070DCA9 /* RATableView.h */; };
+		06B623A71BF91AF90070DCA9 /* RATableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B623A41BF91AF90070DCA9 /* RATableView.m */; };
+		06B623A81BF91AF90070DCA9 /* RATableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B623A41BF91AF90070DCA9 /* RATableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +86,8 @@
 		0626D6941BF8A37800CD3B04 /* RATreeViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RATreeViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0626D6991BF8A37800CD3B04 /* RATreeViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RATreeViewTests.m; sourceTree = "<group>"; };
 		0626D69B1BF8A37800CD3B04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06B623A31BF91AF90070DCA9 /* RATableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RATableView.h; sourceTree = "<group>"; };
+		06B623A41BF91AF90070DCA9 /* RATableView.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = RATableView.m; sourceTree = "<group>"; tabWidth = 2; };
 		B535574B1801AC4700390489 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B53B974317D3840800A05E2F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B53B974517D3840800A05E2F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -116,8 +118,6 @@
 		B59F7324198D6E42006BAED0 /* RATreeView+TableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RATreeView+TableViewDataSource.m"; sourceTree = "<group>"; };
 		B59F7325198D6E42006BAED0 /* RATreeView+TableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RATreeView+TableViewDelegate.h"; sourceTree = "<group>"; };
 		B59F7326198D6E42006BAED0 /* RATreeView+TableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RATreeView+TableViewDelegate.m"; sourceTree = "<group>"; };
-		B59F7327198D6E42006BAED0 /* RATreeView+UIScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RATreeView+UIScrollView.h"; sourceTree = "<group>"; };
-		B59F7328198D6E42006BAED0 /* RATreeView+UIScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RATreeView+UIScrollView.m"; sourceTree = "<group>"; };
 		B59F7329198D6E42006BAED0 /* RATreeView_ClassExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RATreeView_ClassExtension.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -233,9 +233,9 @@
 				B59F7324198D6E42006BAED0 /* RATreeView+TableViewDataSource.m */,
 				B59F7325198D6E42006BAED0 /* RATreeView+TableViewDelegate.h */,
 				B59F7326198D6E42006BAED0 /* RATreeView+TableViewDelegate.m */,
-				B59F7327198D6E42006BAED0 /* RATreeView+UIScrollView.h */,
-				B59F7328198D6E42006BAED0 /* RATreeView+UIScrollView.m */,
 				B59F7329198D6E42006BAED0 /* RATreeView_ClassExtension.h */,
+				06B623A31BF91AF90070DCA9 /* RATableView.h */,
+				06B623A41BF91AF90070DCA9 /* RATableView.m */,
 			);
 			path = "Private Files";
 			sourceTree = "<group>";
@@ -256,12 +256,12 @@
 				0626D56D1BF7E85B00CD3B04 /* RATreeNodeItem+ClassExtension.h in Headers */,
 				0626D56E1BF7E85B00CD3B04 /* RATreeNodeItem+Private.h in Headers */,
 				0626D5701BF7E85B00CD3B04 /* RATreeNodeItem.h in Headers */,
+				06B623A61BF91AF90070DCA9 /* RATableView.h in Headers */,
 				0626D5721BF7E85B00CD3B04 /* RATreeView+Enums.h in Headers */,
 				0626D5741BF7E85B00CD3B04 /* RATreeView+Private.h in Headers */,
 				0626D5761BF7E85B00CD3B04 /* RATreeView+RATreeNodeCollectionControllerDataSource.h in Headers */,
 				0626D5781BF7E85B00CD3B04 /* RATreeView+TableViewDataSource.h in Headers */,
 				0626D57A1BF7E85B00CD3B04 /* RATreeView+TableViewDelegate.h in Headers */,
-				0626D57C1BF7E85C00CD3B04 /* RATreeView+UIScrollView.h in Headers */,
 				0626D57E1BF7E85C00CD3B04 /* RATreeView_ClassExtension.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,12 +279,12 @@
 				06B623921BF8A98E0070DCA9 /* RATreeNodeItem+ClassExtension.h in Headers */,
 				06B623931BF8A98E0070DCA9 /* RATreeNodeItem+Private.h in Headers */,
 				06B623941BF8A98E0070DCA9 /* RATreeNodeItem.h in Headers */,
+				06B623A51BF91AF90070DCA9 /* RATableView.h in Headers */,
 				06B623951BF8A98E0070DCA9 /* RATreeView+Enums.h in Headers */,
 				06B623961BF8A98E0070DCA9 /* RATreeView+Private.h in Headers */,
 				06B623971BF8A98E0070DCA9 /* RATreeView+RATreeNodeCollectionControllerDataSource.h in Headers */,
 				06B623981BF8A98E0070DCA9 /* RATreeView+TableViewDataSource.h in Headers */,
 				06B623991BF8A98E0070DCA9 /* RATreeView+TableViewDelegate.h in Headers */,
-				06B6239A1BF8A98E0070DCA9 /* RATreeView+UIScrollView.h in Headers */,
 				06B6239B1BF8A98E0070DCA9 /* RATreeView_ClassExtension.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,12 +422,12 @@
 				0626D5831BF7E89800CD3B04 /* RATreeNodeController.m in Sources */,
 				0626D5841BF7E89800CD3B04 /* RATreeNodeItem+Private.m in Sources */,
 				0626D5851BF7E89800CD3B04 /* RATreeNodeItem.m in Sources */,
+				06B623A81BF91AF90070DCA9 /* RATableView.m in Sources */,
 				0626D5861BF7E89800CD3B04 /* RATreeView+Enums.m in Sources */,
 				0626D5871BF7E89800CD3B04 /* RATreeView+Private.m in Sources */,
 				0626D5881BF7E89800CD3B04 /* RATreeView+RATreeNodeCollectionControllerDataSource.m in Sources */,
 				0626D5891BF7E89800CD3B04 /* RATreeView+TableViewDataSource.m in Sources */,
 				0626D58A1BF7E89800CD3B04 /* RATreeView+TableViewDelegate.m in Sources */,
-				0626D58B1BF7E89800CD3B04 /* RATreeView+UIScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,12 +442,12 @@
 				0626D6A71BF8A94500CD3B04 /* RATreeNodeController.m in Sources */,
 				0626D6A81BF8A94500CD3B04 /* RATreeNodeItem+Private.m in Sources */,
 				0626D6A91BF8A94500CD3B04 /* RATreeNodeItem.m in Sources */,
+				06B623A71BF91AF90070DCA9 /* RATableView.m in Sources */,
 				0626D6AA1BF8A94500CD3B04 /* RATreeView+Enums.m in Sources */,
 				0626D6AB1BF8A94500CD3B04 /* RATreeView+Private.m in Sources */,
 				0626D6AC1BF8A94500CD3B04 /* RATreeView+RATreeNodeCollectionControllerDataSource.m in Sources */,
 				0626D6AD1BF8A94500CD3B04 /* RATreeView+TableViewDataSource.m in Sources */,
 				0626D6AE1BF8A94500CD3B04 /* RATreeView+TableViewDelegate.m in Sources */,
-				0626D6AF1BF8A94500CD3B04 /* RATreeView+UIScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -592,65 +592,11 @@ typedef enum RATreeViewRowAnimation {
 - (void)reloadRowsForItems:(NSArray *)items withRowAnimation:(RATreeViewRowAnimation)animation;
 - (void)reloadRows;
 
-/////////////////////////////
-// UIScrollView Staff
-/////////////////////////////
-
 
 ///------------------------------------------------
-/// @name Managing the Display of Content
+/// UIScrollView Staff
 ///------------------------------------------------
 
-- (void)setContentOffset:(CGPoint)contentOffset animated:(BOOL)animated;
-@property (nonatomic) CGPoint contentOffset;
-@property (nonatomic) CGSize contentSize;
-@property (nonatomic) UIEdgeInsets contentInset;
-
-
-///------------------------------------------------
-/// @name Managing Scrolling
-///------------------------------------------------
-
-@property (nonatomic) BOOL scrollEnabled;
-@property (nonatomic) BOOL directionalLockEnabled;
-@property (nonatomic) BOOL scrollsToTop;
-- (void)scrollRectToVisible:(CGRect)visible animated:(BOOL)animated;
-@property (nonatomic) BOOL pagingEnabled;
-@property (nonatomic) BOOL bounces;
-@property (nonatomic) BOOL alwaysBounceVertical;
-@property (nonatomic) BOOL alwaysBounceHorizontal;
-@property (nonatomic) BOOL canCancelContentTouches;
-@property (nonatomic) BOOL delaysContentTouches;
-@property (nonatomic) BOOL decelerationRate;
-@property (nonatomic, readonly) BOOL dragging;
-@property (nonatomic, readonly) BOOL tracking;
-@property (nonatomic, readonly) BOOL decelerating;
-
-
-///------------------------------------------------
-/// @name Managing the Scroll Indicator
-///------------------------------------------------
-
-@property (nonatomic) UIScrollViewIndicatorStyle indicatorStyle;
-@property (nonatomic) UIEdgeInsets scrollIndicatorInsets;
-@property (nonatomic) BOOL showsHorizontalScrollIndicator;
-@property (nonatomic) BOOL showsVerticalScrollIndicator;
-- (void)flashScrollIndicators;
-
-
-///------------------------------------------------
-/// @name Zooming and Panning
-///------------------------------------------------
-
-@property (strong, nonatomic, readonly) UIPanGestureRecognizer *panGestureRecognizer;
-@property (strong, nonatomic, readonly) UIPinchGestureRecognizer *pinchGestureRecognizer;
-- (void)zoomToRect:(CGRect)rect animated:(BOOL)animated;
-@property (nonatomic) CGFloat zoomScale;
-- (void)setZoomScale:(CGFloat)zoomScale animated:(BOOL)animated;
-@property (nonatomic) CGFloat maximumZoomScale;
-@property (nonatomic) CGFloat minimumZoomScale;
-@property (nonatomic, readonly) BOOL zoomBouncing;
-@property (nonatomic, readonly) BOOL zooming;
-@property (nonatomic) BOOL bouncesZoom;
+@property (nonatomic, strong, readonly) UIScrollView *scrollView;
 
 @end
