@@ -1,9 +1,10 @@
 RATreeView (iOS 5.0+) 
 ==============
 [![Twitter: @raaugustyniak](https://img.shields.io/badge/contact-@raaugustyniak-blue.svg?style=flat)](https://twitter.com/raaugustyniak)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/Augustyniak/RATreeView/blob/master/LICENCE.md)
 [![CocoaPods](https://img.shields.io/cocoapods/v/RATreeView.svg?style=flat)](https://github.com/Augustyniak/RATreeView)
-[![Build Status](https://img.shields.io/travis/Augustyniak/RATreeView.svg?style=flat)](https://travis-ci.org/Augustyniak/RATreeView)
+[![Build Status](https://img.shields.io/travis/Augustyniak/RATreeView/master.svg?style=flat)](https://travis-ci.org/Augustyniak/RATreeView)
 
 [![](https://raw.github.com/Augustyniak/RATreeView/master/Screens/animation.gif)](https://raw.github.com/Augustyniak/RATreeView/master/Screens/animation.gif)
 
