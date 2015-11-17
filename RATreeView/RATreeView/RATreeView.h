@@ -125,7 +125,7 @@ typedef enum RATreeViewRowAnimation {
 /**
  *  The delegate of a RATreeView object must adopt the RATreeViewDelegate protocol. Optional methods of the protocol allow the delegate to manage selections, help to delete and reorder cells, and perform other actions.
  */
-@protocol RATreeViewDelegate <NSObject, UIScrollViewDelegate>
+@protocol RATreeViewDelegate <NSObject>
 
 @optional
 
