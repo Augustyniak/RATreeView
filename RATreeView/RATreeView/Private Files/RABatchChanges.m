@@ -19,76 +19,7 @@
 //
 
 #import "RABatchChanges.h"
-
-typedef NS_ENUM(NSInteger, RABatchChangeType) {
-  RABatchChangeTypeItemRowInsertion = 0,
-  RABatchChangeTypeItemRowExpansion,
-  RABatchChangeTypeItemRowDeletion,
-  RABatchChangeTypeItemRowCollapse,
-  RABatchChangeTypeItemMove
-};
-
-
-@interface RABatchChangeEntity : NSObject
-
-@property (nonatomic) RABatchChangeType type;
-@property (nonatomic) NSInteger ranking;
-@property (nonatomic, copy) void(^updatesBlock)();
-
-+ (instancetype)batchChangeEntityWithBlock:(void(^)())updates type:(RABatchChangeType)type ranking:(NSInteger)ranking;
-
-@end
-
-
-@implementation RABatchChangeEntity
-
-+ (instancetype)batchChangeEntityWithBlock:(void (^)())updates type:(RABatchChangeType)type ranking:(NSInteger)ranking
-{
-  NSParameterAssert(updates);
-  RABatchChangeEntity *entity = [RABatchChangeEntity new];
-  entity.type = type;
-  entity.ranking = ranking;
-  entity.updatesBlock = updates;
-  
-  return entity;
-}
-
-- (NSComparisonResult)compare:(RABatchChangeEntity *)otherEntity
-{
-  if ([self destructiveOperation] && ![otherEntity destructiveOperation]) {
-    return NSOrderedDescending;
-  } else if ([self destructiveOperation]) {
-    return [@(self.ranking) compare:@(otherEntity.ranking)];
-  }
-  
-  if (self.type == RABatchChangeTypeItemMove && otherEntity.type != RABatchChangeTypeItemMove) {
-    return [otherEntity destructiveOperation] ? NSOrderedAscending : NSOrderedDescending;
-  }
-  
-  if ([self constructiveOperation]) {
-    if (![otherEntity constructiveOperation]) {
-      return NSOrderedAscending;
-    }
-    return [@(self.ranking) compare:@(otherEntity.ranking)];
-  }
-  
-  return NSOrderedSame;
-}
-
-- (BOOL)constructiveOperation
-{
-  return self.type == RABatchChangeTypeItemRowExpansion
-  || self.type == RABatchChangeTypeItemRowInsertion;
-}
-
-- (BOOL)destructiveOperation
-{
-  return self.type == RABatchChangeTypeItemRowCollapse
-  || self.type == RABatchChangeTypeItemRowDeletion;
-}
-
-@end
-
+#import "RABatchChangeEntity.h"
 
 
 @interface RABatchChanges ()
