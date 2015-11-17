@@ -53,6 +53,7 @@
 		06B2F7B21BFBE2F0004AE326 /* RABatchChangeEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 06B2F7AF1BFBE2EF004AE326 /* RABatchChangeEntity.h */; };
 		06B2F7B31BFBE2F0004AE326 /* RABatchChangeEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B2F7B01BFBE2EF004AE326 /* RABatchChangeEntity.m */; };
 		06B2F7B41BFBE2F0004AE326 /* RABatchChangeEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B2F7B01BFBE2EF004AE326 /* RABatchChangeEntity.m */; };
+		06B2F7B71BFBE409004AE326 /* RABatchChangeEntityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B2F7B61BFBE409004AE326 /* RABatchChangeEntityTests.m */; };
 		06B2F7B81BFBE484004AE326 /* RABatchChangeEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B2F7B01BFBE2EF004AE326 /* RABatchChangeEntity.m */; };
 		06B6238D1BF8A98E0070DCA9 /* RABatchChanges.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F730F198D6E42006BAED0 /* RABatchChanges.h */; };
 		06B6238E1BF8A98E0070DCA9 /* RATreeNode.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F7311198D6E42006BAED0 /* RATreeNode.h */; };
@@ -93,6 +94,7 @@
 		0626D69B1BF8A37800CD3B04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06B2F7AF1BFBE2EF004AE326 /* RABatchChangeEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RABatchChangeEntity.h; sourceTree = "<group>"; };
 		06B2F7B01BFBE2EF004AE326 /* RABatchChangeEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RABatchChangeEntity.m; sourceTree = "<group>"; };
+		06B2F7B61BFBE409004AE326 /* RABatchChangeEntityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RABatchChangeEntityTests.m; sourceTree = "<group>"; };
 		06B623A31BF91AF90070DCA9 /* RATableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RATableView.h; sourceTree = "<group>"; };
 		06B623A41BF91AF90070DCA9 /* RATableView.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = RATableView.m; sourceTree = "<group>"; tabWidth = 2; };
 		B535574B1801AC4700390489 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -167,6 +169,7 @@
 			children = (
 				0626D6991BF8A37800CD3B04 /* RATreeViewTests.m */,
 				0626D69B1BF8A37800CD3B04 /* Info.plist */,
+				06B2F7B61BFBE409004AE326 /* RABatchChangeEntityTests.m */,
 			);
 			path = RATreeViewTests;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06B2F7B71BFBE409004AE326 /* RABatchChangeEntityTests.m in Sources */,
 				06B2F7B81BFBE484004AE326 /* RABatchChangeEntity.m in Sources */,
 				0626D69A1BF8A37800CD3B04 /* RATreeViewTests.m in Sources */,
 			);
