@@ -49,6 +49,11 @@
 		0626D6AC1BF8A94500CD3B04 /* RATreeView+RATreeNodeCollectionControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F7322198D6E42006BAED0 /* RATreeView+RATreeNodeCollectionControllerDataSource.m */; };
 		0626D6AD1BF8A94500CD3B04 /* RATreeView+TableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F7324198D6E42006BAED0 /* RATreeView+TableViewDataSource.m */; };
 		0626D6AE1BF8A94500CD3B04 /* RATreeView+TableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B59F7326198D6E42006BAED0 /* RATreeView+TableViewDelegate.m */; };
+		06B2F7B11BFBE2EF004AE326 /* RABatchChangeEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 06B2F7AF1BFBE2EF004AE326 /* RABatchChangeEntity.h */; };
+		06B2F7B21BFBE2F0004AE326 /* RABatchChangeEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 06B2F7AF1BFBE2EF004AE326 /* RABatchChangeEntity.h */; };
+		06B2F7B31BFBE2F0004AE326 /* RABatchChangeEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B2F7B01BFBE2EF004AE326 /* RABatchChangeEntity.m */; };
+		06B2F7B41BFBE2F0004AE326 /* RABatchChangeEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B2F7B01BFBE2EF004AE326 /* RABatchChangeEntity.m */; };
+		06B2F7B81BFBE484004AE326 /* RABatchChangeEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B2F7B01BFBE2EF004AE326 /* RABatchChangeEntity.m */; };
 		06B6238D1BF8A98E0070DCA9 /* RABatchChanges.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F730F198D6E42006BAED0 /* RABatchChanges.h */; };
 		06B6238E1BF8A98E0070DCA9 /* RATreeNode.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F7311198D6E42006BAED0 /* RATreeNode.h */; };
 		06B6238F1BF8A98E0070DCA9 /* RATreeNode_ClassExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = B59F7313198D6E42006BAED0 /* RATreeNode_ClassExtension.h */; };
@@ -86,6 +91,8 @@
 		0626D6941BF8A37800CD3B04 /* RATreeViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RATreeViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0626D6991BF8A37800CD3B04 /* RATreeViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RATreeViewTests.m; sourceTree = "<group>"; };
 		0626D69B1BF8A37800CD3B04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06B2F7AF1BFBE2EF004AE326 /* RABatchChangeEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RABatchChangeEntity.h; sourceTree = "<group>"; };
+		06B2F7B01BFBE2EF004AE326 /* RABatchChangeEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RABatchChangeEntity.m; sourceTree = "<group>"; };
 		06B623A31BF91AF90070DCA9 /* RATableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RATableView.h; sourceTree = "<group>"; };
 		06B623A41BF91AF90070DCA9 /* RATableView.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = RATableView.m; sourceTree = "<group>"; tabWidth = 2; };
 		B535574B1801AC4700390489 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -211,6 +218,8 @@
 			children = (
 				B59F730F198D6E42006BAED0 /* RABatchChanges.h */,
 				B59F7310198D6E42006BAED0 /* RABatchChanges.m */,
+				06B2F7AF1BFBE2EF004AE326 /* RABatchChangeEntity.h */,
+				06B2F7B01BFBE2EF004AE326 /* RABatchChangeEntity.m */,
 				B59F7311198D6E42006BAED0 /* RATreeNode.h */,
 				B59F7312198D6E42006BAED0 /* RATreeNode.m */,
 				B59F7313198D6E42006BAED0 /* RATreeNode_ClassExtension.h */,
@@ -251,6 +260,7 @@
 				0626D5641BF7E85B00CD3B04 /* RABatchChanges.h in Headers */,
 				0626D5661BF7E85B00CD3B04 /* RATreeNode.h in Headers */,
 				0626D5681BF7E85B00CD3B04 /* RATreeNode_ClassExtension.h in Headers */,
+				06B2F7B21BFBE2F0004AE326 /* RABatchChangeEntity.h in Headers */,
 				0626D5691BF7E85B00CD3B04 /* RATreeNodeCollectionController.h in Headers */,
 				0626D56B1BF7E85B00CD3B04 /* RATreeNodeController.h in Headers */,
 				0626D56D1BF7E85B00CD3B04 /* RATreeNodeItem+ClassExtension.h in Headers */,
@@ -274,6 +284,7 @@
 				06B6238D1BF8A98E0070DCA9 /* RABatchChanges.h in Headers */,
 				06B6238E1BF8A98E0070DCA9 /* RATreeNode.h in Headers */,
 				06B6238F1BF8A98E0070DCA9 /* RATreeNode_ClassExtension.h in Headers */,
+				06B2F7B11BFBE2EF004AE326 /* RABatchChangeEntity.h in Headers */,
 				06B623901BF8A98E0070DCA9 /* RATreeNodeCollectionController.h in Headers */,
 				06B623911BF8A98E0070DCA9 /* RATreeNodeController.h in Headers */,
 				06B623921BF8A98E0070DCA9 /* RATreeNodeItem+ClassExtension.h in Headers */,
@@ -421,6 +432,7 @@
 				0626D5821BF7E89800CD3B04 /* RATreeNodeCollectionController.m in Sources */,
 				0626D5831BF7E89800CD3B04 /* RATreeNodeController.m in Sources */,
 				0626D5841BF7E89800CD3B04 /* RATreeNodeItem+Private.m in Sources */,
+				06B2F7B41BFBE2F0004AE326 /* RABatchChangeEntity.m in Sources */,
 				0626D5851BF7E89800CD3B04 /* RATreeNodeItem.m in Sources */,
 				06B623A81BF91AF90070DCA9 /* RATableView.m in Sources */,
 				0626D5861BF7E89800CD3B04 /* RATreeView+Enums.m in Sources */,
@@ -441,6 +453,7 @@
 				0626D6A61BF8A94500CD3B04 /* RATreeNodeCollectionController.m in Sources */,
 				0626D6A71BF8A94500CD3B04 /* RATreeNodeController.m in Sources */,
 				0626D6A81BF8A94500CD3B04 /* RATreeNodeItem+Private.m in Sources */,
+				06B2F7B31BFBE2F0004AE326 /* RABatchChangeEntity.m in Sources */,
 				0626D6A91BF8A94500CD3B04 /* RATreeNodeItem.m in Sources */,
 				06B623A71BF91AF90070DCA9 /* RATableView.m in Sources */,
 				0626D6AA1BF8A94500CD3B04 /* RATreeView+Enums.m in Sources */,
@@ -455,6 +468,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06B2F7B81BFBE484004AE326 /* RABatchChangeEntity.m in Sources */,
 				0626D69A1BF8A37800CD3B04 /* RATreeViewTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
