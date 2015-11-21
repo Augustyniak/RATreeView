@@ -46,6 +46,7 @@
   
   treeView.delegate = self;
   treeView.dataSource = self;
+  treeView.treeFooterView = [UIView new];
   treeView.separatorStyle = RATreeViewCellSeparatorStyleSingleLine;
 
   UIRefreshControl *refreshControl = [UIRefreshControl new];
