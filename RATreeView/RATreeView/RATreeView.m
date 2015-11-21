@@ -88,6 +88,13 @@
   self.rowsCollapsingAnimation = RATreeViewRowAnimationBottom;
 }
 
+- (void)awakeFromNib
+{
+  [super awakeFromNib];
+
+  self.tableView.backgroundColor = [UIColor clearColor];
+}
+
 #pragma mark Scroll View
 
 - (UIScrollView *)scrollView
