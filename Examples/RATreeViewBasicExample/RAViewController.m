@@ -47,6 +47,10 @@
   treeView.delegate = self;
   treeView.dataSource = self;
   treeView.separatorStyle = RATreeViewCellSeparatorStyleSingleLine;
+
+  UIRefreshControl *refreshControl = [UIRefreshControl new];
+  [refreshControl addTarget:self action:@selector(refreshControlChanged:) forControlEvents:UIControlEventValueChanged];
+  [treeView.scrollView addSubview:refreshControl];
   
   [treeView reloadData];
   [treeView setBackgroundColor:[UIColor colorWithWhite:0.97 alpha:1.0]];
@@ -81,6 +85,13 @@
 
 
 #pragma mark - Actions 
+
+- (void)refreshControlChanged:(UIRefreshControl *)refreshControl
+{
+  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    [refreshControl endRefreshing];
+  });
+}
 
 - (void)editButtonTapped:(id)sender
 {
