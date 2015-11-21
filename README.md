@@ -113,11 +113,11 @@ Adding pull to refresh gesture is really easy using `RATreeView` and standard `U
 
 [![](https://raw.github.com/Augustyniak/RATreeView/master/Screens/PullToRefresh.png =400x)](https://raw.github.com/Augustyniak/RATreeView/master/Screens/PullToRefresh.png)
 
-	```objc
-	  UIRefreshControl *refreshControl = [UIRefreshControl new];
+   ```objc
+   	  UIRefreshControl *refreshControl = [UIRefreshControl new];
 	  [refreshControl addTarget:self action:@selector(refreshControlChanged:) forControlEvents:UIControlEventValueChanged];
 	  [treeView.scrollView addSubview:refreshControl];
-	```
+   ```
 
 Documentation
 -----------------
