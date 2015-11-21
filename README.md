@@ -107,6 +107,18 @@ Check out the demo for example usage of library. Make sure you read the [RATreeV
    }
    ```
 
+###Adding Pull to Refresh control
+
+Adding pull to refresh gesture is really easy using `RATreeView` and standard `UIRefreshControl` control.
+
+[![](https://raw.github.com/Augustyniak/RATreeView/master/Screens/animation.gif)](https://raw.github.com/Augustyniak/RATreeView/master/Screens/PullToRefresh.png)
+
+	```objc
+	  UIRefreshControl *refreshControl = [UIRefreshControl new];
+	  [refreshControl addTarget:self action:@selector(refreshControlChanged:) forControlEvents:UIControlEventValueChanged];
+	  [treeView.scrollView addSubview:refreshControl];
+	```
+
 Documentation
 -----------------
 
