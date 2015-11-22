@@ -1,0 +1,6 @@
+framework module RATreeView {
+  umbrella header "RATreeView-umbrella.h"
+
+  export *
+  module * { export * }
+}
