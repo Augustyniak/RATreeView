@@ -16,7 +16,7 @@
 
 #import <UIKit/UIKit.h>
 
-
+NS_ASSUME_NONNULL_BEGIN
 
 @class RATreeView, RATreeNodeCollectionController, RATreeNode;
 
@@ -69,7 +69,7 @@ typedef enum RATreeViewRowAnimation {
  *
  *  @return The number of child items encompassed by item. If item is nil, this method should return the number of children for the top-level item.
  */
-- (NSInteger)treeView:(RATreeView *)treeView numberOfChildrenOfItem:(id)item;
+- (NSInteger)treeView:(RATreeView *)treeView numberOfChildrenOfItem:(nullable id)item;
 
 
 /**
@@ -80,7 +80,7 @@ typedef enum RATreeViewRowAnimation {
  *
  *  @return An object inheriting from UITableViewCell that the tree view can use for the specified row. An assertion is raised if you return nil.
  */
-- (UITableViewCell *)treeView:(RATreeView *)treeView cellForItem:(id)item;
+- (UITableViewCell *)treeView:(RATreeView *)treeView cellForItem:(nullable id)item;
 
 /**
  *  Ask the data source to return the child item at the specified index of a given item. (required)
@@ -91,7 +91,7 @@ typedef enum RATreeViewRowAnimation {
  *
  *  @return The child item at index of a item. If item is nil, returns the appropriate child item of the root object.
  */
-- (id)treeView:(RATreeView *)treeView child:(NSInteger)index ofItem:(id)item;
+- (id)treeView:(RATreeView *)treeView child:(NSInteger)index ofItem:(nullable id)item;
 
 @optional
 
@@ -451,8 +451,8 @@ typedef enum RATreeViewRowAnimation {
 /// @name Managing the Delegate and the Data Source
 ///------------------------------------------------
 
-@property (weak, nonatomic) id<RATreeViewDataSource> dataSource;
-@property (weak, nonatomic) id<RATreeViewDelegate> delegate;
+@property (nonatomic, nullable, weak) id<RATreeViewDataSource> dataSource;
+@property (nonatomic, nullable, weak) id<RATreeViewDelegate> delegate;
 
 
 ///------------------------------------------------
@@ -462,26 +462,26 @@ typedef enum RATreeViewRowAnimation {
 - (NSInteger)numberOfRows;
 @property (nonatomic, readonly) RATreeViewStyle style;
 @property (nonatomic) RATreeViewCellSeparatorStyle separatorStyle;
-@property (strong, nonatomic) UIColor *separatorColor;
+@property (nonatomic, nullable, strong) UIColor *separatorColor;
 @property (nonatomic) CGFloat rowHeight;
 @property (nonatomic) CGFloat estimatedRowHeight NS_AVAILABLE_IOS(7_0);
 @property (nonatomic) UIEdgeInsets separatorInset NS_AVAILABLE_IOS(7_0);
-@property (copy, nonatomic) UIVisualEffect *separatorEffect NS_AVAILABLE_IOS(8_0) UI_APPEARANCE_SELECTOR;
+@property (nonatomic, nullable, copy) UIVisualEffect *separatorEffect NS_AVAILABLE_IOS(8_0) UI_APPEARANCE_SELECTOR;
 
 @property (nonatomic) BOOL cellLayoutMarginsFollowReadableWidth NS_AVAILABLE_IOS(9_0);
-@property (strong, nonatomic) UIView *backgroundView;
+@property (nonatomic, nullable, strong) UIView *backgroundView;
 
 
 ///------------------------------------------------
 /// @name Expanding and Collapsing Rows
 ///------------------------------------------------
 
-- (void)expandRowForItem:(id)item expandChildren:(BOOL)expandChildren withRowAnimation:(RATreeViewRowAnimation)animation;
-- (void)expandRowForItem:(id)item withRowAnimation:(RATreeViewRowAnimation)animation;
-- (void)expandRowForItem:(id)item;
-- (void)collapseRowForItem:(id)item collapseChildren:(BOOL)collapseChildren withRowAnimation:(RATreeViewRowAnimation)animation;
-- (void)collapseRowForItem:(id)item withRowAnimation:(RATreeViewRowAnimation)animation;
-- (void)collapseRowForItem:(id)item;
+- (void)expandRowForItem:(nullable id)item expandChildren:(BOOL)expandChildren withRowAnimation:(RATreeViewRowAnimation)animation;
+- (void)expandRowForItem:(nullable id)item withRowAnimation:(RATreeViewRowAnimation)animation;
+- (void)expandRowForItem:(nullable id)item;
+- (void)collapseRowForItem:(nullable id)item collapseChildren:(BOOL)collapseChildren withRowAnimation:(RATreeViewRowAnimation)animation;
+- (void)collapseRowForItem:(nullable id)item withRowAnimation:(RATreeViewRowAnimation)animation;
+- (void)collapseRowForItem:(nullable id)item;
 @property (nonatomic) BOOL expandsChildRowsWhenRowExpands;
 @property (nonatomic) BOOL collapsesChildRowsWhenRowCollapses;
 @property (nonatomic) RATreeViewRowAnimation rowsExpandingAnimation;
@@ -494,18 +494,18 @@ typedef enum RATreeViewRowAnimation {
 
 - (void)beginUpdates;
 - (void)endUpdates;
-- (void)insertItemsAtIndexes:(NSIndexSet *)indexes inParent:(id)parent withAnimation:(RATreeViewRowAnimation)animation;
-- (void)moveItemAtIndex:(NSInteger)oldIndex inParent:(id)oldParent toIndex:(NSInteger)newIndex inParent:(id)newParent;
-- (void)deleteItemsAtIndexes:(NSIndexSet *)indexes inParent:(id)parent withAnimation:(RATreeViewRowAnimation)animation;
+- (void)insertItemsAtIndexes:(NSIndexSet *)indexes inParent:(nullable id)parent withAnimation:(RATreeViewRowAnimation)animation;
+- (void)moveItemAtIndex:(NSInteger)oldIndex inParent:(nullable id)oldParent toIndex:(NSInteger)newIndex inParent:(nullable id)newParent;
+- (void)deleteItemsAtIndexes:(NSIndexSet *)indexes inParent:(nullable id)parent withAnimation:(RATreeViewRowAnimation)animation;
 
 
 ///------------------------------------------------
 /// @name Creating Tree View Cells
 ///------------------------------------------------
 
-- (void)registerClass:(Class)cellClass forCellReuseIdentifier:(NSString *)identifier NS_AVAILABLE_IOS(6_0);
-- (void)registerNib:(UINib *)nib forCellReuseIdentifier:(NSString *)identifier;
-- (id)dequeueReusableCellWithIdentifier:(NSString *)identifier;
+- (void)registerClass:(nullable Class)cellClass forCellReuseIdentifier:(NSString *)identifier NS_AVAILABLE_IOS(6_0);
+- (void)registerNib:(nullable UINib *)nib forCellReuseIdentifier:(NSString *)identifier;
+- (nullable id)dequeueReusableCellWithIdentifier:(NSString *)identifier;
 
 
 ///------------------------------------------------
@@ -515,8 +515,8 @@ typedef enum RATreeViewRowAnimation {
 - (void)registerNib:(UINib *)nib forHeaderFooterViewReuseIdentifier:(NSString *)identifier NS_AVAILABLE_IOS(6_0);
 - (void)registerClass:(Class)aClass forHeaderFooterViewReuseIdentifier:(NSString *)identifier NS_AVAILABLE_IOS(6_0);
 - (id)dequeueReusableHeaderFooterViewWithIdentifier:(NSString *)identifier NS_AVAILABLE_IOS(6_0);
-@property (strong, nonatomic) UIView *treeHeaderView;
-@property (strong, nonatomic) UIView *treeFooterView;
+@property (nonatomic, nullable, strong) UIView *treeHeaderView;
+@property (nonatomic, nullable, strong) UIView *treeFooterView;
 
 
 ///------------------------------------------------
@@ -539,19 +539,19 @@ typedef enum RATreeViewRowAnimation {
 /// @name Getting the Parent for an Item
 ///------------------------------------------------
 
-- (id)parentForItem:(id)parent;
+- (nullable id)parentForItem:(id)parent;
 
 
 ///------------------------------------------------
 /// @name Accessing Cells
 ///------------------------------------------------
 
-- (UITableViewCell *)cellForItem:(id)item;
-- (NSArray *)visibleCells;
-- (id)itemForCell:(UITableViewCell *)cell;
-- (id)itemForRowAtPoint:(CGPoint)point;
-- (id)itemsForRowsInRect:(CGRect)rect;
-@property(nonatomic, readonly) NSArray *itemsForVisibleCells;
+- (nullable UITableViewCell *)cellForItem:(id)item;
+- (nullable NSArray *)visibleCells;
+- (nullable id)itemForCell:(UITableViewCell *)cell;
+- (nullable id)itemForRowAtPoint:(CGPoint)point;
+- (nullable id)itemsForRowsInRect:(CGRect)rect;
+@property(nonatomic, readonly) NSArray *itemsForVisibleCells; //to trzeba naprawic
 
 
 ///------------------------------------------------
@@ -566,9 +566,9 @@ typedef enum RATreeViewRowAnimation {
 /// @name Managing Selections
 ///------------------------------------------------
 
-- (id)itemForSelectedRow;
-- (NSArray *)itemsForSelectedRows;
-- (void)selectRowForItem:(id)item animated:(BOOL)animated scrollPosition:(RATreeViewScrollPosition)scrollPosition;
+- (nullable id)itemForSelectedRow;
+- (nullable NSArray *)itemsForSelectedRows;
+- (void)selectRowForItem:(nullable id)item animated:(BOOL)animated scrollPosition:(RATreeViewScrollPosition)scrollPosition;
 - (void)deselectRowForItem:(id)item animated:(BOOL)animated;
 @property (nonatomic) BOOL allowsSelection;
 @property (nonatomic) BOOL allowsMultipleSelection;
@@ -600,3 +600,5 @@ typedef enum RATreeViewRowAnimation {
 @property (nonatomic, strong, readonly) UIScrollView *scrollView;
 
 @end
+
+NS_ASSUME_NONNULL_END
