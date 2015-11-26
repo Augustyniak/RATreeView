@@ -48,6 +48,7 @@
   if (_tableViewDelegate == tableViewDelegate) {
     return;
   }
+  [super setDelegate:nil];
   _tableViewDelegate = tableViewDelegate;
   [super setDelegate:self];
 }
@@ -57,6 +58,7 @@
   if (self.scrollViewDelegate == delegate) {
     return;
   }
+  [super setDelegate:nil];
   self.scrollViewDelegate = delegate;
   [super setDelegate:self];
 }
