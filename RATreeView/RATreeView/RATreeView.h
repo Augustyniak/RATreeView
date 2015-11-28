@@ -551,7 +551,7 @@ typedef enum RATreeViewRowAnimation {
 - (nullable id)itemForCell:(UITableViewCell *)cell;
 - (nullable id)itemForRowAtPoint:(CGPoint)point;
 - (nullable id)itemsForRowsInRect:(CGRect)rect;
-@property(nonatomic, readonly) NSArray *itemsForVisibleCells; //to trzeba naprawic
+@property (nonatomic, nullable, copy, readonly) NSArray *itemsForVisibleRows;
 
 
 ///------------------------------------------------
