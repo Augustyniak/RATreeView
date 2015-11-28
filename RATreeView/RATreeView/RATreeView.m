@@ -597,6 +597,9 @@
 
 - (NSArray *)itemsForIndexPaths:(NSArray *)indexPaths
 {
+  if (!indexPaths) {
+    return nil;
+  }
   NSMutableArray *items = [NSMutableArray array];
   for (NSIndexPath *indexPath in indexPaths) {
     [items addObject:[self treeNodeForIndexPath:indexPath].item];
