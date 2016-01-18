@@ -393,6 +393,12 @@
   return [self.treeNodeCollectionController parentForItem:item];
 }
 
+#pragma mark - Getting the index of an Item in a Parent
+
+- (NSInteger)indexForItem:(id)item inParent:(id)parent
+{
+  return [self.treeNodeCollectionController indexForItem:item inParent:parent];
+}
 
 #pragma mark - Accessing Cells
 

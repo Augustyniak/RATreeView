@@ -13,7 +13,7 @@ import RATreeView
 class TreeViewController: UIViewController, RATreeViewDelegate, RATreeViewDataSource {
 
     var treeView : RATreeView!
-    var data : [DataObject]
+    var data : DataObject
     var editButton : UIBarButtonItem!
 
     convenience init() {
@@ -38,6 +38,7 @@ class TreeViewController: UIViewController, RATreeViewDelegate, RATreeViewDataSo
         title = "Things"
         setupTreeView()
         updateNavigationBarButtons()
+        data.dump()
     }
 
     func setupTreeView() -> Void {
@@ -69,7 +70,7 @@ class TreeViewController: UIViewController, RATreeViewDelegate, RATreeViewDataSo
         if let item = item as? DataObject {
             return item.children.count
         } else {
-            return self.data.count
+            return self.data.children.count
         }
     }
 
@@ -77,7 +78,7 @@ class TreeViewController: UIViewController, RATreeViewDelegate, RATreeViewDataSo
         if let item = item as? DataObject {
             return item.children[index]
         } else {
-            return data[index] as AnyObject
+            return data.children[index] as AnyObject
         }
     }
 
@@ -102,6 +103,38 @@ class TreeViewController: UIViewController, RATreeViewDelegate, RATreeViewDataSo
         return cell
     }
 
+    func treeView(treeView: RATreeView, canMoveItem item: AnyObject) -> Bool {
+      return true
+    }
+  
+    func treeView(treeView: RATreeView, moveItem item: AnyObject, fromIndex sourceIndex: Int, ofParent sourceParent: AnyObject?, toIndex destinationIndex: Int, inParent destinationParent: AnyObject?) {
+      if let child = item as? DataObject {
+        var source = data
+        var sourceParentName = "root"
+        var destination = data
+        var destinationParentName = "root"
+        
+        if let sourceParent = sourceParent as? DataObject {
+          source = sourceParent
+          sourceParentName = sourceParent.name
+        }
+          
+        if let destinationParent = destinationParent as? DataObject {
+          destination = destinationParent
+          destinationParentName = destinationParent.name
+        }
+          
+        NSLog("Move item \(child.name) from \(sourceParentName):\(sourceIndex) to \(destinationParentName):\(destinationIndex)")
+        
+        let item = source.children[sourceIndex]
+        
+        source.removeChild(item)
+        destination.insertChild(item, atIndex: destinationIndex)
+        
+        data.dump()
+      }
+    }
+
     //MARK: RATreeView delegate
 
     func treeView(treeView: RATreeView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowForItem item: AnyObject) {
@@ -117,10 +150,10 @@ class TreeViewController: UIViewController, RATreeViewDelegate, RATreeViewDataSo
             parent.removeChild(item)
 
         } else {
-            index = self.data.indexOf({ dataObject in
+            index = self.data.children.indexOf({ dataObject in
                 return dataObject === item;
             })!
-            self.data.removeAtIndex(index)
+            self.data.children.removeAtIndex(index)
         }
 
         self.treeView.deleteItemsAtIndexes(NSIndexSet.init(index: index), inParent: parent, withAnimation: RATreeViewRowAnimationRight)
@@ -133,7 +166,7 @@ class TreeViewController: UIViewController, RATreeViewDelegate, RATreeViewDataSo
 
 private extension TreeViewController {
 
-    static func commonInit() -> [DataObject] {
+    static func commonInit() -> DataObject {
         let phone1 = DataObject(name: "Phone 1")
         let phone2 = DataObject(name: "Phone 2")
         let phone3 = DataObject(name: "Phone 3")
@@ -159,7 +192,7 @@ private extension TreeViewController {
         let watches = DataObject(name: "Watches")
         let walls = DataObject(name: "Walls")
 
-        return [phones, computers, cars, bikes, houses, flats, motorbikes, drinks, food, sweets, watches, walls]
+        return DataObject(name: "root", children: [phones, computers, cars, bikes, houses, flats, motorbikes, drinks, food, sweets, watches, walls])
     }
 
 }

@@ -23,7 +23,8 @@
 		06B5296A1C01C91D000F1D5B /* DataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B529691C01C91D000F1D5B /* DataObject.swift */; };
 		06B5296C1C01D386000F1D5B /* TreeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B5296B1C01D386000F1D5B /* TreeTableViewCell.swift */; };
 		06B5296E1C01D3A6000F1D5B /* TreeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06B5296D1C01D3A6000F1D5B /* TreeTableViewCell.xib */; };
-		401627C40DF2F8C0B307F931 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4FF940C29CBDD77E66C3E8 /* Pods.framework */; };
+		A5025DD01C2F179100441DA7 /* RATreeView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5025DCF1C2F179100441DA7 /* RATreeView.framework */; };
+		A5025DD41C2F181800441DA7 /* RATreeView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5025DD31C2F181800441DA7 /* RATreeView.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,9 @@
 		4F48FAD74174668D34716D19 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5A4FF940C29CBDD77E66C3E8 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76BE2A393CB25E1455D8692E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A5025DCF1C2F179100441DA7 /* RATreeView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RATreeView.framework; path = "../RATreeView/build/Debug-iphoneos/RATreeView.framework"; sourceTree = "<group>"; };
+		A5025DD11C2F180B00441DA7 /* RATreeView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RATreeView.framework; path = "../RATreeView/build/Debug-iphoneos/RATreeView.framework"; sourceTree = "<group>"; };
+		A5025DD31C2F181800441DA7 /* RATreeView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RATreeView.framework; path = "../RATreeView/build/Debug-iphoneos/RATreeView.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				401627C40DF2F8C0B307F931 /* Pods.framework in Frameworks */,
+				A5025DD41C2F181800441DA7 /* RATreeView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5025DD01C2F179100441DA7 /* RATreeView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +164,9 @@
 		7E1E0AFE31E152FE05BD41F7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A5025DD31C2F181800441DA7 /* RATreeView.framework */,
+				A5025DD11C2F180B00441DA7 /* RATreeView.framework */,
+				A5025DCF1C2F179100441DA7 /* RATreeView.framework */,
 				5A4FF940C29CBDD77E66C3E8 /* Pods.framework */,
 			);
 			name = Frameworks;

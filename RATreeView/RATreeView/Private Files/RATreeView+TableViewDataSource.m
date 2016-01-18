@@ -67,4 +67,71 @@
   return YES;
 }
 
+#pragma mark - Reordering Table Rows
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  if([self.dataSource respondsToSelector: @selector(treeView:canMoveItem:)]) {
+    RATreeNode * treeNode = [self treeNodeForIndexPath: indexPath];
+    
+    return [self.dataSource treeView: self canMoveItem: treeNode.item];
+  }
+    
+  return NO;
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+{
+  BOOL respondsToMethod =
+    [self.dataSource
+      respondsToSelector:
+        @selector(treeView:moveItem:fromIndex:ofParent:toIndex:inParent:)];
+
+  if(respondsToMethod) {
+    RATreeNode * treeNode = [self treeNodeForIndexPath: fromIndexPath];
+    
+    NSIndexPath * targetIndexPath = toIndexPath;
+    
+    // If moving down, Apple already does the math on the target by
+    // decrementing it by one. Since I need to do something clever, I need
+    // to undo that.
+    if(toIndexPath.row >= fromIndexPath.row)
+      targetIndexPath =
+        [NSIndexPath
+          indexPathForRow: toIndexPath.row + 1
+          inSection: toIndexPath.section];
+        
+    RATreeNode * targetNode =
+      [self treeNodeForIndexPath: targetIndexPath];
+        
+    id sourceParent = [self parentForItem: treeNode.item];
+    NSInteger sourceIndex =
+      [self indexForItem: treeNode.item inParent: sourceParent];
+    
+    id destinationParent = [self parentForItem: targetNode.item];
+    NSInteger destinationIndex =
+      [self indexForItem: targetNode.item inParent: destinationParent];
+
+    // If I am moving around in the same parent, I'll need to undo what I
+    // undid above.
+    if(sourceParent == destinationParent)
+      if(toIndexPath.row >= fromIndexPath.row)
+        --destinationIndex;
+      
+    [self.dataSource
+      treeView: self
+      moveItem: treeNode.item
+      fromIndex: sourceIndex
+      ofParent: sourceParent
+      toIndex: destinationIndex
+      inParent: destinationParent];
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+      [self moveItemAtIndex:sourceIndex inParent:sourceParent toIndex:destinationIndex inParent:destinationParent];
+
+      [self reloadRows];
+    });
+  }
+}
+
 @end

@@ -52,6 +52,24 @@
   return [self.rootController indexForItem:item];
 }
 
+- (NSInteger)indexForItem:(id)item inParent:(id)parent;
+{
+  NSArray *controllers = [self.rootController controllerForItem:parent].childControllers;
+  
+  NSInteger foundIndex = -1;
+  
+  NSInteger index = 0;
+  
+  for(RATreeNodeController * controller in controllers) {
+    if(controller.treeNode.item == item)
+      foundIndex = index;
+      
+    ++index;
+  }
+  
+  return foundIndex;
+}
+
 - (NSInteger)lastVisibleDescendantIndexForItem:(id)item
 {
   return [self.rootController lastVisibleDescendatIndexForItem:item];
@@ -178,7 +196,7 @@
     [removedIndexes addIndex:childController.index];
     [removedIndexes addIndexes:childController.descendantsIndexes];
     
-    RATreeNodeController *newParentController = [self.rootController controllerForItem:parent];
+    RATreeNodeController *newParentController = [self.rootController controllerForItem:newParent];
     [parentController removeChildControllersAtIndexes:[NSIndexSet indexSetWithIndex:index]];
     [newParentController insertChildControllers:@[childController] atIndexes:[NSIndexSet indexSetWithIndex:newIndex]];
     

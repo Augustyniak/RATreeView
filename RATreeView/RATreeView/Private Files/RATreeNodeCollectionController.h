@@ -41,6 +41,7 @@
 - (id)childInParent:(id)parent atIndex:(NSInteger)index;
 
 - (NSInteger)indexForItem:(id)item;
+- (NSInteger)indexForItem:(id)item inParent:(id)parent;
 - (NSInteger)lastVisibleDescendantIndexForItem:(id)item;
 
 - (void)collapseRowForItem:(id)item collapseChildren:(BOOL)collapseChildren updates:(void(^)(NSIndexSet *))updates;

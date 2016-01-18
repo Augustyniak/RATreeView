@@ -119,6 +119,30 @@ typedef enum RATreeViewRowAnimation {
  */
 - (BOOL)treeView:(RATreeView *)treeView canEditRowForItem:(id)item;
 
+///------------------------------------------------
+/// @name Reordering Table Rows
+///------------------------------------------------
+
+/**
+ *  Ask the data source if a row can be moved.
+ *
+ *  @param treeView     The tree-view object that removed the highlight from the cell.
+ *  @param item         An item identifying a row in tree view.
+ */
+- (BOOL)treeView:(RATreeView *)treeView canMoveItem:(id) item;
+
+/**
+ *  Ask the data source if a row can be moved.
+ *
+ *  @param treeView     The tree-view object that removed the highlight from the cell.
+ *  @param item         An item identifying a row in tree view.
+ *  @param fromIndex    The child index in the source parent.
+ *  @param ofParent     The source parent.
+ *  @param toIndex      The child index in the destination parent.
+ *  @param inParent     The destination parent.
+ */
+- (void)treeView:(RATreeView *)treeView moveItem:(id)item fromIndex:(NSInteger)fromIndex ofParent:(nullable id)fromParent toIndex:(NSInteger)toIndex inParent:(nullable id)toParent;
+
 @end
 
 
@@ -541,6 +565,11 @@ typedef enum RATreeViewRowAnimation {
 
 - (nullable id)parentForItem:(id)parent;
 
+///------------------------------------------------
+/// @name Getting the index of an Item in a Parent
+///------------------------------------------------
+
+- (NSInteger)indexForItem:(id)item inParent:(id)parent;
 
 ///------------------------------------------------
 /// @name Accessing Cells

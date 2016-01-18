@@ -59,6 +59,12 @@
   if (indexes.count == 0) {
     return;
   }
+  
+  for(RATreeNodeController * controller in controllers) {
+    controller.parentController = self;
+    controller.level = self.level + 1;
+  }
+  
   [self.mutablechildControllers insertObjects:controllers atIndexes:indexes];
   [self invalidateTreeNodesAfterChildAtIndex:[indexes firstIndex] - 1];
 }
@@ -79,7 +85,7 @@
   }
   id controller = self.mutablechildControllers[index];
   [self.mutablechildControllers removeObjectAtIndex:index];
-  [self.mutablechildControllers insertObject:controller atIndex:index];
+  [self.mutablechildControllers insertObject:controller atIndex:newIndex];
   [self invalidateTreeNodesAfterChildAtIndex:MIN(index, newIndex)-1];
 }
 
