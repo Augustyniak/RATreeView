@@ -111,13 +111,17 @@
     id destinationParent = [self parentForItem: targetNode.item];
     NSInteger destinationIndex =
       [self indexForItem: targetNode.item inParent: destinationParent];
-
+    
+    // If I am moving to the end, set the proper index.
+    if(destinationIndex == -1)
+      destinationIndex = [self.dataSource treeView: self numberOfChildrenOfItem: destinationParent];
+    
     // If I am moving around in the same parent, I'll need to undo what I
     // undid above.
     if(sourceParent == destinationParent)
-      if(toIndexPath.row >= fromIndexPath.row)
+      if((destinationIndex >= 0) && (toIndexPath.row >= fromIndexPath.row))
         --destinationIndex;
-      
+    
     [self.dataSource
       treeView: self
       moveItem: treeNode.item
