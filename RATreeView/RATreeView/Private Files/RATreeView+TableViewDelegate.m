@@ -265,7 +265,24 @@
   }
 }
 
+#pragma mark - Reordering rows
 
+- (NSIndexPath *)tableView:(UITableView *)tableView
+targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
+       toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath
+{
+  BOOL respondsToMethod =
+    [self.delegate
+      respondsToSelector:
+        @selector(treeView:targetIndexPathForMoveFromRowAtIndexPath:toProposedIndexPath:)];
+
+  if(respondsToMethod) {
+    return [self.delegate treeView: self targetIndexPathForMoveFromRowAtIndexPath: sourceIndexPath toProposedIndexPath:proposedDestinationIndexPath];
+  }
+  
+  return proposedDestinationIndexPath;
+}
+  
 #pragma mark - Private Helpers
 
 - (void)collapseCellForTreeNode:(RATreeNode *)treeNode informDelegate:(BOOL)informDelegate

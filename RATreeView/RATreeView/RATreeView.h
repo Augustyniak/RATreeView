@@ -459,6 +459,21 @@ typedef enum RATreeViewRowAnimation {
  */
 - (void)treeView:(RATreeView *)treeView didUnhighlightRowForItem:(id)item;
 
+///------------------------------------------------
+/// @name Reordering Table Rows
+///------------------------------------------------
+
+/**
+ *  Ask the data source if a row can be moved.
+ *
+ *  @param treeView                     The tree-view object that removed the highlight from the cell.
+ *  @param sourceIndexPath              The location being dragged from.
+ *  @param proposedDestinationIndexPath The location being dragged to.
+ *
+ *  @return An index-path object locating the desired row destination for the move operation. Return proposedDestinationIndexPath if that location is suitable.
+ */
+- (NSIndexPath *)treeView:(RATreeView *)treeView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath;
+
 @end
 
 
