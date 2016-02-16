@@ -451,8 +451,8 @@ typedef enum RATreeViewRowAnimation {
 /// @name Managing the Delegate and the Data Source
 ///------------------------------------------------
 
-@property (nonatomic, nullable, weak) id<RATreeViewDataSource> dataSource;
-@property (nonatomic, nullable, weak) id<RATreeViewDelegate> delegate;
+@property (nonatomic, nullable, weak) IBOutlet id<RATreeViewDataSource> dataSource;
+@property (nonatomic, nullable, weak) IBOutlet id<RATreeViewDelegate> delegate;
 
 
 ///------------------------------------------------
@@ -463,13 +463,13 @@ typedef enum RATreeViewRowAnimation {
 @property (nonatomic, readonly) RATreeViewStyle style;
 @property (nonatomic) RATreeViewCellSeparatorStyle separatorStyle;
 @property (nonatomic, nullable, strong) UIColor *separatorColor;
-@property (nonatomic) CGFloat rowHeight;
-@property (nonatomic) CGFloat estimatedRowHeight NS_AVAILABLE_IOS(7_0);
+@property (nonatomic) IBInspectable CGFloat rowHeight;
+@property (nonatomic) IBInspectable CGFloat estimatedRowHeight NS_AVAILABLE_IOS(7_0);
 @property (nonatomic) UIEdgeInsets separatorInset NS_AVAILABLE_IOS(7_0);
 @property (nonatomic, nullable, copy) UIVisualEffect *separatorEffect NS_AVAILABLE_IOS(8_0) UI_APPEARANCE_SELECTOR;
 
 @property (nonatomic) BOOL cellLayoutMarginsFollowReadableWidth NS_AVAILABLE_IOS(9_0);
-@property (nonatomic, nullable, strong) UIView *backgroundView;
+@property (nonatomic, nullable, strong) IBOutlet UIView *backgroundView;
 
 
 ///------------------------------------------------
@@ -482,8 +482,8 @@ typedef enum RATreeViewRowAnimation {
 - (void)collapseRowForItem:(nullable id)item collapseChildren:(BOOL)collapseChildren withRowAnimation:(RATreeViewRowAnimation)animation;
 - (void)collapseRowForItem:(nullable id)item withRowAnimation:(RATreeViewRowAnimation)animation;
 - (void)collapseRowForItem:(nullable id)item;
-@property (nonatomic) BOOL expandsChildRowsWhenRowExpands;
-@property (nonatomic) BOOL collapsesChildRowsWhenRowCollapses;
+@property (nonatomic) IBInspectable BOOL expandsChildRowsWhenRowExpands;
+@property (nonatomic) IBInspectable BOOL collapsesChildRowsWhenRowCollapses;
 @property (nonatomic) RATreeViewRowAnimation rowsExpandingAnimation;
 @property (nonatomic) RATreeViewRowAnimation rowsCollapsingAnimation;
 
@@ -594,7 +594,7 @@ typedef enum RATreeViewRowAnimation {
 
 
 ///------------------------------------------------
-/// UIScrollView Staff
+/// UIScrollView Stuff
 ///------------------------------------------------
 
 @property (nonatomic, strong, readonly) UIScrollView *scrollView;

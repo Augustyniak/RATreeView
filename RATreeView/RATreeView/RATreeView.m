@@ -2,6 +2,7 @@
 //The MIT License (MIT)
 //
 //Copyright (c) 2014 Rafał Augustyniak
+//Copyright (c) 2016 Patrick Schneider
 //
 //Permission is hereby granted, free of charge, to any person obtaining a copy of
 //this software and associated documentation files (the "Software"), to deal in
@@ -29,7 +30,7 @@
 #import "RATreeNodeCollectionController.h"
 #import "RATreeNode.h"
 
-#import "RATableView.h"
+#import "RAScrollViewProxy.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wincomplete-implementation"
@@ -73,9 +74,7 @@
 {
   UITableViewStyle tableViewStyle = [RATreeView tableViewStyleForTreeViewStyle:style];
 
-  RATableView *tableView =  [[RATableView alloc] initWithFrame:frame style:tableViewStyle];
-  tableView.tableViewDelegate = (id<UITableViewDelegate>)self;
-  tableView.dataSource = (id<UITableViewDataSource>)self;
+  UITableView *tableView =  [[UITableView alloc] initWithFrame:frame style:tableViewStyle];
   tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
   tableView.backgroundColor = [UIColor clearColor];
 
@@ -88,18 +87,43 @@
   self.rowsCollapsingAnimation = RATreeViewRowAnimationBottom;
 }
 
-- (void)awakeFromNib
+- (void)setTableView:(UITableView *)tableView
 {
-  [super awakeFromNib];
-
-  self.tableView.backgroundColor = [UIColor clearColor];
+  if (_tableView) {
+    _tableView.delegate = nil;
+    _tableView.dataSource = nil;
+    [_tableView removeFromSuperview];
+    self.scrollViewProxy = nil;
+  }
+  
+  _tableView = tableView;
+  
+  if (tableView != nil) {
+    self.scrollViewProxy = [[RAScrollViewProxy alloc] initWithTableView:tableView];
+    self.tableView.delegate = (id<UITableViewDelegate>)self;
+    self.tableView.dataSource = (id<UITableViewDataSource>)self;
+    self.tableView.backgroundColor = [UIColor clearColor];
+  }
 }
 
 #pragma mark Scroll View
 
+- (BOOL)respondsToSelector:(SEL)aSelector
+{
+  return [super respondsToSelector:aSelector] || ([RAScrollViewProxy isScrollViewDelegateSelector:aSelector] && [self.scrollViewProxy.delegate respondsToSelector:aSelector]);
+}
+
+- (id)forwardingTargetForSelector:(SEL)aSelector
+{
+  if ([RAScrollViewProxy isScrollViewDelegateSelector:aSelector] && [self.scrollViewProxy.delegate respondsToSelector:aSelector])
+    return self.scrollViewProxy;
+  else
+    return nil;
+}
+
 - (UIScrollView *)scrollView
 {
-  return self.tableView;
+  return (UIScrollView *)self.scrollViewProxy;
 }
 
 

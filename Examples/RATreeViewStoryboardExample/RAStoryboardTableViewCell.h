@@ -19,22 +19,15 @@
 //CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "RATreeView.h"
+#import <UIKit/UIKit.h>
 
-@class RABatchChanges, RAScrollViewProxy;
+@interface RAStoryboardTableViewCell : UITableViewCell
 
+@property (nonatomic, copy) void (^additionButtonTapAction)(id sender);
+@property (nonatomic) BOOL additionButtonHidden;
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint *leftMarginConstraint;
 
-@interface RATreeView ()
-
-// Note: This should suffice to make the table view available in Interface Builder.
-// Should implementation details of Cocoapods change, this has to be moved to a separate
-// header file.
-@property (nonatomic, strong) IBOutlet UITableView *tableView;
-
-@property (nonatomic, strong) RATreeNodeCollectionController *treeNodeCollectionController;
-
-@property (nonatomic, strong) RABatchChanges *batchChanges;
-
-@property (nonatomic, strong) RAScrollViewProxy *scrollViewProxy;
+- (void)setupWithTitle:(NSString *)title detailText:(NSString *)detailText level:(NSInteger)level additionButtonHidden:(BOOL)additionButtonHidden;
+- (void)setAdditionButtonHidden:(BOOL)additionButtonHidden animated:(BOOL)animated;
 
 @end

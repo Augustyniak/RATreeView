@@ -18,23 +18,8 @@
 //IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 //CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
+#import <UIKit/UIKit.h>
 
-#import "RATreeView.h"
-
-@class RABatchChanges, RAScrollViewProxy;
-
-
-@interface RATreeView ()
-
-// Note: This should suffice to make the table view available in Interface Builder.
-// Should implementation details of Cocoapods change, this has to be moved to a separate
-// header file.
-@property (nonatomic, strong) IBOutlet UITableView *tableView;
-
-@property (nonatomic, strong) RATreeNodeCollectionController *treeNodeCollectionController;
-
-@property (nonatomic, strong) RABatchChanges *batchChanges;
-
-@property (nonatomic, strong) RAScrollViewProxy *scrollViewProxy;
+@interface RAStoryboardViewController : UIViewController
 
 @end

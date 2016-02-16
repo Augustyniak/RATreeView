@@ -1,7 +1,7 @@
 
 //The MIT License (MIT)
 //
-//Copyright (c) 2014 Rafał Augustyniak
+//Copyright (c) 2013 Rafał Augustyniak
 //Copyright (c) 2016 Patrick Schneider
 //
 //Permission is hereby granted, free of charge, to any person obtaining a copy of
@@ -19,22 +19,10 @@
 //CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "RATreeView.h"
+#import <UIKit/UIKit.h>
 
-@class RABatchChanges, RAScrollViewProxy;
+@interface RAStoryboardAppDelegate : UIResponder <UIApplicationDelegate>
 
-
-@interface RATreeView ()
-
-// Note: This should suffice to make the table view available in Interface Builder.
-// Should implementation details of Cocoapods change, this has to be moved to a separate
-// header file.
-@property (nonatomic, strong) IBOutlet UITableView *tableView;
-
-@property (nonatomic, strong) RATreeNodeCollectionController *treeNodeCollectionController;
-
-@property (nonatomic, strong) RABatchChanges *batchChanges;
-
-@property (nonatomic, strong) RAScrollViewProxy *scrollViewProxy;
+@property (strong, nonatomic) UIWindow *window;
 
 @end

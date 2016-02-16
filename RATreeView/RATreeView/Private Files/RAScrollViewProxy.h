@@ -19,22 +19,21 @@
 //CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "RATreeView.h"
 
-@class RABatchChanges, RAScrollViewProxy;
+#import <Foundation/Foundation.h>
 
+/**
+ * This internal class leverages the need for the RATableView subclass and
+ * delegate call forwarding while providing a more protected UIScrollView
+ * interface to the user.
+ */
+@interface RAScrollViewProxy : NSProxy
 
-@interface RATreeView ()
+@property (nonatomic, weak) id<UIScrollViewDelegate> delegate;
 
-// Note: This should suffice to make the table view available in Interface Builder.
-// Should implementation details of Cocoapods change, this has to be moved to a separate
-// header file.
-@property (nonatomic, strong) IBOutlet UITableView *tableView;
+- (instancetype)initWithTableView:(UITableView *)tableView;
 
-@property (nonatomic, strong) RATreeNodeCollectionController *treeNodeCollectionController;
-
-@property (nonatomic, strong) RABatchChanges *batchChanges;
-
-@property (nonatomic, strong) RAScrollViewProxy *scrollViewProxy;
++ (BOOL)isScrollViewMethodSelector:(SEL)selector;
++ (BOOL)isScrollViewDelegateSelector:(SEL)selector;
 
 @end
