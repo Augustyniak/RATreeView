@@ -282,7 +282,35 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
   
   return proposedDestinationIndexPath;
 }
+
+#pragma mark - Custom header view.
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+  BOOL respondsToMethod =
+    [self.delegate
+      respondsToSelector: @selector(treeView:viewForHeaderInSection:)];
+
+  if(respondsToMethod) {
+    return [self.delegate treeView: self viewForHeaderInSection: section];
+  }
   
+  return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+  BOOL respondsToMethod =
+    [self.delegate
+      respondsToSelector: @selector(treeView:heightForHeaderInSection:)];
+
+  if(respondsToMethod) {
+    return [self.delegate treeView: self heightForHeaderInSection: section];
+  }
+  
+  return 0.0;
+}
+
 #pragma mark - Private Helpers
 
 - (void)collapseCellForTreeNode:(RATreeNode *)treeNode informDelegate:(BOOL)informDelegate

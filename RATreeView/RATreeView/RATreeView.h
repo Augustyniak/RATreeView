@@ -474,6 +474,34 @@ typedef enum RATreeViewRowAnimation {
  */
 - (NSIndexPath *)treeView:(RATreeView *)treeView targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath;
 
+///------------------------------------------------
+/// @name Custom header view
+///------------------------------------------------
+
+/**
+ *  Return a custom header view.
+ *
+ *  @param treeView The tree-view object.
+ *  @param section  The section for this header.
+ *
+ *  @return A UIView object
+ */
+- (UIView *) treeView:(RATreeView *)treeView viewForHeaderInSection:(NSInteger)section;
+
+///------------------------------------------------
+/// @name Custom header height
+///------------------------------------------------
+
+/**
+ *  Return a custom header view height.
+ *
+ *  @param treeView The tree-view object.
+ *  @param section  The section for this header.
+ *
+ *  @return The height.
+ */
+- (CGFloat)treeView:(RATreeView *)treeView heightForHeaderInSection:(NSInteger)section;
+
 @end
 
 
