@@ -87,7 +87,6 @@
 
 /* Begin PBXFileReference section */
 		0626D5571BF7E81E00CD3B04 /* RATreeView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RATreeView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0626D6841BF8A20300CD3B04 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Support/Info.plist; sourceTree = "<group>"; };
 		0626D68B1BF8A37800CD3B04 /* RATreeView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RATreeView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0626D6941BF8A37800CD3B04 /* RATreeViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RATreeViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0626D6991BF8A37800CD3B04 /* RATreeViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RATreeViewTests.m; sourceTree = "<group>"; };
@@ -164,14 +163,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0626D6811BF8A15B00CD3B04 /* Support */ = {
-			isa = PBXGroup;
-			children = (
-				0626D6841BF8A20300CD3B04 /* Info.plist */,
-			);
-			name = Support;
-			sourceTree = "<group>";
-		};
 		0626D6981BF8A37800CD3B04 /* RATreeViewTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,7 +210,6 @@
 			children = (
 				B53B976917D3843600A05E2F /* RATreeView.h */,
 				B53B976A17D3843600A05E2F /* RATreeView.m */,
-				0626D6811BF8A15B00CD3B04 /* Support */,
 				B59F730E198D6E42006BAED0 /* Private Files */,
 			);
 			path = RATreeView;
