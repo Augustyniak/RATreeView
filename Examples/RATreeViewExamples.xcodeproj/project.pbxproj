@@ -23,7 +23,8 @@
 		06B5296A1C01C91D000F1D5B /* DataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B529691C01C91D000F1D5B /* DataObject.swift */; };
 		06B5296C1C01D386000F1D5B /* TreeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B5296B1C01D386000F1D5B /* TreeTableViewCell.swift */; };
 		06B5296E1C01D3A6000F1D5B /* TreeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06B5296D1C01D3A6000F1D5B /* TreeTableViewCell.xib */; };
-		401627C40DF2F8C0B307F931 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4FF940C29CBDD77E66C3E8 /* Pods.framework */; };
+		5122971B07BED4483AFC0C47 /* Pods_RATreeViewBasicExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8634533E132B746F5C407E94 /* Pods_RATreeViewBasicExample.framework */; };
+		E4E6AF9422F4F6FE655AE098 /* Pods_RATreeViewBasicExampleSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195B0E3679C86B329F2516A5 /* Pods_RATreeViewBasicExampleSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,9 +52,13 @@
 		06B529691C01C91D000F1D5B /* DataObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataObject.swift; sourceTree = "<group>"; };
 		06B5296B1C01D386000F1D5B /* TreeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeTableViewCell.swift; sourceTree = "<group>"; };
 		06B5296D1C01D3A6000F1D5B /* TreeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TreeTableViewCell.xib; sourceTree = "<group>"; };
-		4F48FAD74174668D34716D19 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		0AF44B9C2D6A7A0736C7F5CE /* Pods-RATreeViewBasicExampleSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RATreeViewBasicExampleSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RATreeViewBasicExampleSwift/Pods-RATreeViewBasicExampleSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		195B0E3679C86B329F2516A5 /* Pods_RATreeViewBasicExampleSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RATreeViewBasicExampleSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		48569081761F48FF1923F18D /* Pods-RATreeViewBasicExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RATreeViewBasicExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RATreeViewBasicExample/Pods-RATreeViewBasicExample.debug.xcconfig"; sourceTree = "<group>"; };
 		5A4FF940C29CBDD77E66C3E8 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		76BE2A393CB25E1455D8692E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		8634533E132B746F5C407E94 /* Pods_RATreeViewBasicExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RATreeViewBasicExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A23A2E418DAE73B2EB4CFC0D /* Pods-RATreeViewBasicExampleSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RATreeViewBasicExampleSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-RATreeViewBasicExampleSwift/Pods-RATreeViewBasicExampleSwift.release.xcconfig"; sourceTree = "<group>"; };
+		E9C3842C595BB38E57B27420 /* Pods-RATreeViewBasicExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RATreeViewBasicExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-RATreeViewBasicExample/Pods-RATreeViewBasicExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				401627C40DF2F8C0B307F931 /* Pods.framework in Frameworks */,
+				5122971B07BED4483AFC0C47 /* Pods_RATreeViewBasicExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4E6AF9422F4F6FE655AE098 /* Pods_RATreeViewBasicExampleSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,8 +86,8 @@
 			children = (
 				0626D6511BF89DB400CD3B04 /* Examples */,
 				0626D6351BF89D5B00CD3B04 /* Products */,
-				7AB727989C6B0FB96E3F22AB /* Pods */,
 				7E1E0AFE31E152FE05BD41F7 /* Frameworks */,
+				934B45367116D696C40762F8 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,21 +153,25 @@
 			path = RATreeViewBasicExampleSwift;
 			sourceTree = SOURCE_ROOT;
 		};
-		7AB727989C6B0FB96E3F22AB /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				4F48FAD74174668D34716D19 /* Pods.debug.xcconfig */,
-				76BE2A393CB25E1455D8692E /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		7E1E0AFE31E152FE05BD41F7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				5A4FF940C29CBDD77E66C3E8 /* Pods.framework */,
+				8634533E132B746F5C407E94 /* Pods_RATreeViewBasicExample.framework */,
+				195B0E3679C86B329F2516A5 /* Pods_RATreeViewBasicExampleSwift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		934B45367116D696C40762F8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				48569081761F48FF1923F18D /* Pods-RATreeViewBasicExample.debug.xcconfig */,
+				E9C3842C595BB38E57B27420 /* Pods-RATreeViewBasicExample.release.xcconfig */,
+				0AF44B9C2D6A7A0736C7F5CE /* Pods-RATreeViewBasicExampleSwift.debug.xcconfig */,
+				A23A2E418DAE73B2EB4CFC0D /* Pods-RATreeViewBasicExampleSwift.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,12 +181,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0626D66D1BF89DCB00CD3B04 /* Build configuration list for PBXNativeTarget "RATreeViewBasicExample" */;
 			buildPhases = (
-				39B56074B9B4953ECDAB30A7 /* Check Pods Manifest.lock */,
+				609A9EB0890CB4A33B5223A1 /* [CP] Check Pods Manifest.lock */,
 				0626D6521BF89DCB00CD3B04 /* Sources */,
 				0626D6531BF89DCB00CD3B04 /* Frameworks */,
 				0626D6541BF89DCB00CD3B04 /* Resources */,
-				96F4F91C3D4B57811D94F2CF /* Embed Pods Frameworks */,
-				C3920B7E6462678C3643F354 /* Copy Pods Resources */,
+				99CE48BC763FB690A0F307E6 /* [CP] Embed Pods Frameworks */,
+				D36EDCA03A965A689A3D4E5A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -191,9 +201,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 06B529331C00D902000F1D5B /* Build configuration list for PBXNativeTarget "RATreeViewBasicExampleSwift" */;
 			buildPhases = (
+				52459F23F737CC5E8A8F7800 /* [CP] Check Pods Manifest.lock */,
 				06B529131C00D901000F1D5B /* Sources */,
 				06B529141C00D901000F1D5B /* Frameworks */,
 				06B529151C00D901000F1D5B /* Resources */,
+				5ECCCE5B2B8C00A8C11E704B /* [CP] Embed Pods Frameworks */,
+				54A666AED1323CF1A3C6752E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -266,14 +279,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		39B56074B9B4953ECDAB30A7 /* Check Pods Manifest.lock */ = {
+		52459F23F737CC5E8A8F7800 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,34 +294,79 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		96F4F91C3D4B57811D94F2CF /* Embed Pods Frameworks */ = {
+		54A666AED1323CF1A3C6752E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RATreeViewBasicExampleSwift/Pods-RATreeViewBasicExampleSwift-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C3920B7E6462678C3643F354 /* Copy Pods Resources */ = {
+		5ECCCE5B2B8C00A8C11E704B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RATreeViewBasicExampleSwift/Pods-RATreeViewBasicExampleSwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		609A9EB0890CB4A33B5223A1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		99CE48BC763FB690A0F307E6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RATreeViewBasicExample/Pods-RATreeViewBasicExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D36EDCA03A965A689A3D4E5A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RATreeViewBasicExample/Pods-RATreeViewBasicExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -449,7 +507,7 @@
 		};
 		0626D66E1BF89DCB00CD3B04 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F48FAD74174668D34716D19 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 48569081761F48FF1923F18D /* Pods-RATreeViewBasicExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RATreeViewBasicExample/Info.plist;
@@ -461,7 +519,7 @@
 		};
 		0626D66F1BF89DCB00CD3B04 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 76BE2A393CB25E1455D8692E /* Pods.release.xcconfig */;
+			baseConfigurationReference = E9C3842C595BB38E57B27420 /* Pods-RATreeViewBasicExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RATreeViewBasicExample/Info.plist;
@@ -473,6 +531,7 @@
 		};
 		06B529341C00D902000F1D5B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AF44B9C2D6A7A0736C7F5CE /* Pods-RATreeViewBasicExampleSwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RATreeViewBasicExampleSwift/Info.plist;
@@ -486,6 +545,7 @@
 		};
 		06B529351C00D902000F1D5B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A23A2E418DAE73B2EB4CFC0D /* Pods-RATreeViewBasicExampleSwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RATreeViewBasicExampleSwift/Info.plist;

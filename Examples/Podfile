@@ -4,4 +4,10 @@ workspace 'RATreeViewExamples.xcworkspace'
 platform :ios, '5.0'
 use_frameworks!
 
-pod 'RATreeView', :path => '../RATreeView.podspec'
+target 'RATreeViewBasicExample' do
+  pod 'RATreeView', :path => '../RATreeView.podspec'
+end
+
+target 'RATreeViewBasicExampleSwift' do
+  pod 'RATreeView', :path => '../RATreeView.podspec'
+end
