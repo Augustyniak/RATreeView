@@ -1,4 +1,4 @@
-RATreeView (iOS 5.0+) 
+RATreeView (iOS 7.0+) 
 ==============
 [![Twitter: @raaugustyniak](https://img.shields.io/badge/contact-@raaugustyniak-blue.svg?style=flat)](https://twitter.com/raaugustyniak)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
@@ -46,7 +46,7 @@ Requirements
 
 
 * Xcode 5
-* iOS 5
+* iOS 7 or newer
 * ARC
 * QuartzCore
 
