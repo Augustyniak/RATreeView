@@ -96,7 +96,7 @@ class TreeViewController: UIViewController, RATreeViewDelegate, RATreeViewDataSo
             let item = treeView.itemForCell(cell) as! DataObject
             let newItem = DataObject(name: "Added value")
             item.addChild(newItem)
-            treeView.insertItemsAtIndexes(NSIndexSet.init(index: 0), inParent: item, withAnimation: RATreeViewRowAnimationNone);
+            treeView.insertItemsAtIndexes(NSIndexSet.init(index: item.children.count-1), inParent: item, withAnimation: RATreeViewRowAnimationNone);
             treeView.reloadRowsForItems([item], withRowAnimation: RATreeViewRowAnimationNone)
         }
         return cell
