@@ -53,11 +53,11 @@ class TreeViewController: UIViewController, RATreeViewDelegate, RATreeViewDataSo
 
     func updateNavigationBarButtons() -> Void {
         let systemItem = treeView.editing ? UIBarButtonSystemItem.Done : UIBarButtonSystemItem.Edit;
-        self.editButton = UIBarButtonItem.init(barButtonSystemItem: systemItem, target: self, action: "editButtonTapped:")
+        self.editButton = UIBarButtonItem.init(barButtonSystemItem: systemItem, target: self, action: #selector(TreeViewController.editButtonTapped(_:)))
         self.navigationItem.rightBarButtonItem = self.editButton;
     }
 
-    func editButtonTapped(sender : AnyObject) -> Void {
+    func editButtonTapped(sender: AnyObject) -> Void {
         treeView.setEditing(!treeView.editing, animated: true)
         updateNavigationBarButtons()
     }
