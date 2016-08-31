@@ -1,7 +1,7 @@
 RATreeView (iOS 7.0+, tvOS 9.0+) 
 ==============
 
-👷 Project created and maintained by Rafał Augustyniak. You can find me on twitter ([@RaAugustyniak](https://twitter.com/RaAugustyniak)).
+👷 Project created and maintained by [Rafał Augustyniak](http://augustyniak.me). You can find me on twitter ([@RaAugustyniak](https://twitter.com/RaAugustyniak)).
 
 
 Introduction
