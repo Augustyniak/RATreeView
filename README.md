@@ -46,9 +46,7 @@ Requirements
 
 
 * Xcode 5
-* iOS 7 or newer
-* ARC
-* QuartzCore
+* iOS 7 or newer/tvOS 9 or newer
 
 
 Usage
