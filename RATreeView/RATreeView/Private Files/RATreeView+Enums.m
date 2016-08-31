@@ -49,6 +49,8 @@
   }
 }
 
+#if TARGET_OS_IOS
+
 #pragma mark Cell Separator Styles
 
 + (RATreeViewCellSeparatorStyle)treeViewCellSeparatorStyleForTableViewSeparatorStyle:(UITableViewCellSeparatorStyle)style
@@ -78,6 +80,8 @@
       return UITableViewCellSeparatorStyleNone;
   }
 }
+
+#endif
 
 #pragma mark Tree View Style
 

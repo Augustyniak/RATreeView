@@ -1,4 +1,4 @@
-RATreeView (iOS 7.0+) 
+RATreeView (iOS 7.0+, tvOS 9.0+) 
 ==============
 [![Twitter: @raaugustyniak](https://img.shields.io/badge/contact-@raaugustyniak-blue.svg?style=flat)](https://twitter.com/raaugustyniak)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
@@ -13,7 +13,7 @@ RATreeView (iOS 7.0+)
 Introduction
 -----------------
 
-RATreeView is a class designed to provide easy and pleasant way to work with tree views on iOS. It works as a wrapper for the UITableView, defining its own delegate and data source methods which make working with tree data structures really easy.
+RATreeView is a class designed to provide easy and pleasant way to work with tree views on iOS and tvOS. It works as a wrapper for the UITableView, defining its own delegate and data source methods which make working with tree data structures really easy.
 
 RATreeView is highly customizable and has a lot of features. 
 
@@ -31,7 +31,7 @@ Installation
   pod "RATreeView", "~> 2.1.0"
   ```
 
-2. Install  Pod(s) running `pod install` command.
+2. Install Pod(s) running `pod install` command.
 3. Include RATreeView using `#import <RATreeView.h>`.
 
 ###Source files
@@ -46,9 +46,7 @@ Requirements
 
 
 * Xcode 5
-* iOS 7 or newer
-* ARC
-* QuartzCore
+* iOS 7 or newer/tvOS 9 or newer
 
 
 Usage

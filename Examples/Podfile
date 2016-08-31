@@ -1,13 +1,19 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
 workspace 'RATreeViewExamples.xcworkspace'
-platform :ios, '5.0'
 use_frameworks!
 
 target 'RATreeViewBasicExample' do
-  pod 'RATreeView', :path => '../RATreeView.podspec'
+  platform :ios, '7.0'
+  pod 'RATreeView', :path => './../RATreeView.podspec.json'
 end
 
 target 'RATreeViewBasicExampleSwift' do
-  pod 'RATreeView', :path => '../RATreeView.podspec'
+  platform :ios, '7.0'
+  pod 'RATreeView', :path => './../RATreeView.podspec.json'
+end
+
+target 'RATreeViewTVExample' do
+  platform :tvos, '9.0'
+  pod 'RATreeView', :path => './../RATreeView.podspec.json'
 end

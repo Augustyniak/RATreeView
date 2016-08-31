@@ -116,6 +116,8 @@
   return [RATreeView treeViewStyleForTableViewStyle:tableViewStyle];
 }
 
+#if TARGET_OS_IOS
+
 - (RATreeViewCellSeparatorStyle)separatorStyle
 {
   RATreeViewCellSeparatorStyle style = [RATreeView treeViewCellSeparatorStyleForTableViewSeparatorStyle:self.tableView.separatorStyle];
@@ -137,6 +139,8 @@
 {
   self.tableView.separatorColor = separatorColor;
 }
+
+#endif
 
 - (CGFloat)rowHeight
 {
@@ -180,6 +184,8 @@
   }
 }
 
+#if TARGET_OS_IOS
+
 - (UIVisualEffect *)separatorEffect
 {
   if ([self.tableView respondsToSelector:@selector(separatorEffect)]) {
@@ -195,6 +201,8 @@
     self.tableView.separatorEffect = separatorEffect;
   }
 }
+
+#endif
 
 - (BOOL)cellLayoutMarginsFollowReadableWidth
 {
