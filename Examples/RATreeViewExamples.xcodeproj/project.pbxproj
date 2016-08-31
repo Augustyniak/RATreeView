@@ -15,15 +15,21 @@
 		0626D67E1BF89EA700CD3B04 /* RAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0626D6781BF89EA700CD3B04 /* RAViewController.m */; };
 		0626D67F1BF89EA700CD3B04 /* RATableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0626D67A1BF89EA700CD3B04 /* RATableViewCell.m */; };
 		0626D6801BF89EA700CD3B04 /* RATableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0626D67B1BF89EA700CD3B04 /* RATableViewCell.xib */; };
+		06A30D911D6A409F00ED86C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A30D901D6A409F00ED86C3 /* AppDelegate.swift */; };
+		06A30D931D6A409F00ED86C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A30D921D6A409F00ED86C3 /* ViewController.swift */; };
+		06A30D961D6A409F00ED86C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06A30D941D6A409F00ED86C3 /* Main.storyboard */; };
+		06A30D981D6A409F00ED86C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06A30D971D6A409F00ED86C3 /* Assets.xcassets */; };
+		06A30D9F1D6A4B6700ED86C3 /* DataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A30D9E1D6A4B6700ED86C3 /* DataObject.swift */; };
+		06A30DA01D6A4B6B00ED86C3 /* DataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A30D9E1D6A4B6700ED86C3 /* DataObject.swift */; };
 		06B5291A1C00D902000F1D5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B529191C00D902000F1D5B /* AppDelegate.swift */; };
 		06B529211C00D902000F1D5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06B5291F1C00D902000F1D5B /* Main.storyboard */; };
 		06B529231C00D902000F1D5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06B529221C00D902000F1D5B /* Assets.xcassets */; };
 		06B529261C00D902000F1D5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06B529241C00D902000F1D5B /* LaunchScreen.storyboard */; };
 		06B5293A1C00D99D000F1D5B /* TreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B529391C00D99D000F1D5B /* TreeViewController.swift */; };
-		06B5296A1C01C91D000F1D5B /* DataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B529691C01C91D000F1D5B /* DataObject.swift */; };
 		06B5296C1C01D386000F1D5B /* TreeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B5296B1C01D386000F1D5B /* TreeTableViewCell.swift */; };
 		06B5296E1C01D3A6000F1D5B /* TreeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06B5296D1C01D3A6000F1D5B /* TreeTableViewCell.xib */; };
 		5122971B07BED4483AFC0C47 /* Pods_RATreeViewBasicExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8634533E132B746F5C407E94 /* Pods_RATreeViewBasicExample.framework */; };
+		84BFB5B47BC7A174BACF07FD /* Pods_RATreeViewTVExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926D20B5D56B20C929E2DD1D /* Pods_RATreeViewTVExample.framework */; };
 		E4E6AF9422F4F6FE655AE098 /* Pods_RATreeViewBasicExampleSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195B0E3679C86B329F2516A5 /* Pods_RATreeViewBasicExampleSwift.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +48,13 @@
 		0626D6791BF89EA700CD3B04 /* RATableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RATableViewCell.h; sourceTree = "<group>"; };
 		0626D67A1BF89EA700CD3B04 /* RATableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RATableViewCell.m; sourceTree = "<group>"; };
 		0626D67B1BF89EA700CD3B04 /* RATableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RATableViewCell.xib; sourceTree = "<group>"; };
+		06A30D8E1D6A409F00ED86C3 /* RATreeViewTVExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RATreeViewTVExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		06A30D901D6A409F00ED86C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		06A30D921D6A409F00ED86C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		06A30D951D6A409F00ED86C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		06A30D971D6A409F00ED86C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		06A30D991D6A409F00ED86C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06A30D9E1D6A4B6700ED86C3 /* DataObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataObject.swift; sourceTree = "<group>"; };
 		06B529171C00D901000F1D5B /* RATreeViewBasicExampleSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RATreeViewBasicExampleSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06B529191C00D902000F1D5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06B529201C00D902000F1D5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -49,15 +62,17 @@
 		06B529251C00D902000F1D5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06B529271C00D902000F1D5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06B529391C00D99D000F1D5B /* TreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeViewController.swift; sourceTree = "<group>"; };
-		06B529691C01C91D000F1D5B /* DataObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataObject.swift; sourceTree = "<group>"; };
 		06B5296B1C01D386000F1D5B /* TreeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeTableViewCell.swift; sourceTree = "<group>"; };
 		06B5296D1C01D3A6000F1D5B /* TreeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TreeTableViewCell.xib; sourceTree = "<group>"; };
 		0AF44B9C2D6A7A0736C7F5CE /* Pods-RATreeViewBasicExampleSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RATreeViewBasicExampleSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RATreeViewBasicExampleSwift/Pods-RATreeViewBasicExampleSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		195B0E3679C86B329F2516A5 /* Pods_RATreeViewBasicExampleSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RATreeViewBasicExampleSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48569081761F48FF1923F18D /* Pods-RATreeViewBasicExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RATreeViewBasicExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RATreeViewBasicExample/Pods-RATreeViewBasicExample.debug.xcconfig"; sourceTree = "<group>"; };
 		5A4FF940C29CBDD77E66C3E8 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F65BEA2E48DB08474D7586E /* Pods-RATreeViewTVExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RATreeViewTVExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RATreeViewTVExample/Pods-RATreeViewTVExample.debug.xcconfig"; sourceTree = "<group>"; };
 		8634533E132B746F5C407E94 /* Pods_RATreeViewBasicExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RATreeViewBasicExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		926D20B5D56B20C929E2DD1D /* Pods_RATreeViewTVExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RATreeViewTVExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A23A2E418DAE73B2EB4CFC0D /* Pods-RATreeViewBasicExampleSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RATreeViewBasicExampleSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-RATreeViewBasicExampleSwift/Pods-RATreeViewBasicExampleSwift.release.xcconfig"; sourceTree = "<group>"; };
+		BF5AF52A0E8C5D13184A2FED /* Pods-RATreeViewTVExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RATreeViewTVExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-RATreeViewTVExample/Pods-RATreeViewTVExample.release.xcconfig"; sourceTree = "<group>"; };
 		E9C3842C595BB38E57B27420 /* Pods-RATreeViewBasicExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RATreeViewBasicExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-RATreeViewBasicExample/Pods-RATreeViewBasicExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +82,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5122971B07BED4483AFC0C47 /* Pods_RATreeViewBasicExample.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06A30D8B1D6A409F00ED86C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84BFB5B47BC7A174BACF07FD /* Pods_RATreeViewTVExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +119,7 @@
 			children = (
 				0626D6561BF89DCB00CD3B04 /* RATreeViewBasicExample.app */,
 				06B529171C00D901000F1D5B /* RATreeViewBasicExampleSwift.app */,
+				06A30D8E1D6A409F00ED86C3 /* RATreeViewTVExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,8 +127,10 @@
 		0626D6511BF89DB400CD3B04 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
+				06A30D8F1D6A409F00ED86C3 /* RATreeViewTVExample */,
 				0626D6571BF89DCB00CD3B04 /* RATreeViewBasicExample */,
 				06B529181C00D902000F1D5B /* RATreeViewBasicExampleSwift */,
+				06A30D9D1D6A4B1600ED86C3 /* Shared */,
 			);
 			name = Examples;
 			sourceTree = "<group>";
@@ -137,12 +163,31 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		06A30D8F1D6A409F00ED86C3 /* RATreeViewTVExample */ = {
+			isa = PBXGroup;
+			children = (
+				06A30D901D6A409F00ED86C3 /* AppDelegate.swift */,
+				06A30D921D6A409F00ED86C3 /* ViewController.swift */,
+				06A30D941D6A409F00ED86C3 /* Main.storyboard */,
+				06A30D971D6A409F00ED86C3 /* Assets.xcassets */,
+				06A30D991D6A409F00ED86C3 /* Info.plist */,
+			);
+			path = RATreeViewTVExample;
+			sourceTree = "<group>";
+		};
+		06A30D9D1D6A4B1600ED86C3 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				06A30D9E1D6A4B6700ED86C3 /* DataObject.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		06B529181C00D902000F1D5B /* RATreeViewBasicExampleSwift */ = {
 			isa = PBXGroup;
 			children = (
 				06B529191C00D902000F1D5B /* AppDelegate.swift */,
 				06B529391C00D99D000F1D5B /* TreeViewController.swift */,
-				06B529691C01C91D000F1D5B /* DataObject.swift */,
 				06B5296B1C01D386000F1D5B /* TreeTableViewCell.swift */,
 				06B5296D1C01D3A6000F1D5B /* TreeTableViewCell.xib */,
 				06B5291F1C00D902000F1D5B /* Main.storyboard */,
@@ -159,6 +204,7 @@
 				5A4FF940C29CBDD77E66C3E8 /* Pods.framework */,
 				8634533E132B746F5C407E94 /* Pods_RATreeViewBasicExample.framework */,
 				195B0E3679C86B329F2516A5 /* Pods_RATreeViewBasicExampleSwift.framework */,
+				926D20B5D56B20C929E2DD1D /* Pods_RATreeViewTVExample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -170,6 +216,8 @@
 				E9C3842C595BB38E57B27420 /* Pods-RATreeViewBasicExample.release.xcconfig */,
 				0AF44B9C2D6A7A0736C7F5CE /* Pods-RATreeViewBasicExampleSwift.debug.xcconfig */,
 				A23A2E418DAE73B2EB4CFC0D /* Pods-RATreeViewBasicExampleSwift.release.xcconfig */,
+				6F65BEA2E48DB08474D7586E /* Pods-RATreeViewTVExample.debug.xcconfig */,
+				BF5AF52A0E8C5D13184A2FED /* Pods-RATreeViewTVExample.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -195,6 +243,26 @@
 			name = RATreeViewBasicExample;
 			productName = RATreeViewBasicExample;
 			productReference = 0626D6561BF89DCB00CD3B04 /* RATreeViewBasicExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		06A30D8D1D6A409F00ED86C3 /* RATreeViewTVExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06A30D9C1D6A409F00ED86C3 /* Build configuration list for PBXNativeTarget "RATreeViewTVExample" */;
+			buildPhases = (
+				57B11C44ADFD65E9BDD14944 /* [CP] Check Pods Manifest.lock */,
+				06A30D8A1D6A409F00ED86C3 /* Sources */,
+				06A30D8B1D6A409F00ED86C3 /* Frameworks */,
+				06A30D8C1D6A409F00ED86C3 /* Resources */,
+				48DF3A45C9D83D69238AF2BE /* [CP] Embed Pods Frameworks */,
+				54F6A805C2587473DE5DD229 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RATreeViewTVExample;
+			productName = RATreeViewTVExample;
+			productReference = 06A30D8E1D6A409F00ED86C3 /* RATreeViewTVExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 		06B529161C00D901000F1D5B /* RATreeViewBasicExampleSwift */ = {
@@ -223,12 +291,15 @@
 		0626D62C1BF89D5B00CD3B04 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = com.Augustyniak;
 				TargetAttributes = {
 					0626D6551BF89DCB00CD3B04 = {
 						CreatedOnToolsVersion = 7.1;
+					};
+					06A30D8D1D6A409F00ED86C3 = {
+						CreatedOnToolsVersion = 7.3.1;
 					};
 					06B529161C00D901000F1D5B = {
 						CreatedOnToolsVersion = 7.1;
@@ -250,6 +321,7 @@
 			targets = (
 				0626D6551BF89DCB00CD3B04 /* RATreeViewBasicExample */,
 				06B529161C00D901000F1D5B /* RATreeViewBasicExampleSwift */,
+				06A30D8D1D6A409F00ED86C3 /* RATreeViewTVExample */,
 			);
 		};
 /* End PBXProject section */
@@ -262,6 +334,15 @@
 				0626D66B1BF89DCB00CD3B04 /* LaunchScreen.storyboard in Resources */,
 				0626D6681BF89DCB00CD3B04 /* Assets.xcassets in Resources */,
 				0626D6801BF89EA700CD3B04 /* RATableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06A30D8C1D6A409F00ED86C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06A30D981D6A409F00ED86C3 /* Assets.xcassets in Resources */,
+				06A30D961D6A409F00ED86C3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +360,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		48DF3A45C9D83D69238AF2BE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RATreeViewTVExample/Pods-RATreeViewTVExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		52459F23F737CC5E8A8F7800 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -307,6 +403,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RATreeViewBasicExampleSwift/Pods-RATreeViewBasicExampleSwift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		54F6A805C2587473DE5DD229 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RATreeViewTVExample/Pods-RATreeViewTVExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57B11C44ADFD65E9BDD14944 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		5ECCCE5B2B8C00A8C11E704B /* [CP] Embed Pods Frameworks */ = {
@@ -384,13 +510,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		06A30D8A1D6A409F00ED86C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06A30D931D6A409F00ED86C3 /* ViewController.swift in Sources */,
+				06A30DA01D6A4B6B00ED86C3 /* DataObject.swift in Sources */,
+				06A30D911D6A409F00ED86C3 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		06B529131C00D901000F1D5B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06A30D9F1D6A4B6700ED86C3 /* DataObject.swift in Sources */,
 				06B5293A1C00D99D000F1D5B /* TreeViewController.swift in Sources */,
 				06B5296C1C01D386000F1D5B /* TreeTableViewCell.swift in Sources */,
-				06B5296A1C01C91D000F1D5B /* DataObject.swift in Sources */,
 				06B5291A1C00D902000F1D5B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,6 +540,14 @@
 				0626D66A1BF89DCB00CD3B04 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		06A30D941D6A409F00ED86C3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06A30D951D6A409F00ED86C3 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		06B5291F1C00D902000F1D5B /* Main.storyboard */ = {
@@ -529,6 +673,41 @@
 			};
 			name = Release;
 		};
+		06A30D9A1D6A409F00ED86C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F65BEA2E48DB08474D7586E /* Pods-RATreeViewTVExample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = RATreeViewTVExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Augustyniak.RATreeViewTVExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		06A30D9B1D6A409F00ED86C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF5AF52A0E8C5D13184A2FED /* Pods-RATreeViewTVExample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = RATreeViewTVExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Augustyniak.RATreeViewTVExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
 		06B529341C00D902000F1D5B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0AF44B9C2D6A7A0736C7F5CE /* Pods-RATreeViewBasicExampleSwift.debug.xcconfig */;
@@ -573,6 +752,15 @@
 			buildConfigurations = (
 				0626D66E1BF89DCB00CD3B04 /* Debug */,
 				0626D66F1BF89DCB00CD3B04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06A30D9C1D6A409F00ED86C3 /* Build configuration list for PBXNativeTarget "RATreeViewTVExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06A30D9A1D6A409F00ED86C3 /* Debug */,
+				06A30D9B1D6A409F00ED86C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
