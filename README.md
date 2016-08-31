@@ -13,8 +13,11 @@ Introduction
 [![CocoaPods](https://img.shields.io/cocoapods/v/RATreeView.svg?style=flat)](https://github.com/Augustyniak/RATreeView)
 [![Build Status](https://img.shields.io/travis/Augustyniak/RATreeView/master.svg?style=flat)](https://travis-ci.org/Augustyniak/RATreeView)
 
-[![](https://raw.github.com/Augustyniak/RATreeView/master/Screens/animation.gif)](https://raw.github.com/Augustyniak/RATreeView/master/Screens/animation.gif)
-[![](https://raw.github.com/Augustyniak/RATreeView/master/Screens/tvos_animation.gif)](https://raw.github.com/Augustyniak/RATreeView/master/Screens/tvos_animation.gif)
+iOS             |  tvOS
+:-------------------------:|:-------------------------:
+[![](https://raw.github.com/Augustyniak/RATreeView/master/Screens/animation.gif)](https://raw.github.com/Augustyniak/RATreeView/master/Screens/animation.gif)  | [![](https://raw.github.com/Augustyniak/RATreeView/master/Screens/tvos_animation.gif)](https://raw.github.com/Augustyniak/RATreeView/master/Screens/tvos_animation.gif)
+
+
 
 
 
