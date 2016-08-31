@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06255D751D77151D000EC7E2 /* TreeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06255D741D77151D000EC7E2 /* TreeTableViewCell.swift */; };
+		06255D771D771577000EC7E2 /* TreeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06255D761D771577000EC7E2 /* TreeTableViewCell.xib */; };
 		0626D65A1BF89DCB00CD3B04 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0626D6591BF89DCB00CD3B04 /* main.m */; };
 		0626D6681BF89DCB00CD3B04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0626D6671BF89DCB00CD3B04 /* Assets.xcassets */; };
 		0626D66B1BF89DCB00CD3B04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0626D6691BF89DCB00CD3B04 /* LaunchScreen.storyboard */; };
@@ -34,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06255D741D77151D000EC7E2 /* TreeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeTableViewCell.swift; sourceTree = "<group>"; };
+		06255D761D771577000EC7E2 /* TreeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TreeTableViewCell.xib; sourceTree = "<group>"; };
 		0626D6561BF89DCB00CD3B04 /* RATreeViewBasicExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RATreeViewBasicExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0626D6591BF89DCB00CD3B04 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0626D6671BF89DCB00CD3B04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,8 +53,8 @@
 		0626D67A1BF89EA700CD3B04 /* RATableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RATableViewCell.m; sourceTree = "<group>"; };
 		0626D67B1BF89EA700CD3B04 /* RATableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RATableViewCell.xib; sourceTree = "<group>"; };
 		06A30D8E1D6A409F00ED86C3 /* RATreeViewTVExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RATreeViewTVExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		06A30D901D6A409F00ED86C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		06A30D921D6A409F00ED86C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		06A30D901D6A409F00ED86C3 /* AppDelegate.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; tabWidth = 4; };
+		06A30D921D6A409F00ED86C3 /* ViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; tabWidth = 4; };
 		06A30D951D6A409F00ED86C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		06A30D971D6A409F00ED86C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		06A30D991D6A409F00ED86C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -168,6 +172,8 @@
 			children = (
 				06A30D901D6A409F00ED86C3 /* AppDelegate.swift */,
 				06A30D921D6A409F00ED86C3 /* ViewController.swift */,
+				06255D741D77151D000EC7E2 /* TreeTableViewCell.swift */,
+				06255D761D771577000EC7E2 /* TreeTableViewCell.xib */,
 				06A30D941D6A409F00ED86C3 /* Main.storyboard */,
 				06A30D971D6A409F00ED86C3 /* Assets.xcassets */,
 				06A30D991D6A409F00ED86C3 /* Info.plist */,
@@ -341,6 +347,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06255D771D771577000EC7E2 /* TreeTableViewCell.xib in Resources */,
 				06A30D981D6A409F00ED86C3 /* Assets.xcassets in Resources */,
 				06A30D961D6A409F00ED86C3 /* Main.storyboard in Resources */,
 			);
@@ -515,6 +522,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06A30D931D6A409F00ED86C3 /* ViewController.swift in Sources */,
+				06255D751D77151D000EC7E2 /* TreeTableViewCell.swift in Sources */,
 				06A30DA01D6A4B6B00ED86C3 /* DataObject.swift in Sources */,
 				06A30D911D6A409F00ED86C3 /* AppDelegate.swift in Sources */,
 			);
