@@ -1,17 +1,20 @@
 RATreeView (iOS 7.0+, tvOS 9.0+) 
 ==============
+
+👷 Project created and maintained by Rafał Augustyniak. You can find me on twitter ([@RaAugustyniak](https://twitter.com/RaAugustyniak)).
+
+
+Introduction
+-----------------
+
 [![Twitter: @raaugustyniak](https://img.shields.io/badge/contact-@raaugustyniak-blue.svg?style=flat)](https://twitter.com/raaugustyniak)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/Augustyniak/RATreeView/blob/master/LICENCE.md)
 [![CocoaPods](https://img.shields.io/cocoapods/v/RATreeView.svg?style=flat)](https://github.com/Augustyniak/RATreeView)
 [![Build Status](https://img.shields.io/travis/Augustyniak/RATreeView/master.svg?style=flat)](https://travis-ci.org/Augustyniak/RATreeView)
-
 [![](https://raw.github.com/Augustyniak/RATreeView/master/Screens/animation.gif)](https://raw.github.com/Augustyniak/RATreeView/master/Screens/animation.gif)
 
 
-
-Introduction
------------------
 
 RATreeView is a class designed to provide easy and pleasant way to work with tree views on iOS and tvOS. It works as a wrapper for the UITableView, defining its own delegate and data source methods which make working with tree data structures really easy.
 
