@@ -80,7 +80,7 @@
   
   NSInteger index = [self.treeNodeCollectionController lastVisibleDescendantIndexForItem:treeNode.item];
   
-  __weak typeof(self) weakSelf = self;
+  __weak __typeof(self) weakSelf = self;
   [self.batchChanges collapseItemWithBlock:^{
     UITableViewRowAnimation tableViewRowAnimation = [RATreeView tableViewRowAnimationForTreeViewRowAnimation:rowAnimation];
     [weakSelf.treeNodeCollectionController collapseRowForItem:treeNode.item collapseChildren:collapseChildren updates:^(NSIndexSet *deletions) {
@@ -103,7 +103,7 @@
   [self.batchChanges beginUpdates];
   
   NSInteger index = [self.treeNodeCollectionController indexForItem:treeNode.item];
-  __weak typeof(self) weakSelf = self;
+  __weak __typeof(self) weakSelf = self;
   [self.batchChanges expandItemWithBlock:^{
     UITableViewRowAnimation tableViewRowAnimation = [RATreeView tableViewRowAnimationForTreeViewRowAnimation:rowAnimation];
     [weakSelf.treeNodeCollectionController expandRowForItem:treeNode.item expandChildren:expandChildren updates:^(NSIndexSet *insertions) {
@@ -124,7 +124,7 @@
   }
   idx += index + 1;
   
-  __weak typeof(self) weakSelf = self;
+  __weak __typeof(self) weakSelf = self;
   [self.batchChanges insertItemWithBlock:^{
     [weakSelf.treeNodeCollectionController insertItemsAtIndexes:[NSIndexSet indexSetWithIndex:index] inParent:parent];
     
@@ -146,7 +146,7 @@
   }
   
   idx += index + 1;
-  __weak typeof(self) weakSelf = self;
+  __weak __typeof(self) weakSelf = self;
   [self.batchChanges insertItemWithBlock:^{
     [weakSelf.treeNodeCollectionController moveItemAtIndex:index inParent:parent toIndex:newIndex inParent:newParent updates:^(NSIndexSet *deletions, NSIndexSet *additions) {
       NSArray *deletionsArray = IndexesToIndexPaths(deletions);
@@ -169,7 +169,7 @@
     return;
   }
   
-  __weak typeof(self) weakSelf = self;
+  __weak __typeof(self) weakSelf = self;
   [self.batchChanges insertItemWithBlock:^{
     [weakSelf.treeNodeCollectionController removeItemsAtIndexes:[NSIndexSet indexSetWithIndex:index] inParent:parent updates:^(NSIndexSet *removedIndexes) {
       UITableViewRowAnimation tableViewRowAnimation = [RATreeView tableViewRowAnimationForTreeViewRowAnimation:animation];

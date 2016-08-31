@@ -293,7 +293,7 @@
   if (parent && ![self isCellForItemExpanded:parent]) {
     return;
   }
-  __weak typeof(self) weakSelf = self;
+  __weak __typeof(self) weakSelf = self;
   [indexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
     [weakSelf insertItemAtIndex:idx inParent:parent withAnimation:animation];
   }];
@@ -304,7 +304,7 @@
   if (parent && ![self isCellForItemExpanded:parent]) {
     return;
   }
-  __weak typeof(self) weakSelf = self;
+  __weak __typeof(self) weakSelf = self;
   [indexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
     [weakSelf removeItemAtIndex:idx inParent:parent withAnimation:animation];
   }];
