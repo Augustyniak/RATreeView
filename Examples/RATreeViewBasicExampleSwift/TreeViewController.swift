@@ -111,7 +111,7 @@ class TreeViewController: UIViewController, RATreeViewDelegate, RATreeViewDataSo
 
         var index = 0
         if let parent = parent {
-            parent.children.indexOf({ dataObject in
+            index = parent.children.indexOf({ dataObject in
                 return dataObject === item
             })!
             parent.removeChild(item)
