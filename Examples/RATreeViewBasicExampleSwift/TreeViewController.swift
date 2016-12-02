@@ -20,7 +20,7 @@ class TreeViewController: UIViewController, RATreeViewDelegate, RATreeViewDataSo
         self.init(nibName : nil, bundle: nil)
     }
 
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         data = TreeViewController.commonInit()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
@@ -33,7 +33,7 @@ class TreeViewController: UIViewController, RATreeViewDelegate, RATreeViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = .white
 
         title = "Things"
         setupTreeView()
@@ -42,30 +42,30 @@ class TreeViewController: UIViewController, RATreeViewDelegate, RATreeViewDataSo
 
     func setupTreeView() -> Void {
         treeView = RATreeView(frame: view.bounds)
-        treeView.registerNib(UINib.init(nibName: "TreeTableViewCell", bundle: nil), forCellReuseIdentifier: "TreeTableViewCell")
-        treeView.autoresizingMask = UIViewAutoresizing(rawValue:UIViewAutoresizing.FlexibleWidth.rawValue | UIViewAutoresizing.FlexibleHeight.rawValue)
+        treeView.register(UINib(nibName: String(describing: TreeTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: TreeTableViewCell.self))
+        treeView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         treeView.delegate = self;
         treeView.dataSource = self;
         treeView.treeFooterView = UIView()
-        treeView.backgroundColor = UIColor.clearColor()
+        treeView.backgroundColor = .clear
         view.addSubview(treeView)
     }
 
     func updateNavigationBarButtons() -> Void {
-        let systemItem = treeView.editing ? UIBarButtonSystemItem.Done : UIBarButtonSystemItem.Edit;
-        self.editButton = UIBarButtonItem.init(barButtonSystemItem: systemItem, target: self, action: #selector(TreeViewController.editButtonTapped(_:)))
+        let systemItem = treeView.isEditing ? UIBarButtonSystemItem.done : UIBarButtonSystemItem.edit;
+        self.editButton = UIBarButtonItem(barButtonSystemItem: systemItem, target: self, action: #selector(TreeViewController.editButtonTapped(_:)))
         self.navigationItem.rightBarButtonItem = self.editButton;
     }
 
-    func editButtonTapped(sender: AnyObject) -> Void {
-        treeView.setEditing(!treeView.editing, animated: true)
+    func editButtonTapped(_ sender: AnyObject) -> Void {
+        treeView.setEditing(!treeView.isEditing, animated: true)
         updateNavigationBarButtons()
     }
 
 
     //MARK: RATreeView data source
 
-    func treeView(treeView: RATreeView, numberOfChildrenOfItem item: AnyObject?) -> Int {
+    func treeView(_ treeView: RATreeView, numberOfChildrenOfItem item: Any?) -> Int {
         if let item = item as? DataObject {
             return item.children.count
         } else {
@@ -73,7 +73,7 @@ class TreeViewController: UIViewController, RATreeViewDelegate, RATreeViewDataSo
         }
     }
 
-    func treeView(treeView: RATreeView, child index: Int, ofItem item: AnyObject?) -> AnyObject {
+    func treeView(_ treeView: RATreeView, child index: Int, ofItem item: Any?) -> Any {
         if let item = item as? DataObject {
             return item.children[index]
         } else {
@@ -81,51 +81,51 @@ class TreeViewController: UIViewController, RATreeViewDelegate, RATreeViewDataSo
         }
     }
 
-    func treeView(treeView: RATreeView, cellForItem item: AnyObject?) -> UITableViewCell {
-        let cell = treeView.dequeueReusableCellWithIdentifier("TreeTableViewCell") as! TreeTableViewCell
+    func treeView(_ treeView: RATreeView, cellForItem item: Any?) -> UITableViewCell {
+        let cell = treeView.dequeueReusableCell(withIdentifier: String(describing: TreeTableViewCell.self)) as! TreeTableViewCell
         let item = item as! DataObject
 
-        let level = treeView.levelForCellForItem(item)
+        let level = treeView.levelForCell(forItem: item)
         let detailsText = "Number of children \(item.children.count)"
-        cell.selectionStyle = .None
+        cell.selectionStyle = .none
         cell.setup(withTitle: item.name, detailsText: detailsText, level: level, additionalButtonHidden: false)
         cell.additionButtonActionBlock = { [weak treeView] cell in
             guard let treeView = treeView else {
                 return;
             }
-            let item = treeView.itemForCell(cell) as! DataObject
+            let item = treeView.item(for: cell) as! DataObject
             let newItem = DataObject(name: "Added value")
             item.addChild(newItem)
-            treeView.insertItemsAtIndexes(NSIndexSet.init(index: item.children.count-1), inParent: item, withAnimation: RATreeViewRowAnimationNone);
-            treeView.reloadRowsForItems([item], withRowAnimation: RATreeViewRowAnimationNone)
+            treeView.insertItems(at: IndexSet(integer: item.children.count-1), inParent: item, with: RATreeViewRowAnimationNone);
+            treeView.reloadRows(forItems: [item], with: RATreeViewRowAnimationNone)
         }
         return cell
     }
 
     //MARK: RATreeView delegate
 
-    func treeView(treeView: RATreeView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowForItem item: AnyObject) {
-        guard editingStyle == .Delete else { return; }
+    func treeView(_ treeView: RATreeView, commit editingStyle: UITableViewCellEditingStyle, forRowForItem item: Any) {
+        guard editingStyle == .delete else { return; }
         let item = item as! DataObject
-        let parent = treeView.parentForItem(item) as? DataObject
+        let parent = treeView.parent(forItem: item) as? DataObject
 
         var index = 0
         if let parent = parent {
-            parent.children.indexOf({ dataObject in
+            parent.children.index(where: { dataObject in
                 return dataObject === item
             })!
             parent.removeChild(item)
 
         } else {
-            index = self.data.indexOf({ dataObject in
+            index = self.data.index(where: { dataObject in
                 return dataObject === item;
             })!
-            self.data.removeAtIndex(index)
+            self.data.remove(at: index)
         }
 
-        self.treeView.deleteItemsAtIndexes(NSIndexSet.init(index: index), inParent: parent, withAnimation: RATreeViewRowAnimationRight)
+        self.treeView.deleteItems(at: IndexSet(integer: index), inParent: parent, with: RATreeViewRowAnimationRight)
         if let parent = parent {
-            self.treeView.reloadRowsForItems([parent], withRowAnimation: RATreeViewRowAnimationNone)
+            self.treeView.reloadRows(forItems: [parent], with: RATreeViewRowAnimationNone)
         }
     }
 }

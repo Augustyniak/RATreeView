@@ -9,8 +9,7 @@
 import UIKit
 import RATreeView
 
-class ViewController: UIViewController, RATreeViewDataSource {
-    
+class ViewController: UIViewController, RATreeViewDataSource {    
     var data : [DataObject] = DataObject.defaultTreeRootChildren()
     
     override func viewDidLoad() {
@@ -20,10 +19,10 @@ class ViewController: UIViewController, RATreeViewDataSource {
         view.addSubview(treeView)
         treeView.frame = view.bounds
         treeView.dataSource = self
-        treeView.registerNib(UINib.init(nibName: String(TreeTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(TreeTableViewCell.self))
+        treeView.register(UINib(nibName: String(describing: TreeTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: TreeTableViewCell.self))
     }
     
-    func treeView(treeView: RATreeView, numberOfChildrenOfItem item: AnyObject?) -> Int {
+    func treeView(_ treeView: RATreeView, numberOfChildrenOfItem item: Any?) -> Int {
         if let item = item as? DataObject {
             return item.children.count
         } else {
@@ -31,19 +30,19 @@ class ViewController: UIViewController, RATreeViewDataSource {
         }
     }
     
-    func treeView(treeView: RATreeView, cellForItem item: AnyObject?) -> UITableViewCell {
-        guard let cell = treeView.dequeueReusableCellWithIdentifier(String(TreeTableViewCell.self)) as? TreeTableViewCell,
+    func treeView(_ treeView: RATreeView, cellForItem item: Any?) -> UITableViewCell {
+        guard let cell = treeView.dequeueReusableCell(withIdentifier: String(describing: TreeTableViewCell.self)) as? TreeTableViewCell,
             let item = item as? DataObject else {
                 fatalError()
         }
         
-        let level = treeView.levelForCellForItem(item)
+        let level = treeView.levelForCell(forItem: item)
         cell.setup(withTitle: item.name, detailsText: "Number of children: \(item.children.count)", level: level)
         
         return cell
     }
     
-    func treeView(treeView: RATreeView, child index: Int, ofItem item: AnyObject?) -> AnyObject {
+    func treeView(_ treeView: RATreeView, child index: Int, ofItem item: Any?) -> Any {
         if item == nil {
             return data[index]
         } else if let item = item as? DataObject {
@@ -53,11 +52,11 @@ class ViewController: UIViewController, RATreeViewDataSource {
         }
     }
     
-    func treeView(treeView: RATreeView, canEditRowForItem item: AnyObject) -> Bool {
+    func treeView(_ treeView: RATreeView, canEditRowForItem item: Any) -> Bool {
         return false
     }
     
-    func treeView(treeView: RATreeView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowForItem item: AnyObject) {
+    func treeView(_ treeView: RATreeView, commit editingStyle: UITableViewCellEditingStyle, forRowForItem item: Any) {
         
     }
     

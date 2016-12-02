@@ -15,11 +15,11 @@ class TreeTableViewCell : UITableViewCell {
     @IBOutlet private weak var detailsLabel: UILabel!
     
     override func awakeFromNib() {
-        selectedBackgroundView? = UIView.init()
-        selectedBackgroundView?.backgroundColor = UIColor.clearColor()
+        selectedBackgroundView? = UIView()
+        selectedBackgroundView?.backgroundColor = UIColor.clear
     }
     
-    var additionButtonActionBlock : (TreeTableViewCell -> Void)?;
+    var additionButtonActionBlock : ((TreeTableViewCell) -> Void)?;
     
     func setup(withTitle title: String, detailsText: String, level : Int) {
         customTitleLabel.text = title
@@ -28,11 +28,11 @@ class TreeTableViewCell : UITableViewCell {
     
         var color: UIColor
         if level == 0 {
-             color = UIColor.init(red: 247.0/255.0, green: 247.0/255.0, blue: 247.0/255.0, alpha: 0.25)
+             color = UIColor(red: 247.0/255.0, green: 247.0/255.0, blue: 247.0/255.0, alpha: 0.25)
         } else if level == 1 {
-            color = UIColor.init(red: 209.0/255.0, green: 238.0/255.0, blue: 252.0/255.0, alpha: 0.25)
+            color = UIColor(red: 209.0/255.0, green: 238.0/255.0, blue: 252.0/255.0, alpha: 0.25)
         } else {
-            color = UIColor.init(red: 224.0/255.0, green: 248.0/255.0, blue: 216.0/255.0, alpha: 0.25)
+            color = UIColor(red: 224.0/255.0, green: 248.0/255.0, blue: 216.0/255.0, alpha: 0.25)
         }
         
         self.backgroundView?.backgroundColor = color
@@ -41,7 +41,7 @@ class TreeTableViewCell : UITableViewCell {
         self.customTitleLabelLeadingConstraint.constant = left
     }
     
-    func additionButtonTapped(sender : AnyObject) -> Void {
+    func additionButtonTapped(_ sender : AnyObject) -> Void {
         if let action = additionButtonActionBlock {
             action(self)
         }
