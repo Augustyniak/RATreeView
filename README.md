@@ -37,7 +37,7 @@ Installation
 1. Add additional entry to your Podfile.
 
   ```ruby
-  pod "RATreeView", "~> 2.1.1"
+  pod "RATreeView", "~> 2.1.2"
   ```
 
 2. Install Pod(s) running `pod install` command.
@@ -62,7 +62,7 @@ Usage
 -----------------
 
 
-Check out the demo for example usage of library. Make sure you read the [RATreeView documentation on Cocoa Docs](http://cocoadocs.org/docsets/RATreeView/2.1.1).
+Check out the demo for example usage of library. Make sure you read the [RATreeView documentation on Cocoa Docs](http://cocoadocs.org/docsets/RATreeView/2.1.2).
 
 
 ### Basics
@@ -129,7 +129,7 @@ UIRefreshControl *refreshControl = [UIRefreshControl new];
 Documentation
 -----------------
 
-Documentation is available on [CocoaPods](http://cocoadocs.org/docsets/RATreeView/2.1.1).
+Documentation is available on [CocoaPods](http://cocoadocs.org/docsets/RATreeView/2.1.2).
 
 TODO
 -----------------
