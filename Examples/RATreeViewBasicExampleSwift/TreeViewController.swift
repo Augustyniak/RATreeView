@@ -109,9 +109,9 @@ class TreeViewController: UIViewController, RATreeViewDelegate, RATreeViewDataSo
         let item = item as! DataObject
         let parent = treeView.parent(forItem: item) as? DataObject
 
-        var index = 0
+        let index: Int
         if let parent = parent {
-            parent.children.index(where: { dataObject in
+            index = parent.children.index(where: { dataObject in
                 return dataObject === item
             })!
             parent.removeChild(item)
