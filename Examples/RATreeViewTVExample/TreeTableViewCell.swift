@@ -16,7 +16,7 @@ class TreeTableViewCell : UITableViewCell {
     
     override func awakeFromNib() {
         selectedBackgroundView? = UIView()
-        selectedBackgroundView?.backgroundColor = UIColor.clear
+        selectedBackgroundView?.backgroundColor = .clear
     }
     
     var additionButtonActionBlock : ((TreeTableViewCell) -> Void)?;
