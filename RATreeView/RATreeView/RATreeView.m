@@ -230,6 +230,17 @@
   self.tableView.backgroundView = backgroundView;
 }
 
+- (UIColor *)backgroundColor
+{
+    return self.tableView.backgroundColor;
+}
+
+-(void)setBackgroundColor:(UIColor *)backgroundColor
+{
+    self.tableView.backgroundColor = backgroundColor;
+}
+
+
 
 #pragma mark Expanding and Collapsing Rows
 
