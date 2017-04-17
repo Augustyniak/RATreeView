@@ -43,7 +43,7 @@ Installation
 2. Install Pod(s) running `pod install` command.
 3. Include RATreeView using `#import <RATreeView.h>`.
 
-###Source files
+### Source files
 
 1. Downloaded the latest version of the library using [link](https://github.com/Augustyniak/RATreeView/archive/master.zip).
 2. Copy content of the downloaded (and unzipped) zip file into your project by dragging it into Project's navigator files structure. 
@@ -114,7 +114,7 @@ Check out the demo for example usage of library. Make sure you read the [RATreeV
    }
    ```
 
-###Adding Pull to Refresh control
+### Adding Pull to Refresh control
 
 Adding pull to refresh gesture is really easy using `RATreeView` and standard `UIRefreshControl` control.
 
