@@ -114,7 +114,7 @@ Check out the demo for example usage of library. Make sure you read the [RATreeV
    }
    ```
 
-###Adding Pull to Refresh control
+### Adding Pull to Refresh control
 
 Adding pull to refresh gesture is really easy using `RATreeView` and standard `UIRefreshControl` control.
 
