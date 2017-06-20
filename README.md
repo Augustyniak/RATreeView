@@ -43,7 +43,7 @@ Installation
 2. Install Pod(s) running `pod install` command.
 3. Include RATreeView using `#import <RATreeView.h>`.
 
-###Source files
+### Source files
 
 1. Downloaded the latest version of the library using [link](https://github.com/Augustyniak/RATreeView/archive/master.zip).
 2. Copy content of the downloaded (and unzipped) zip file into your project by dragging it into Project's navigator files structure. 
