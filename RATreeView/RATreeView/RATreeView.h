@@ -546,7 +546,7 @@ typedef enum RATreeViewRowAnimation {
 /// @name Accessing Cells
 ///------------------------------------------------
 
-- (nullable UITableViewCell *)cellForItem:(id)item;
+- (nullable __kindof UITableViewCell *)cellForItem:(id)item;
 - (nullable NSArray *)visibleCells;
 - (nullable id)itemForCell:(UITableViewCell *)cell;
 - (nullable id)itemForRowAtPoint:(CGPoint)point;

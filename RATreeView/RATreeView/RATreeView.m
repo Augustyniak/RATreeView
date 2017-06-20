@@ -404,7 +404,7 @@
 
 #pragma mark - Accessing Cells
 
-- (UITableViewCell *)cellForItem:(id)item
+- (__kindof UITableViewCell *)cellForItem:(id)item
 {
   NSIndexPath *indexPath = [self indexPathForItem:item];
   return [self.tableView cellForRowAtIndexPath:indexPath];
