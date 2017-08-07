@@ -85,7 +85,7 @@
 
 - (RATreeNodeController *)controllerForItem:(id)item
 {
-  if (item == self.treeNode.item) {
+  if ([item isEqual:self.treeNode.item]) {
     return self;
   }
   
@@ -127,7 +127,7 @@
 
 - (NSInteger)lastVisibleDescendatIndexForItem:(id)item
 {
-  if (self.treeNode.item == item) {
+  if ([self.treeNode.item isEqual:item]) {
     return [self lastVisibleDescendatIndex];
   }
   
