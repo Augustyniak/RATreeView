@@ -65,7 +65,6 @@ typedef enum RATreeViewRowAnimation {
  *
  *  @param treeView     The tree-view that sent the message.
  *  @param item         An item identifying a cell in tree view.
- *  @param treeNodeInfo Object including additional information about item.
  *
  *  @return The number of child items encompassed by item. If item is nil, this method should return the number of children for the top-level item.
  */
@@ -105,7 +104,6 @@ typedef enum RATreeViewRowAnimation {
  *  @param treeView     The tree-view object requesting the insertion or deletion.
  *  @param editingStyle The cell editing style corresponding to a insertion or deletion requested for the row specified by item. Possible editing styles are `UITableViewCellEditingStyleInsert` or `UITableViewCellEditingStyleDelete`.
  *  @param item         An item identifying a cell in tree view.
- *  @param treeNodeInfo Object including additional information about item.
  */
 - (void)treeView:(RATreeView *)treeView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowForItem:(id)item;
 
@@ -413,7 +411,6 @@ typedef enum RATreeViewRowAnimation {
  *  Asks the delegate if the row for a specified item should be highlighted.
  *
  *  @param treeView     The tree-view object that is making this request.
- *  @param treeNodeInfo Object including additional information about item.
  *
  *  @return YES if the row should be highlighted or NO if it should not.
  */
