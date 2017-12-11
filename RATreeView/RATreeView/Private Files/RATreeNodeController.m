@@ -180,6 +180,10 @@
     for (RATreeNodeController *controller in self.childControllers) {
       [controller collapseAndCollapseChildren:collapseChildren];
     }
+  } else {
+      for (RATreeNodeController *controller in self.childControllers) {
+          [controller invalidate];
+      }
   }
   
   [self.parentController invalidateTreeNodesAfterChildAtIndex:[self.parentController.childControllers indexOfObject:self]];
