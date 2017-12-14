@@ -118,21 +118,29 @@
 
 - (void)insertItemAtIndex:(NSInteger)index inParent:(id)parent withAnimation:(RATreeViewRowAnimation)animation
 {
-  NSInteger idx = [self.treeNodeCollectionController indexForItem:parent];
-  if (idx == NSNotFound) {
-    return;
-  }
-  idx += index + 1;
-  
-  __weak __typeof(self) weakSelf = self;
-  [self.batchChanges insertItemWithBlock:^{
-    [weakSelf.treeNodeCollectionController insertItemsAtIndexes:[NSIndexSet indexSetWithIndex:index] inParent:parent];
+    NSInteger parentIdx = [self.treeNodeCollectionController indexForItem:parent];
+    if (parentIdx == NSNotFound) {
+        return;
+    }
+    __block NSInteger idx = parentIdx + index + 1;
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:idx inSection:0];
-    UITableViewRowAnimation tableViewRowAnimation = [RATreeView tableViewRowAnimationForTreeViewRowAnimation:animation];
-    [weakSelf.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:tableViewRowAnimation];
-    
-  } atIndex:idx];
+    __weak typeof(self) weakSelf = self;
+    [self.batchChanges insertItemWithBlock:^{
+        [weakSelf.treeNodeCollectionController insertItemsAtIndexes:[NSIndexSet indexSetWithIndex:index] inParent:parent];
+        
+        // CHECKING DOES PARENT HAS CHILD ABOVE INSERTED
+        if (index > 0) {
+            
+            // IF YES - INDEX OF INSERTED ITEM WILL BE THE NEXT OF LAST VISIBLE DESCENDANT'S ITEM INDEX
+            id previousChild = [self.treeNodeCollectionController childInParent:parent atIndex:index - 1];
+            NSInteger lastVisibleDescendantIdx = [self.treeNodeCollectionController lastVisibleDescendantIndexForItem:previousChild];
+            idx = lastVisibleDescendantIdx + 1;
+        }
+        
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:idx inSection:0];
+        UITableViewRowAnimation tableViewRowAnimation = [RATreeView tableViewRowAnimationForTreeViewRowAnimation:animation];
+        [weakSelf.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:tableViewRowAnimation];
+    } atIndex:idx];
 }
 
 #pragma clang diagnostic push

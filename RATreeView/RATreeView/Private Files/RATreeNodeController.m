@@ -176,15 +176,23 @@
   [self.treeNode setExpanded:NO];
   [self invalidate];
   
-  if (collapseChildren) {
-    for (RATreeNodeController *controller in self.childControllers) {
-      [controller collapseAndCollapseChildren:collapseChildren];
-    }
-  }
-  
+  [self invalidateAndColapseChildren:collapseChildren];
+
   [self.parentController invalidateTreeNodesAfterChildAtIndex:[self.parentController.childControllers indexOfObject:self]];
 }
 
+- (void)invalidateAndColapseChildren:(BOOL)collapseChildren
+{
+    if (collapseChildren)
+    {
+        [self.treeNode setExpanded:NO];
+    }
+    [self invalidate];
+
+    for (RATreeNodeController *controller in self.childControllers) {
+        [controller invalidateAndColapseChildren:collapseChildren];
+    }
+}
 
 #pragma mark -
 
