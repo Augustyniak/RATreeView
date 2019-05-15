@@ -258,7 +258,7 @@ typedef enum RATreeViewRowAnimation {
  *
  *  @return An id object that confirms or alters the selected row. Return an id object other than item if you want another cell to be selected. Return nil if you don't want the row selected.
  */
-- (id)treeView:(RATreeView *)treeView willSelectRowForItem:(id)item;
+- (nullable id)treeView:(RATreeView *)treeView willSelectRowForItem:(id)item;
 
 /**
  *  Tells the delegate that the row for a specified item is now selected.
@@ -276,7 +276,7 @@ typedef enum RATreeViewRowAnimation {
  *
  *  @return An id object that confirms or alters the deselected row. Return an id object other than item if you want another cell to be deselected. Return nil if you don’t want the row deselected.
  */
-- (id)treeView:(RATreeView *)treeView willDeselectRowForItem:(id)item;
+- (nullable id)treeView:(RATreeView *)treeView willDeselectRowForItem:(id)item;
 
 /**
  *  Tells the delegate that the row for a specified item is now deselected.
