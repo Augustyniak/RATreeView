@@ -102,6 +102,11 @@
       return RATreeViewStylePlain;
     case UITableViewStyleGrouped:
       return RATreeViewStyleGrouped;
+//Oggerschummer: Add missing enum value to avoid compilation error
+#ifdef __IPHONE_13_0      
+  case UITableViewStyleInsetGrouped:
+      return RATreeViewStyleGrouped;
+#endif
   }
 }
 #pragma mark Scroll Positions
